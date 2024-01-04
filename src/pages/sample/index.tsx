@@ -1,75 +1,61 @@
-// components/UploadForm.tsx
-import { useState } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
+import React from "react";
+import { useForm } from "react-hook-form";
 
-type FormData = {
+interface FormData {
+  nama: string;
+  email: string;
+  password: string;
   file: FileList;
-};
+}
 
-const UploadForm: React.FC = () => {
-  const { register, handleSubmit } = useForm<FormData>();
-  const [uploadedFileName, setUploadedFileName] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+const FormComponent: React.FC = () => {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FormData>();
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // Memperbarui state saat pengguna memilih file
-    const fileName = e.target.files?.[0]?.name || null;
-    setUploadedFileName(fileName);
-  };
-
-  const onSubmit: SubmitHandler<FormData> = async (data) => {
-    setIsLoading(true);
-
-    try {
-      // Simulasi proses pengungahan (Anda dapat mengganti ini dengan logika pengungahan sesungguhnya)
-      await uploadFile(data.file[0]);
-
-      // Lakukan sesuatu dengan data formulir jika perlu
-    } catch (error) {
-      console.error("Error during file upload:", error);
-    } finally {
-      setIsLoading(false);
-    }
-
-    console.log(data.file);
-  };
-
-  const uploadFile = async (file: File) => {
-    // Simulasi proses pengungahan (Anda dapat mengganti ini dengan logika pengungahan sesungguhnya)
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+  const onSubmit = (data: FormData) => {
+    console.log(data);
+    
+    // Lakukan sesuatu dengan data yang dikirim
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div>
-        <div className="p-2 ps-0 flex items-center gap-3 cursor-pointer">
-          <label
-            htmlFor="file-upload"
-            className={`bg-[#FFC436] text-black font-medium rounded-md py-1 px-3 text-sm shadow-md cursor-pointer ${
-              isLoading ? "opacity-50 pointer-events-none" : ""
-            }`}
-          >
-            {isLoading ? "Uploading..." : "Unggah"}
-            <input
-              id="file-upload"
-              type="file"
-              className="hidden"
-              accept=".png, .jpg, .jpeg"
-              {...register("file")}
-              onChange={onChange}
-              disabled={isLoading}
-            />
-          </label>
-          {uploadedFileName && !isLoading && (
-            <p className="text-sm text-gray-300">{uploadedFileName}</p>
-          )}
-        </div>
+        <label>Nama:</label>
+        <input {...register("nama", { required: "Nama wajib diisi" })} />
+        {errors.nama && <span>{errors.nama.message}</span>}
       </div>
-      <button type="submit" disabled={isLoading}>
-        Submit
-      </button>
+
+      <div>
+        <label>Email:</label>
+        <input {...register("email", { required: "Email wajib diisi" })} />
+        {errors.email && <span>{errors.email.message}</span>}
+      </div>
+
+      <div>
+        <label>Password:</label>
+        <input
+          type="password"
+          {...register("password", { required: "Password wajib diisi" })}
+        />
+        {errors.password && <span>{errors.password.message}</span>}
+      </div>
+
+      <div>
+        <label>Upload File:</label>
+        <input type="file" {...register("file")} />
+        {errors.file && <span>{errors.file.message}</span>}
+      </div>
+
+      <div>
+        <button type="submit">Kirim</button>
+      </div>
     </form>
   );
 };
 
-export default UploadForm;
+export default FormComponent;

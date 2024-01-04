@@ -1,13 +1,26 @@
-import CmsLayout from "@/components/cms/dashboard-admin/CmsLayout";
 import * as React from "react";
+import { useForm } from "react-hook-form";
+import { Spinner } from "flowbite-react";
+import Link from "next/link";
+
+import CmsLayout from "@/components/cms/dashboard-admin/CmsLayout";
 import Breadcrumbs from "@/components/cms/dashboard-admin/Breadcrumbs";
 import InputText from "@/components/cms/login/InputText";
-import DeleteModal from "@/components/cms/DeleteModal";
-import Link from "next/link";
-import { useForm } from "react-hook-form";
 import ToastSucces from "@/components/cms/ToastSucces";
 import ToastFailed from "@/components/cms/ToastFailed";
-import { Spinner } from "flowbite-react";
+
+interface FormData {
+  mapel: string;
+  kategori: string;
+  description: string;
+  file: FileList;
+}
+
+interface Option {
+  id: number;
+  value: string;
+  label: string;
+}
 
 const AddMaterials = () => {
   const crumbs = [
@@ -25,24 +38,20 @@ const AddMaterials = () => {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // Memperbarui state saat pengguna memilih file
     const fileName = e.target.files?.[0]?.name || null;
     setUploadedFileName(fileName);
   };
 
   const {
     register,
+    watch,
     reset,
     handleSubmit,
     setValue,
-    watch,
-    formState,
-    formState: { isSubmitSuccessful },
-  } = useForm({
-    defaultValues: { mapel: "", kategori: "", description: "", file: {} },
-  });
+    formState: { isSubmitting },
+  } = useForm<FormData>();
 
-  const opsi = [
+  const opsi: Option[] = [
     { id: 0, value: "", label: "Pilih Kategori" },
     { id: 1, value: "tk", label: "TK" },
     { id: 2, value: "sd", label: "SD" },
@@ -53,21 +62,18 @@ const AddMaterials = () => {
     { id: 7, value: "dll", label: "Dan Lain-Lain" },
   ];
 
-  const { isSubmitting } = formState;
-
-  const onSubmit = async (data: object) => {
+  const onSubmit = async (data: FormData) => {
     await new Promise((resolve) => setTimeout(resolve, 2000));
-
     setShowToast(true);
-
     console.log(data);
+    console.log(uploadedFileName);
   };
 
-  React.useEffect(() => {
-    if (formState.isSubmitSuccessful) {
-      reset({ mapel: "", kategori: "", description: "", file: {} });
-    }
-  }, [formState, reset]);
+  // React.useEffect(() => {
+  //   if (isSubmitting) {
+  //     reset({ mapel: "", kategori: "", description: "" });
+  //   }
+  // }, [isSubmitting, reset]);
 
   return (
     <CmsLayout>
@@ -137,7 +143,7 @@ const AddMaterials = () => {
                     id="file-upload"
                     type="file"
                     className="hidden"
-                    accept=".png, .jpg, .jpeg"
+                    // accept=".png, .jpg, .jpeg"
                     {...register("file")}
                     onChange={onChange}
                   />
