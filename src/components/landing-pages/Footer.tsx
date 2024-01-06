@@ -55,19 +55,15 @@ export default function Footer() {
               href=""
               className="text-base  visited:font-extrabold visited:text-[#0065FF]"
             >
-              {" "}
               Beranda
             </Link>
             <Link href="" className="text-base ">
-              {" "}
               Guru
             </Link>
             <Link href="" className="text-base ">
-              {" "}
               Murid
             </Link>
             <Link href="" className="text-base ">
-              {" "}
               Mitra
             </Link>
           </div>
