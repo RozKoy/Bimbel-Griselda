@@ -3,7 +3,7 @@ const Testimonials = () => {
   return (
     <div className="bg-[#FFB700] w-full h-screen sm:py-14 sm:px-14">
       <div className=" w-auto h-full flex flex-col items-center sm:space-y-28 ">
-        <div className="flex flex-col space-y-2">
+        <div className="flex flex-col space-y-3">
           <p className="text-[#FFF] text-center font-extrabold sm:text-5xl">
             Testimonials
           </p>
