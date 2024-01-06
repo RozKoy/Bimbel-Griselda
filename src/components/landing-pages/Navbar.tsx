@@ -9,10 +9,19 @@ export default function Navbar() {
       <div className="sm:flex sm:justify-between sm:items-center ">
         <Image src={logo} width={50} height={20} alt="logo" />
         <div className="sm:flex sm:space-x-14">
-          <Link href="" className="text-xl visited:text-blue-700">
+          <Link
+            href="/"
+            className="text-xl visited:text-blue-700 visited:font-extrabold"
+          >
             Beranda
           </Link>
-          <Link href="" className="text-xl">
+          <Link
+            href="/teacher"
+            className="text-xl visited:text-blue-700 visited:font-extrabold"
+          >
+            Guru
+          </Link>
+          <Link href="/student" className="text-xl">
             Murid
           </Link>
           <Link href="" className="text-xl">
