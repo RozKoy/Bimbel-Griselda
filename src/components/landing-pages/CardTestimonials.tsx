@@ -15,15 +15,14 @@ const CardTestimonials: React.FC<CardTestimonialsProps> = ({
 }) => {
   return (
     <div className=" h-[300px] relative flex items-end">
-      <div className="absolute top-1 left-[40%]">
-        <Image
-          src={user}
-          width={70}
-          height={40}
-          alt="user"
-          className="rounded-full "
-        />
-      </div>
+      <Image
+        src={user}
+        width={70}
+        height={40}
+        alt="user"
+        className="rounded-full absolute top-1 left-[40%] "
+      />
+
       <div className="w-full h-5/6  bg-[#FFF] rounded-br-[20.803px] rounded-tl-[20.803px] flex flex-col items-center sm:py-10 sm:px-2 sm:space-y-4  ">
         <div>
           <p className="text-center font-medium sm:text-[26px]">{nama}</p>
