@@ -16,7 +16,7 @@ export default function Offering() {
 
           <Link
             href=""
-            className="bg-[#FFF] text-[#0B7077] flex justify-center items-center rounded-lg text-xl font-semibold sm:w-[299px] sm:h-[57px]"
+            className="bg-[#FFF] text-[#0B7077] flex justify-center items-center rounded-lg text-xl hover:text-[#FFF] hover:shadow-[inset_20rem_0_0_0] hover:shadow-[#0B7077] duration-[400ms,700ms] transition-[color,box-shadow] font-semibold sm:w-[299px] sm:h-[57px]"
           >
             Join Whatsapp group
           </Link>

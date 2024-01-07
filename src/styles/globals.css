@@ -7,7 +7,60 @@
     object-fit: cover;
     min-height: 100vh;
   }
+
+  .jenjang {
+    background-image: url("../../public/assets/latarJenjang.png");
+    object-fit: cover;
+    min-height: 100vh;
+  }
+  .gradasi1{
+    background: linear-gradient(180deg, #F6F6F6 0%, rgba(246, 246, 246, 0.80) 100%);
+  }
   
   .gradasi {
       background: linear-gradient(91deg, rgba(250, 251, 253, 0.95) 36.29%, rgba(250, 251, 253, 0.51) 82.96%, rgba(250, 251, 253, 0.00) 104.67%);
   }
+
+  @layer utilities {
+    .custom-button {
+      @apply relative text-center font-medium h-full rounded-full text-black bg-blue-700 hover:bg-blue-900 active:bg-blue-500 transition-transform transform duration-300 ease-in-out;
+      padding: 0.5rem 2rem;
+    }
+  
+    .custom-button:hover {
+      transform: translateX(-20px);
+    }
+  
+    .custom-button:active {
+      transform: translateY(2px);
+    }
+  }
+
+ 
+
+  .sample {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Menggeser konten ke ujung kanan layar */
+    background-color: #3498db; /* Warna latar belakang */
+}
+
+.triangle-container {
+    position: relative;
+    width: 0;
+    height: 0;
+  }
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 50vw solid transparent; /* Setengah dari lebar layar */
+  border-bottom: 100vh solid #2980b9; /* Tinggi segitiga setengah dari tinggi layar, warna segitiga */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+

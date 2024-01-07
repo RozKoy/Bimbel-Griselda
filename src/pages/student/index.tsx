@@ -1,9 +1,15 @@
-import Navbar from "@/components/landing-pages/Navbar";
+import StudentDescription from "@/components/landing-pages/Murid/StudentDescription";
+import MerdekaProgram from "@/components/landing-pages/Murid/MerdekaProgram";
+import ClassLevel from "@/components/landing-pages/Murid/ClassLevel";
+import LearningMaterials from "@/components/landing-pages/Murid/LearningMaterials";
+
 export default function Student() {
   return (
-    <div>
-      <Navbar />
-      <p>Student</p>
-    </div>
+    <>
+      <StudentDescription />
+      <MerdekaProgram />
+      <ClassLevel />
+      <LearningMaterials />
+    </>
   );
 }

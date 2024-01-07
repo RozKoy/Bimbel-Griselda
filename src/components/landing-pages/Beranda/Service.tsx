@@ -1,7 +1,7 @@
 import CardServices from "../CardServices";
 const Services = () => {
   return (
-    <div className="bg-[#F6F6F6] w-full h-screen flex flex-col justify-center items-center ">
+    <div className="bg-[#F6F6F6] w-full min-h-screen flex flex-col justify-center items-center ">
       <div className="text-center  flex flex-col sm:space-y-6">
         <p className="text-[#020202] font-bold sm:text-5xl">
           Yang Kami Tawarkan

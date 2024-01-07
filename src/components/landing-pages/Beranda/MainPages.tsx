@@ -27,7 +27,7 @@ const MainPages = () => {
                 href=""
                 className=" bg-[#0065FF] text-white  hover:text-black hover:shadow-[inset_17rem_0_0_0] hover:shadow-white duration-[400ms,700ms] transition-[color,box-shadow] flex items-center justify-center rounded-full font-bold  sm:w-5/12 sm:h-14 "
               >
-                {" "}
+                
                 Jelajahi Sekarang
               </Link>
             </div>
