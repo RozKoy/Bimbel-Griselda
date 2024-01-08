@@ -1,12 +1,14 @@
 interface WaProps {
   fill?: string;
+  width?: string;
+  height?: string;
 }
-const WA: React.FC<WaProps> = ({ fill }) => {
+const WA: React.FC<WaProps> = ({ fill, width, height }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="26"
-      height="28"
+      width={width}
+      height={height}
       viewBox="0 0 26 28"
       fill="none"
     >

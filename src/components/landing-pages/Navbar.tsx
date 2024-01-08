@@ -24,7 +24,7 @@ export default function Navbar() {
           <Link href="/student" className="text-xl">
             Murid
           </Link>
-          <Link href="" className="text-xl">
+          <Link href="/patner" className="text-xl">
             Mitra
           </Link>
         </div>

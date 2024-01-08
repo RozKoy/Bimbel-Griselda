@@ -15,7 +15,7 @@ const WALink: React.FC<WALinkProps> = ({ title }) => {
         <p className="text-[#000] font-extrabold sm:text-5xl">{title}</p>
       </div>
       <div className="bg-[#0B7077] rounded-r-xl w-[25%] flex justify-center items-center ">
-        <WA fill="#FFFFFF" />
+        <WA fill="#FFFFFF" width="33" height="31" />
       </div>
     </Link>
   );

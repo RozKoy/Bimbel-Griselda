@@ -38,7 +38,7 @@ export default function Footer() {
             Sukaramme, Kota Bandar Lampung 30114.
           </p>
           <div className=" flex space-x-3">
-            <WA fill="#0065FF" />
+            <WA fill="#0065FF" width="28" height="26" />
             <Instagrams fill="#0065FF" />
             <Facebook fill="#0065FF" />
             <Tiktok fill="#0065FF" />
@@ -52,18 +52,18 @@ export default function Footer() {
           </div>
           <div className="flex flex-col space-y-3">
             <Link
-              href=""
+              href="/"
               className="text-base  visited:font-extrabold visited:text-[#0065FF]"
             >
               Beranda
             </Link>
-            <Link href="" className="text-base ">
+            <Link href="/teacher" className="text-base ">
               Guru
             </Link>
-            <Link href="" className="text-base ">
+            <Link href="/student" className="text-base ">
               Murid
             </Link>
-            <Link href="" className="text-base ">
+            <Link href="/patner" className="text-base ">
               Mitra
             </Link>
           </div>

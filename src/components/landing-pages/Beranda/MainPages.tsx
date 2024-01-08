@@ -51,7 +51,7 @@ const MainPages = () => {
               <p className="sm:text-[15px]">Events</p>
             </div>
             <div className="w-1/3 h-full bg-[#0065FF]  sm:flex sm:justify-center sm:items-center sm:space-x-3">
-              <WA fill="#FAFBFD" />
+              <WA fill="#FAFBFD" width="28" height="26" />
               <Instagrams fill="#FAFBFD" />
               <Facebook fill="#FAFBFD" />
               <Tiktok fill="#FAFBFD" />
