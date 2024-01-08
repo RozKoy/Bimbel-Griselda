@@ -1,8 +1,8 @@
 import CardProgram from "./CardProgram";
 export default function MerdekaProgram() {
   return (
-    <div className="bg-red-200 w-full min-h-screen flex justify-center items-center">
-      <div className="flex bg-blue-200 sm:space-x-20 ">
+    <div className="bg-[url('../../public/assets/Subtract.png')] w-full min-h-screen flex justify-center items-center">
+      <div className="flex  sm:space-x-20 ">
         <div className="flex flex-col space-y-8">
           <p className="text-[#000] font-extrabold sm:text-5xl sm:w-[235px]">
             Program Merdeka
@@ -14,7 +14,7 @@ export default function MerdekaProgram() {
             five centuries.
           </p>
         </div>
-        <div className="flex space-x-4 ">
+        <div className="flex bg-blue-200 space-x-4 ">
           <CardProgram
             title="M"
             headline="Mentorship Profesional"
