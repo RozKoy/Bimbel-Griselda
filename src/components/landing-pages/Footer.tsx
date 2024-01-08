@@ -5,8 +5,10 @@ import WA from "./Icons/contact/Wa";
 import Instagrams from "./Icons/contact/Instagrams";
 import Facebook from "./Icons/contact/Facebook";
 import Tiktok from "./Icons/contact/Tiktok";
+import { useRouter } from "next/router";
 
 export default function Footer() {
+  const router = useRouter();
   return (
     <div className="bg-[#F6F6F6] w-full h-auto sm:pt-14 sm:pb-4 sm:px-10">
       <div className="sm:flex sm:justify-between">
@@ -53,17 +55,42 @@ export default function Footer() {
           <div className="flex flex-col space-y-3">
             <Link
               href="/"
-              className="text-base  visited:font-extrabold visited:text-[#0065FF]"
+              className={
+                router.pathname === "/"
+                  ? "text-base  font-bold text-[#0065FF]"
+                  : "text-base"
+              }
             >
               Beranda
             </Link>
-            <Link href="/teacher" className="text-base ">
+            <Link
+              href="/teacher"
+              className={
+                router.pathname === "/teacher"
+                  ? "text-base  font-bold text-[#0065FF]"
+                  : "text-base"
+              }
+            >
               Guru
             </Link>
-            <Link href="/student" className="text-base ">
+            <Link
+              href="/student"
+              className={
+                router.pathname === "/student"
+                  ? "text-base  font-bold text-[#0065FF]"
+                  : "text-base"
+              }
+            >
               Murid
             </Link>
-            <Link href="/patner" className="text-base ">
+            <Link
+              href="/patner"
+              className={
+                router.pathname === "/patner"
+                  ? "text-base  font-bold text-[#0065FF]"
+                  : "text-base"
+              }
+            >
               Mitra
             </Link>
           </div>
