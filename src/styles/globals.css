@@ -48,32 +48,6 @@
 
   
   
-
- 
-
-  .sample {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end; /* Menggeser konten ke ujung kanan layar */
-    background-color: #3498db; /* Warna latar belakang */
+.custom-text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-
-.triangle-container {
-    position: relative;
-    width: 0;
-    height: 0;
-  }
-
-.triangle {
-  width: 0;
-  height: 0;
-  border-left: 50vw solid transparent; /* Setengah dari lebar layar */
-  border-bottom: 100vh solid #2980b9; /* Tinggi segitiga setengah dari tinggi layar, warna segitiga */
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
