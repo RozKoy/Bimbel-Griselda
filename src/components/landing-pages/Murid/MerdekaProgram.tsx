@@ -18,7 +18,7 @@ export default function MerdekaProgram() {
           <CardProgram
             title="M"
             headline="Mentorship Profesional"
-            description="Dengan didukung oleh tim pengajar berkualifikasi tinggi, kami menawarkan mentorship profesional untuk membimbing siswa menuju keunggulan akademis."
+            description="Dengan didukung oleh tim pengajar berkualifikasi tinggi, kami menawarkan mentorship m ruprofesional untuk membimbing siswa menuju keunggulan akademis."
           />
           <CardProgram
             title="E"

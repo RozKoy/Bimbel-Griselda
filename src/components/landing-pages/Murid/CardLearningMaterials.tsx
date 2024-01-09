@@ -19,7 +19,7 @@ const CardLearningMaterials: React.FC<CardLearningMaterialsProps> = ({
 }) => {
   const [openModal, setOpenModal] = React.useState<boolean>(false);
   return (
-    <div className="bg-[#FFC436] rounded-lg flex flex-col items-center px-3 space-y-1 sm:w-[300px] sm:h-[350px]  sm:pt-3 sm:pb-2">
+    <div className="bg-[#FFC436] rounded-lg flex flex-col items-center px-3 space-y-1 sm:w-[300px] sm:h-[350px]  sm:pt-3 sm:pb-2 sm:m-4">
       <div className="flex justify-center items-center sm:space-x-5">
         <BooksIcon />
         <p className="text-[#FFF] font-medium sm:text-2xl">{title}</p>
