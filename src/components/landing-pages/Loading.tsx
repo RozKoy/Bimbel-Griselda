@@ -6,7 +6,7 @@ import ShadowMaskot from "./ShadowMaskot";
 
 export default function Sample2() {
   return (
-    <div className="bg-gradient-to-br from-white via-white to-gray-300 flex justify-center items-center w-full h-screen ">
+    <div className=" flex justify-center items-center w-full h-screen ">
       <div className=" py-10 flex flex-col space-y-4">
         <div className="flex justify-center items-center ">
           <motion.div
@@ -22,13 +22,13 @@ export default function Sample2() {
           </motion.div>
 
           <motion.div
-            initial={{ x: -300, y: 50, width: 0, opacity: 0, fontSize: "0px" }}
-            animate={{ x: -100, y: 0, opacity: 1, fontSize: "88px" }}
+            initial={{ x: -300, y: 50, width: 0, opacity: 0 }}
+            animate={{ x: -100, y: 0, opacity: 1 }}
             exit={{ x: 0, y: 0 }}
             transition={{ duration: 3, ease: "backInOut" }}
           >
             <div>
-              <p className="font-bold text-[#FFC436] custom-text-shadow sm:w-[426px]">
+              <p className="font-bold text-[#FFC436] custom-text-shadow sm:w-[426px] sm:text-[80px]">
                 Bimbel Griselda
               </p>
             </div>
