@@ -1,5 +1,46 @@
 import CardTestimonials from "../CardTestimonials";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 const Testimonials = () => {
+  const settings = {
+    dots: true,
+    className: " h-auto w-full  ",
+
+    infinite: true,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 2000,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
   return (
     <div className="bg-[#FFB700] w-full h-screen sm:py-14 sm:px-14">
       <div className=" w-auto h-full flex flex-col items-center sm:space-y-28 ">
@@ -12,7 +53,7 @@ const Testimonials = () => {
             the best service we provide
           </p>
         </div>
-        <div className="flex sm:space-x-6">
+        <Slider {...settings}>
           <CardTestimonials
             nama="Pandu"
             job="Programmers"
@@ -23,7 +64,17 @@ const Testimonials = () => {
             job="Programmers"
             testimony="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec arcu consectetur elementum id massa."
           />
-        </div>
+          <CardTestimonials
+            nama="Pandu"
+            job="Programmers"
+            testimony="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec arcu consectetur elementum id massa."
+          />
+          <CardTestimonials
+            nama="Pandu"
+            job="Programmers"
+            testimony="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec arcu consectetur elementum id massa."
+          />
+        </Slider>
       </div>
     </div>
   );

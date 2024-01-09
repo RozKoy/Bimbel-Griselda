@@ -14,7 +14,7 @@ const CardTestimonials: React.FC<CardTestimonialsProps> = ({
   testimony,
 }) => {
   return (
-    <div className=" h-[300px] relative flex items-end">
+    <div className=" h-[300px] relative flex items-end m-4">
       <Image
         src={user}
         width={70}
