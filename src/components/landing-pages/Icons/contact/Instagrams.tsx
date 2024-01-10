@@ -1,10 +1,12 @@
 interface IntagramsProps {
   fill?: string;
+  className?: string;
 }
 
-const Instagrams: React.FC<IntagramsProps> = ({ fill }) => {
+const Instagrams: React.FC<IntagramsProps> = ({ fill, className }) => {
   return (
     <svg
+      className={className}
       xmlns="http://www.w3.org/2000/svg"
       width="26"
       height="28"

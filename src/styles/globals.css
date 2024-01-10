@@ -2,11 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.latar {
-    background-image: url("../../public/assets/latar.png");
-    object-fit: cover;
-    min-height: 100vh;
-  }
+
 
   .jenjang {
     background-image: url("../../public/assets/latarJenjang.png");
