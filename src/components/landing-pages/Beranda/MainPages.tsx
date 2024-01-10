@@ -9,8 +9,8 @@ import Tiktok from "@/components/landing-pages/Icons/contact/Tiktok";
 
 const MainPages = () => {
   return (
-    <div className="bg-[url('/assets/latar.png')] h-auto w-full sm:min-h-screen ">
-      <div className="h-full gradasi w-full  sm:flex sm:flex-col">
+    <div className="bg-[url('/assets/latar.png')] h-full w-full sm:min-h-screen ">
+      <div className="h-full gradasi w-full  sm:h-full  sm:flex sm:flex-col">
         <div className=" h-full sm:px-10 ">
           <Navbar />
           <div className="  sm:flex sm:justify-center  sm:items-center sm:mt-10 ">
@@ -46,8 +46,8 @@ const MainPages = () => {
             </div>
           </div>
         </div>
-        <div className=" flex flex-col justify-start items-center sm:flex sm:justify-end sm:items-end  ">
-          <div className=" text-white w-[267.369px] h-[48.03px] flex   mt-[3%] mb-[10%] sm:w-[501px] sm:h-[90px] sm:flex sm:mb-0 ">
+        <div className=" flex flex-col justify-center items-center  sm:flex sm:justify-end sm:items-end  sm:mb-0 ">
+          <div className=" text-white w-[267.369px] h-[48.03px] flex   mt-[3%]  sm:w-[501px] sm:h-[90px] sm:flex  ">
             <div className="w-1/3 h-full  bg-[#FFB700] rounded-tl-[26px] sm:rounded-tl-[48px] flex flex-col justify-center items-center ">
               <p className="font-bold text-[19px] sm:text-[34px]">2100</p>
               <p className="text-[8px] sm:text-[15px]">Member</p>
