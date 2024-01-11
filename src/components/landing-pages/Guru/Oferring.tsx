@@ -26,7 +26,7 @@ export default function Offering() {
           width={380}
           height={380}
           alt="model"
-          className="absolute  right-[5%]"
+          className="absolute  right-[5%] w-[40px] h-[40px]"
         />
       </div>
     </div>

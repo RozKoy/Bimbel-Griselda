@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 const Gallery = () => {
   const settings = {
-    className: " h-auto w-full    ",
+    className: " h-auto w-full  pl-[5%] bg-transparent sm:pl-0  ",
 
     infinite: true,
     speed: 500,
