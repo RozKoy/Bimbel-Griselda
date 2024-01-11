@@ -9,11 +9,11 @@ import Tiktok from "@/components/landing-pages/Icons/contact/Tiktok";
 
 const MainPages = () => {
   return (
-    <div className="bg-[url('/assets/latar.png')] h-full w-full sm:min-h-screen ">
-      <div className="h-full gradasi w-full  sm:h-full  sm:flex sm:flex-col">
-        <div className=" h-full sm:px-10 ">
+    <div className="bg-[url('/assets/latar.png')] min-h-screen w-full sm:min-h-screen ">
+      <div className="min-h-screen gradasi w-full   sm:min-h-screen  sm:flex sm:flex-col">
+        <div className=" h-full  sm:px-10 ">
           <Navbar />
-          <div className="  sm:flex sm:justify-center  sm:items-center sm:mt-10 ">
+          <div className=" px-4 sm:px-0 sm:flex sm:justify-center  sm:items-center sm:mt-10 ">
             <div className="w-[358px]  sm:flex sm:flex-col sm:space-y-5 sm:w-[639px]">
               <p className="text-[#FFB700] text-[62.669px] leading-[70px]  font-extrabold my-[16px] sm:text-[120px] sm:leading-[120px]  ">
                 Bimbel Griselda
@@ -46,7 +46,7 @@ const MainPages = () => {
             </div>
           </div>
         </div>
-        <div className=" flex flex-col justify-center items-center  sm:flex sm:justify-end sm:items-end  sm:mb-0 ">
+        <div className=" flex flex-col justify-center items-center mt-8 sm:flex sm:justify-end sm:items-end  sm:mb-0 ">
           <div className=" text-white w-[267.369px] h-[48.03px] flex   mt-[3%]  sm:w-[501px] sm:h-[90px] sm:flex  ">
             <div className="w-1/3 h-full  bg-[#FFB700] rounded-tl-[26px] sm:rounded-tl-[48px] flex flex-col justify-center items-center ">
               <p className="font-bold text-[19px] sm:text-[34px]">2100</p>

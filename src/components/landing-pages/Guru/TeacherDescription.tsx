@@ -7,7 +7,7 @@ export default function TeacherDescription() {
     <div className="bg-[#FAFBFD] w-full h-auto pb-4 sm:h-screen sm:px-10 ">
       <Navbar />
 
-      <div className=" px-2 mt-10  sm:ml-6 sm:mt-16 sm:flex sm:space-x-16">
+      <div className=" px-4 mt-10  sm:ml-6 sm:mt-16 sm:flex sm:space-x-16">
         <div className="flex justify-center">
           <div className=" w-[229.533px] h-[229.533px ]  sm:w-[360px] sm:h-[360px] relative">
             <div className="bg-blue-700 w-[229.533px] h-[229.533px] rounded-3xl rotate-[-7.66deg] sm:w-[360px] sm:h-[360px]"></div>
@@ -21,7 +21,7 @@ export default function TeacherDescription() {
           </div>
         </div>
 
-        <div className="flex flex-col w-full space-y-1 mt-4 sm:mt-0  sm:w-[612px] sm:space-y-2">
+        <div className="flex flex-col w-full space-y-1 mt-6 sm:mt-0  sm:w-[612px] sm:space-y-2">
           <p className="font-[800] text-[#FFB700] text-[60px] sm:text-[80px]">GURU</p>
           <p className="text-[#0000008c] text-[15px] sm:text-[26.909px]">
             Aspiring teachers can take advantage of mentorship and personal
