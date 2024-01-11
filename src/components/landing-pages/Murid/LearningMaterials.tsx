@@ -58,16 +58,11 @@ export default function LearningMaterials() {
       descriptions:
         "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
     },
-    {
-      id: 9,
-      title: "Matematika",
-      descriptions:
-        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
-    },
   ];
   const settings = {
     dots: true,
-    className: " h-auto w-full  pl-[3%]",
+    className: " h-auto w-full  pl-[3%] ",
+   
 
     infinite: true,
     speed: 500,

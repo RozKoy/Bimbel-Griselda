@@ -2,6 +2,8 @@ import CardTestimonials from "../CardTestimonials";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+
 const Testimonials = () => {
   const settings = {
     dots: true,
@@ -59,6 +61,7 @@ const Testimonials = () => {
             job="Programmers"
             testimony="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec arcu consectetur elementum id massa."
           />
+
           <CardTestimonials
             nama="Pandu"
             job="Programmers"

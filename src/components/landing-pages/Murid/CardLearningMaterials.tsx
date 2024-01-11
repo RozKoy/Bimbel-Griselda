@@ -70,7 +70,7 @@ const CardLearningMaterials: React.FC<CardLearningMaterialsProps> = ({
                 <p className="text-white text-center font-thin sm:text-[24px]">
                   Chat Sekarang
                 </p>
-                <WA fill="#FFF" width="32" height="32.652" />
+                <WA fill="#FFF" className="w-[32px] h-[32.365px]" />
               </Link>
             </div>
           </div>
