@@ -1,6 +1,7 @@
-export default function Comma() {
+export default function Comma({className}: any) {
   return (
     <svg
+      className={className}
       xmlns="http://www.w3.org/2000/svg"
       width="19"
       height="31"
