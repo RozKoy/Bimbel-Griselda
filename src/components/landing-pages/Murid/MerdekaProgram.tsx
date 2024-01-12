@@ -10,7 +10,7 @@ function Arrow(props: any) {
 
 export default function MerdekaProgram() {
   const settings = {
-    className: "  h-auto flex items-end sm:w-[678px]  ",
+    className: "h-auto w-full px-[3%] sm:px-0 ",
 
     speed: 2000,
 
@@ -24,7 +24,7 @@ export default function MerdekaProgram() {
         breakpoint: 1024,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1,
+          slidesToScroll: 2,
           infinite: true,
           dots: true,
         },
@@ -40,63 +40,65 @@ export default function MerdekaProgram() {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToShow: 2,
+          slidesToScroll: 2,
         },
       },
     ],
   };
   return (
-    <div className="bg-[url('../../public/assets/Subtract.png')] w-full min-h-screen flex  items-center ">
-      <div className="flex   sm:space-x-48 ">
-        <div className="flex flex-col space-y-8 sm:ml-14 sm:mt-2">
-          <p className="text-[#000] font-extrabold sm:text-5xl sm:w-[235px]">
-            Program Merdeka
+    <div className="bg-[url('../../public/assets/Subtract.png')] pb-[10%] pt-4 w-full h-auto sm:min-h-screen  sm:flex sm:items-center sm:pb-0 sm:pt-0 ">
+      <div className="w-full space-y-10  sm:flex sm:justify-between   ">
+        <div className=" flex-col space-y-1 ml-4 mt-0  sm:mt-6 sm:space-y-2  sm:ml-12">
+          <p className="text-[#000]  font-extrabold text-[40px] w-[235px]  sm:text-5xl sm:leading-tight ">
+            Program MERDEKA
           </p>
-          <p className="text-[#000] d sm:text-lg sm:w-[370px]">
+          <p className="text-[#000] text-[15px] w-[95%] d sm:text-lg sm:w-[370px]">
             Lorem Ipsum has been the industry&apos; standard dummy text ever
             since the 1500s, when an unknown printer took a galley of type and
             scrambled it to make a type specimen book. It has survived not only
             five centuries.
           </p>
         </div>
-        <Slider {...settings}>
-          <CardProgram
-            title="M"
-            headline="Mentorship Profesional"
-            description="Dengan didukung oleh tim pengajar berkualifikasi tinggi, kami menawarkan mentorship m ruprofesional untuk membimbing siswa menuju keunggulan akademis."
-          />
-          <CardProgram
-            title="E"
-            headline="Mentorship Profesional"
-            description="Dengan didukung oleh tim pengajar berkualifikasi tinggi, kami menawarkan mentorship profesional untuk membimbing siswa menuju keunggulan akademis."
-          />
-          <CardProgram
-            title="R"
-            headline="Mentorship Profesional"
-            description="Dengan didukung oleh tim pengajar berkualifikasi tinggi, kami menawarkan mentorship m ruprofesional untuk membimbing siswa menuju keunggulan akademis."
-          />
-          <CardProgram
-            title="D"
-            headline="Mentorship Profesional"
-            description="Dengan didukung oleh tim pengajar berkualifikasi tinggi, kami menawarkan mentorship profesional untuk membimbing siswa menuju keunggulan akademis."
-          />
-          <CardProgram
-            title="E"
-            headline="Mentorship Profesional"
-            description="Dengan didukung oleh tim pengajar berkualifikasi tinggi, kami menawarkan mentorship m ruprofesional untuk membimbing siswa menuju keunggulan akademis."
-          />
-          <CardProgram
-            title="K"
-            headline="Mentorship Profesional"
-            description="Dengan didukung oleh tim pengajar berkualifikasi tinggi, kami menawarkan mentorship profesional untuk membimbing siswa menuju keunggulan akademis."
-          />
-          <CardProgram
-            title="A"
-            headline="Mentorship Profesional"
-            description="Dengan didukung oleh tim pengajar berkualifikasi tinggi, kami menawarkan mentorship profesional untuk membimbing siswa menuju keunggulan akademis."
-          />
-        </Slider>
+        <div className=" w-full h-auto   sm:w-7/12 sm:h-[400px]  ">
+          <Slider {...settings}>
+            <CardProgram
+              title="M"
+              headline="Mentorship Profesional"
+              description="Dengan didukung oleh tim pengajar berkualifikasi tinggi, kami menawarkan mentorship m ruprofesional untuk membimbing siswa menuju keunggulan akademis."
+            />
+            <CardProgram
+              title="E"
+              headline="Mentorship Profesional"
+              description="Dengan didukung oleh tim pengajar berkualifikasi tinggi, kami menawarkan mentorship profesional untuk membimbing siswa menuju keunggulan akademis."
+            />
+            <CardProgram
+              title="R"
+              headline="Mentorship Profesional"
+              description="Dengan didukung oleh tim pengajar berkualifikasi tinggi, kami menawarkan mentorship m ruprofesional untuk membimbing siswa menuju keunggulan akademis."
+            />
+            <CardProgram
+              title="D"
+              headline="Mentorship Profesional"
+              description="Dengan didukung oleh tim pengajar berkualifikasi tinggi, kami menawarkan mentorship profesional untuk membimbing siswa menuju keunggulan akademis."
+            />
+            <CardProgram
+              title="E"
+              headline="Mentorship Profesional"
+              description="Dengan didukung oleh tim pengajar berkualifikasi tinggi, kami menawarkan mentorship m ruprofesional untuk membimbing siswa menuju keunggulan akademis."
+            />
+            <CardProgram
+              title="K"
+              headline="Mentorship Profesional"
+              description="Dengan didukung oleh tim pengajar berkualifikasi tinggi, kami menawarkan mentorship profesional untuk membimbing siswa menuju keunggulan akademis."
+            />
+            <CardProgram
+              title="A"
+              headline="Mentorship Profesional"
+              description="Dengan didukung oleh tim pengajar berkualifikasi tinggi, kami menawarkan mentorship profesional untuk membimbing siswa menuju keunggulan akademis."
+            />
+          </Slider>
+        </div>
       </div>
     </div>
   );
