@@ -7,9 +7,29 @@ import LogoutIcon from "./LogoutIcon";
 import foto from "../../../../public/assets/admin.png";
 import logo from "../../../../public/assets/logo.png";
 import { useRouter } from "next/router";
+import useLocalStorage from "@/utils/useLocalStorage";
+import React, { ReactNode, useEffect, useState } from "react";
+import checkAuth from "@/utils/checkAuth";
+
 
 const CmsLayout = ({ children }: any) => {
+  const [check, setCheck] = useState(false);
+  const [refreshToken, setRefreshToken] = useLocalStorage("refreshToken", "");
   const router = useRouter();
+
+  useEffect(() => {
+    const result: boolean = checkAuth(refreshToken);
+    if (!result) {
+      router.push('/login');
+    } else {
+      setCheck(true);
+    }
+  })
+
+  if(!check) {
+    return null
+  }
+
   return (
     <div className="w-full flex min-h-screen">
       <div className="bg-[#FFC436] w-[20%] flex flex-col justify-between items-center pt-[8%] min-h-screen ">

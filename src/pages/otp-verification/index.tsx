@@ -26,7 +26,6 @@ const OtpVerification = () => {
 
    const onSubmit = async (data: object) => {
      await new Promise((resolve) => setTimeout(resolve, 2000));
-
      console.log(data);
    };
 

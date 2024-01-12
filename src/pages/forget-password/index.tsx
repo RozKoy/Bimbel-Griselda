@@ -7,8 +7,11 @@ import { useForm } from "react-hook-form";
 // import Helper from "@/components/cms/login/Helper";
 import Link from "next/link";
 import { Spinner } from "flowbite-react";
+import { axiosInstance } from "@/utils/axios";
+import { useRouter } from "next/router";
 
 const ForgetPassword = () => {
+  const router = useRouter();
   const {
     register,
     reset,
@@ -22,10 +25,12 @@ const ForgetPassword = () => {
   const { isSubmitting } = formState;
 
 
-   const onSubmit = async (data: object) => {
+   const onSubmit = async (data: any) => {
      await new Promise((resolve) => setTimeout(resolve, 2000));
+     await axiosInstance.post("/auth/admin/forget-password", data)
+    //  router.push("/otp-verification", { query: { email: data.email } });
+    //  console.log(data);
 
-     console.log(data);
    };
 
   React.useEffect(() => {

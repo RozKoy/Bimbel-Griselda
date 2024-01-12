@@ -10,8 +10,15 @@ import ToastSucces from "@/components/cms/ToastSucces";
 import Link from "next/link";
 import { Spinner } from "flowbite-react";
 import { useRouter } from "next/router";
+import useLocalStorage from "@/utils/useLocalStorage";
+import { axiosInstance } from "@/utils/axios";
+
+
 
 const Login = () => {
+  const [refreshToken, setRefreshToken] = useLocalStorage("refreshToken", "");
+  const [accessToken, setAccessToken] = useLocalStorage("accessToken", "");
+
   const {
     register,
     reset,
@@ -27,11 +34,23 @@ const Login = () => {
   const router = useRouter();
 
   const onSubmit = async (data: object) => {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    setShowToast(true);
-    router.push("/dashboard");
-
-    console.log(data);
+    try{
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      const response = await axiosInstance.post("/auth/admin/login", data);
+      setRefreshToken(response.data.data.refresh_token);
+      setAccessToken(response.data.data.access_token);
+      setShowToast(true);
+      setTimeout(() => {
+        router.push("/dashboard");
+      },1300)
+      console.log(response);
+    }catch(error : any){
+      if(error.response.status === 400) {
+        alert(error.response.data.message[0].message);
+      }else{
+        alert(error.response.data.message);
+      }
+    }
   };
 
   React.useEffect(() => {
