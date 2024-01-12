@@ -1,7 +1,7 @@
 import CardPacket from "./CardPacket";
 export default function PacketPages() {
   return (
-    <div className="latarPaket w-full h-screen">
+    <div className="latarPaket w-full min-h-screen">
       <div className="gradasi2 w-full h-full flex flex-col sm:space-y-6 sm:px-16 sm:pt-[5%] ">
         <div className="sm:w-[424px]">
           <p className="font-extrabold sm:text-5xl">Pilih Paket Kamu</p>

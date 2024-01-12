@@ -10,7 +10,7 @@
     min-height: 100vh;
   }
   .latarPaket {
-    background-image: url("../../public/assets/latarPaket.png") ;
+    background-image: url("../../public/assets/latarPaket.png");
     object-fit: cover;
     min-height: 100vh;
   }

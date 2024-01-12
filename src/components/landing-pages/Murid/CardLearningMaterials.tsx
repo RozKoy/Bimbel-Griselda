@@ -19,22 +19,37 @@ const CardLearningMaterials: React.FC<CardLearningMaterialsProps> = ({
 }) => {
   const [openModal, setOpenModal] = React.useState<boolean>(false);
   return (
-    <div className="bg-[#FFC436] rounded-lg flex flex-col items-center px-3 space-y-1 sm:w-[300px] sm:h-[350px]  sm:pt-3 sm:pb-2 sm:m-4">
-      <div className="flex justify-center items-center sm:space-x-5">
-        <BooksIcon />
-        <p className="text-[#FFF] font-medium sm:text-2xl">{title}</p>
+    <div className="bg-[#FFC436]  flex flex-col items-start px-[5px]  mx-5 space-y-1 w-[130px] h-[136px] rounded-[7.771px] pt-2 pb-0 sm:items-center sm:rounded-lg sm:w-[300px] sm:h-[350px]  sm:pt-3 sm:pb-2 sm:m-4">
+      <div className="flex justify-center items-center space-x-2 sm:space-x-5">
+        <BooksIcon className="w-[19.49px] h-[19.49px] sm:w-[50px] sm:h-[50px]" />
+        <p className="text-[#FFF] font-medium text-[9.326px] sm:text-2xl">
+          {title}
+        </p>
       </div>
-      <div className="bg-[#FFF] rounded-xl sm:px-[15px] sm:py-[19px]">
-        <p className="font-thin max-w-[250px] sm:text-base ">{description}</p>
+      <div className="bg-[#FFF] rounded-[7.771px] px-1 py-2 sm:px-[15px] sm:py-[19px]">
+        <p className="font-thin text-[6.26px] max-w-[114px] sm:max-w-[250px] sm:text-base ">
+          {description}
+        </p>
       </div>
-      <button
-        className="rounded-full bg-[#fff] sm:px-[20px] sm:py-[4px] sm:text-lg"
-        onClick={() => {
-          setOpenModal(true);
-        }}
-      >
-        Lihat Selengkapnya
-      </button>
+      <div className="flex">
+        <button
+          className="rounded-full bg-[#fff] text-[7px] px-[10px] py-[1px] sm:px-[20px] sm:py-[4px] sm:text-lg"
+          onClick={() => {
+            setOpenModal(true);
+          }}
+        >
+          Lihat Selengkapnya
+        </button>
+        <Link
+          href=""
+          className="rounded-full bg-[#fff] px-[10px] py-[2px] sm:px-[18px] sm:py-[4px] "
+        >
+          <WA
+            className="w-[9px] h-[9px] sm:w-[23px] sm:h-[23px] "
+            fill="#06AC58"
+          />
+        </Link>
+      </div>
 
       <Modal
         show={openModal}

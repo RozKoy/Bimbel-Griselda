@@ -1,9 +1,9 @@
 import WALink from "./WALink";
 export default function ClassLevel() {
   return (
-    <div className="jenjang w-full h-[100px] sm:min-h-screen">
-      <div className="w-full h-full  gradasi1 flex flex-col space-y- items-center  justify-center  sm:min-h-screen sm:space-y-28">
-        <div className="flex flex-col space-y-1 w-[334px] sm:space-y-4 sm:w-[601px]">
+    <div className="jenjang w-full h-screen  sm:min-h-screen">
+      <div className="w-full h-full  gradasi1 flex flex-col space-y-14 items-center justify-center px-4 sm:px-0 sm:space-y-28   sm:min-h-screen ">
+        <div className="flex flex-col space-y-2 w-[334px] sm:space-y-4 sm:w-[601px]">
           <p className="font-extrabold text-center text-[26px] text-[#000] sm:text-5xl">
             Jenjang Kelas
           </p>
@@ -14,13 +14,13 @@ export default function ClassLevel() {
         </div>
 
         <div className="flex flex-col space-y-3 items-center sm:space-y-14 ">
-          <div className="flex space-x-1 sm:space-x-12">
+          <div className="flex space-x-2 sm:space-x-12">
             <WALink title="TK" />
             <WALink title="SD" />
             <WALink title="SMP" />
             <WALink title="SMA" />
           </div>
-          <div className="flex space-x-3 sm:space-x-12">
+          <div className="flex space-x-2 sm:space-x-12">
             <WALink title="KULIAH" />
             <WALink title="UMUM" />
             <WALink title="DLL" />
