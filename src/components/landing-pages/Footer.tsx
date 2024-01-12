@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 export default function Footer() {
   const router = useRouter();
   return (
-    <div className="bg-[#F6F6F6] flex flex-col w-auto container mx-2  h-full md:w-full md:pt-14 md:pb-4 md:px-10">
+    <div className="bg-[#F6F6F6] flex flex-col w-full  pl-4  h-full pb-2 md:pt-14 md:pb-4 md:px-10 ">
       <div className=" md:flex md:justify-between">
         <div className="flex my-4 flex-col items-start">
           <div className="flex space-x-4 justify-center mb-4 items-center">
