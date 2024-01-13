@@ -3,12 +3,12 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 const settings = {
-  className: " h-auto w-full  pl-[5%]   sm:pl-0  ",
+  className: " h-auto w-full  pl-[5%]    sm:pl-0  ",
 
   infinite: true,
   speed: 500,
-  slidesToShow: 3,
-  slidesToScroll: 3,
+  slidesToShow: 4,
+  slidesToScroll: 4,
   rows: 2,
   slidesPerRow: 1,
 
@@ -44,7 +44,7 @@ const settings = {
 
 const ModuleLearning = () => {
   return (
-    <div className="bg-[#F6F6F6] w-full flex flex-col  justify-center items-center py-14 px-[7%] space-y-4 h-auto sm:px-10 sm:min-h-screen  sm:space-y-8">
+    <div className="bg-[#F6F6F6] w-full flex flex-col  justify-center items-center py-14 px-[7%] space-y-4 h-auto sm:px-4 sm:min-h-screen  sm:space-y-8">
       <div className="flex flex-col w-[334px] space-y-1 sm:space-y-3  sm:w-[661px]">
         <p className="text-center text-[#020202] font-extrabold text-[26px] sm:text-[48px]">
           Bahan Ajar
@@ -61,6 +61,8 @@ const ModuleLearning = () => {
         <CardModule title="Jenjang Kelas SMP" />
         <CardModule title="Jenjang Kelas SMA" />
         <CardModule title="Jenjang Kelas Kuliah" />
+        <CardModule title="Jenjang Kelas Umum" />
+        <CardModule title="Jenjang Kelas Dll" />
       </Slider>
     </div>
   );

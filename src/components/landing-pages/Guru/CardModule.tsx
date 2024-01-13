@@ -8,7 +8,7 @@ interface CardModuleProps {
 
 const CardModule: React.FC<CardModuleProps> = ({ title }) => {
   return (
-    <div className="bg-[#FFB700] m-4 rounded-lg flex justify-center items-center  w-[147px] py-[7.51px] pl-[7.51px] pr-[8.13px]  sm:py-[14.55px] sm:pr-[14.55px] sm:pl-[15.16px]  sm:w-[284px]">
+    <div className="bg-[#FFB700] m-4 rounded-lg flex justify-center items-center   w-[147px] py-[7.51px] pl-[7.51px] pr-[8.13px]  sm:py-[14.55px] sm:pr-[14.55px] sm:pl-[15.16px]  sm:w-[284px] sm:scale-90">
       <div className="bg-[#FFf]  flex items-center rounded-lg p-2 sm:p-3">
         <div className="flex flex-col justify-center space-y-2 w-[123px] h-[80px]  sm:w-[213px] sm:h-[140px]">
           <div className=" w-full  ">

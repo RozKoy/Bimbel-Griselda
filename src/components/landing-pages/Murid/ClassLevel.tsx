@@ -1,7 +1,7 @@
 import WALink from "./WALink";
 export default function ClassLevel() {
   return (
-    <div className="jenjang w-full h-screen  sm:min-h-screen">
+    <div className="bg-[url('../../public/assets/latarJenjang.png')] w-full h-[400px]  sm:min-h-screen">
       <div className="w-full h-full  gradasi1 flex flex-col space-y-14 items-center justify-center px-4 sm:px-0 sm:space-y-28   sm:min-h-screen ">
         <div className="flex flex-col space-y-2 w-[334px] sm:space-y-4 sm:w-[601px]">
           <p className="font-extrabold text-center text-[26px] text-[#000] sm:text-5xl">

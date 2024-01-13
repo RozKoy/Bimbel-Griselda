@@ -9,8 +9,8 @@ import Tiktok from "@/components/landing-pages/Icons/contact/Tiktok";
 
 const MainPages = () => {
   return (
-    <div className="bg-[url('/assets/latar.png')] min-h-screen w-full sm:min-h-screen ">
-      <div className="min-h-screen gradasi w-full   sm:min-h-screen  sm:flex sm:flex-col">
+    <div className="bg-[url('/assets/latar.png')] h-auto w-full sm:min-h-screen ">
+      <div className="h-full gradasi w-full pb-[25%] sm:pb-0   sm:min-h-screen  sm:flex sm:flex-col">
         <div className=" h-full  sm:px-10 ">
           <Navbar />
           <div className=" px-4 sm:px-0 sm:flex sm:justify-center  sm:items-center sm:mt-10 ">

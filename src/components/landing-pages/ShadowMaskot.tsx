@@ -1,6 +1,7 @@
-export default function ShadowMaskot() {
+export default function ShadowMaskot({className} :any) {
   return (
     <svg
+      className={className}
       xmlns="http://www.w3.org/2000/svg"
       width="221"
       height="49"
@@ -18,9 +19,9 @@ export default function ShadowMaskot() {
           width="221"
           height="49"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"

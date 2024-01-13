@@ -4,7 +4,7 @@ export default function GoalsAndBenefits() {
     <div className="latarMitra w-full h-auto  sm:min-h-screen">
       <div className="gradasi3 w-full h-full pb-[10%] sm:h-screen sm:pb-0 sm:flex sm:items-center sm:space-x-2">
         <div className="relative  sm:h-3/4">
-          <ShapeBackgroundIcon className="w-[357px] h-[319px] sm:w-[574px] sm:h-[470px]" />
+          <ShapeBackgroundIcon className="w-[359px] h-[319px] sm:w-[574px] sm:h-[470px]" />
           <div className="absolute top-[10%] left-[4%] sm:top-[20%] sm:left-[10%] ">
             <div className="flex flex-col  sm:space-y-3">
               <p className="font-extrabold text-[40px] max-w-[302px] sm:text-5xl sm:max-w-[313px]">

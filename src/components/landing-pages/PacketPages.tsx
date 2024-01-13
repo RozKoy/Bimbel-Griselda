@@ -1,8 +1,8 @@
 import CardPacket from "./CardPacket";
 export default function PacketPages() {
   return (
-    <div className="latarPaket  w-full h-screen sm:min-h-screen">
-      <div className="gradasi2 w-full h-full flex flex-col justify-center items-center space-y-4 sm:space-y-10 sm:items-start sm:min-h-screen sm:px-16  sm:pb-[2%] ">
+    <div className="bg-[url('../../public/assets/latarPaket.png')]  w-full h-[661px] sm:min-h-screen">
+      <div className="gradasi2 w-full h-full flex flex-col  items-center space-y-8 pt-16 sm:pt-0 sm:justify-center sm:space-y-10 sm:items-start sm:min-h-screen sm:px-16  sm:pb-[2%] ">
         <div className="w-[334pxpx] sm:w-[424px]">
           <p className="font-extrabold text-center text-[26px] sm:text-5xl sm:text-left">
             Pilih Paket Kamu
@@ -19,7 +19,7 @@ export default function PacketPages() {
             <CardPacket title="PAKET 2" price="Rp. x.xxx.xxx" />
           </div>
 
-          <div >
+          <div>
             <CardPacket title="PAKET 3" price="Rp. x.xxx.xxx" />
           </div>
         </div>

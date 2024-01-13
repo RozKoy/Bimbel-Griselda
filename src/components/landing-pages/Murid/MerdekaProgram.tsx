@@ -47,7 +47,7 @@ export default function MerdekaProgram() {
     ],
   };
   return (
-    <div className="bg-[url('../../public/assets/Subtract.png')] pb-[10%] pt-4 w-full h-auto sm:min-h-screen  sm:flex sm:items-center sm:pb-0 sm:pt-0 ">
+    <div className="bg-[url('../../public/assets/Subtract.png')] pb-[10%] pt-4 w-full h-[661px] sm:min-h-screen  sm:flex sm:items-center sm:pb-0 sm:pt-0 ">
       <div className="w-full space-y-10  sm:flex sm:justify-between   ">
         <div className=" flex-col space-y-1 ml-4 mt-0  sm:mt-6 sm:space-y-2  sm:ml-12">
           <p className="text-[#000]  font-extrabold text-[40px] w-[235px]  sm:text-5xl sm:leading-tight ">

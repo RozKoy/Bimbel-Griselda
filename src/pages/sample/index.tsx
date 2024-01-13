@@ -1,92 +1,55 @@
-import CardTestimonials from "@/components/landing-pages/CardTestimonials";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { Component } from "react";
+import Image from "next/image";
+import logo from "/public/assets/maskot.png";
+import ring from "/public/assets/ring.png";
+import { motion } from "framer-motion";
+import ShadowMaskot from "@/components/landing-pages/ShadowMaskot";
 
-class CustomSlide extends Component {
-  render() {
-    const { ...props } = this.props;
-    return (
-      <div {...props}>
-        <div className="flex space-x-2">
-          <CardTestimonials
-            nama="Pandu"
-            job="Programmers"
-            testimony="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec arcu consectetur elementum id massa."
-          />
-
-          <CardTestimonials
-            nama="Pandu"
-            job="Programmers"
-            testimony="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec arcu consectetur elementum id massa."
-          />
-          <CardTestimonials
-            nama="Pandu"
-            job="Programmers"
-            testimony="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec arcu consectetur elementum id massa."
-          />
-        </div>
-      </div>
-    );
-  }
-}
-const Testimonials = () => {
-  const settings = {
-    dots: true,
-    className: " h-auto w-full   ",
-
-    infinite: true,
-    autoplay: false,
-    speed: 2000,
-    autoplaySpeed: 2000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+export default function Sample2() {
   return (
-    <div className="bg-[#FFB700] w-full h-full pb-[20%] pt-[3%]  px-[7%] sm:min-h-screen sm:py-14 sm:px-14">
-      <div className=" w-auto h-full flex flex-col items-center space-y-16 sm:space-y-28 ">
-        <div className="flex flex-col space-y-2 sm:space-y-3">
-          <p className="text-[#FFF] text-center  font-extrabold text-[26px] sm:text-5xl">
-            Testimonials
-          </p>
-          <p className="text-center text-[#FFF] font-medium text-[12px] w-[334px] sm:text-lg sm:w-[535px]">
-            Most of them buy positive feedback for us which is none other than
-            the best service we provide
-          </p>
+    <div className=" flex justify-center items-center w-full h-screen ">
+      <div className="  flex flex-col space-y-10 sm:space-y-4 sm:py-10">
+        <div className="flex justify-center items-center ">
+          <motion.div
+            initial={{ x: 0 }}
+            animate={{ x: -90 }}
+            exit={{ x: 0 }}
+            transition={{ duration: 1.5 }}
+          >
+            <div className="flex flex-col">
+              <Image
+                src={logo}
+                width={270}
+                height={253}
+                alt="logo"
+                className="w-[185px] h-[200px] sm:w-[253px] sm:h-[296px]"
+              />
+              <ShadowMaskot className="w-[192px] h-[35px] sm:w-[221px] sm:h-[49px]" />
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ x: -300, y: 50, width: 0, opacity: 0 }}
+            animate={{ x: -100, y: 0, opacity: 1 }}
+            exit={{ x: 0, y: 0 }}
+            transition={{ duration: 3, ease: "backInOut" }}
+          >
+            <div>
+              <p className="font-bold text-[#FFC436] custom-text-shadow text-[32px] w-[173px] sm:w-[426px] sm:text-[80px]">
+                Bimbel Griselda
+              </p>
+            </div>
+          </motion.div>
         </div>
-        <Slider {...settings}>
-          <CustomSlide />
-        </Slider>
+        <div className="flex justify-center">
+          <Image
+            src={ring}
+            width={100}
+            height={100}
+            alt="ring"
+            className="animate-spin w-[60px] h-[60px] mt-16 sm:mt-0 sm:w-[100px] sm:h-[100px]"
+          />
+        </div>
       </div>
     </div>
   );
-};
-export default Testimonials;
+}
