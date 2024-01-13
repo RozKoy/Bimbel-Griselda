@@ -6,7 +6,7 @@ interface ContentProps {
 
 const Content: React.FC<ContentProps> = ({ src }) => {
   return (
-    <div className="overflow-hidden flex justify-center items-center  cursor-pointer shadow-md w-[280px] h-[212px] m-4">
+    <div className="overflow-hidden flex justify-center items-center  cursor-pointer shadow-md w-[280px] h-[212px] m-2">
       <Image
         src={src}
         width={300}

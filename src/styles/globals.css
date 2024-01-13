@@ -3,22 +3,21 @@
 @tailwind utilities;
 
 
-
-  .jenjang {
-    background-image: url("../../public/assets/latarJenjang.png");
-    object-fit: cover;
-    min-height: 100vh;
+  .slick-next {
+    
+    display: none;
+    &::before {
+      display: none;
+    }
   }
-  .latarPaket {
-    background-image: url("../../public/assets/latarPaket.png");
-    object-fit: cover;
-    min-height: 100vh;
-  }
-
-  .latarMitra {
-    background-image: url("../../public/assets/latarMitra.png") ;
-    object-fit: cover;
-    min-height: 100vh;
+  
+  .slick-prev {
+   
+    display: none;
+  
+    &::before {
+      display: none;
+    }
   }
 
 

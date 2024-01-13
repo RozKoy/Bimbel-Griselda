@@ -1,7 +1,7 @@
 import ShapeBackgroundIcon from "../Icons/ShapeBackgroundIcon";
 export default function GoalsAndBenefits() {
   return (
-    <div className="latarMitra w-full h-auto  sm:min-h-screen">
+    <div className="bg-[url('../../public/assets/latarMitra.png')] w-full h-auto  sm:min-h-screen">
       <div className="gradasi3 w-full h-full pb-[10%] sm:h-screen sm:pb-0 sm:flex sm:items-center sm:space-x-2">
         <div className="relative  sm:h-3/4">
           <ShapeBackgroundIcon className="w-[359px] h-[319px] sm:w-[574px] sm:h-[470px]" />

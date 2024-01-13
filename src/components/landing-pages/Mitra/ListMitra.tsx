@@ -35,7 +35,7 @@ export default function ListMitra() {
       {
         breakpoint: 480,
         settings: {
-          dots: true,
+          dots: false,
           rows: 1,
           slidesToShow: 1,
           slidesToScroll: 1,

@@ -1,12 +1,33 @@
 import content from "/public/assets/latar.png";
 import Content from "./Content";
 import Slider from "react-slick";
+import PrevIcon from "../Icons/PrevIcon";
+import NextIcon from "../Icons/NextIcon";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+function NextArrow(props: any) {
+  const { className, style, onClick } = props;
+  return (
+    <div className={className} onClick={onClick}>
+      <NextIcon stroke="black" />
+    </div>
+  );
+}
+
+function PrevArrow(props: any) {
+  const { className, style, onClick } = props;
+  return (
+    <div className={className} onClick={onClick}>
+      <PrevIcon stroke="black" />
+    </div>
+  );
+}
+
+
 const Gallery = () => {
   const settings = {
-    className: " h-auto w-full  pl-[5%] bg-transparent sm:pl-0  ",
+    className: " h-auto w-full  px-[9%]  sm:px-0 ",
 
     infinite: true,
     speed: 500,
@@ -14,6 +35,8 @@ const Gallery = () => {
     slidesToScroll: 4,
     rows: 2,
     slidesPerRow: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
 
     responsive: [
       {
@@ -36,7 +59,7 @@ const Gallery = () => {
       {
         breakpoint: 480,
         settings: {
-          dots: true,
+          dots: false,
           rows: 1,
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -45,7 +68,7 @@ const Gallery = () => {
     ],
   };
   return (
-    <div className="bg-[#FAFBFD] w-full h-auto pt-10 pb-10 px-5 sm:min-h-screen sm:pt-14 sm:pb-5 sm:px-14">
+    <div className="bg-[#FAFBFD] w-full h-auto pt-10 pb-10 px-5 sm:min-h-screen sm:pt-14 sm:pb-5 sm:px-2">
       <div className=" w-auto h-full flex flex-col items-center space-y-8 sm:space-y-12">
         <div className="flex flex-col space-y-3">
           <p className=" text-center font-extrabold text-[26px] sm:text-5xl">

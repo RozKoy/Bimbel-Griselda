@@ -1,7 +1,28 @@
 import CardModule from "./CardModule";
 import Slider from "react-slick";
+import PrevIcon from "../Icons/PrevIcon";
+import NextIcon from "../Icons/NextIcon";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+function NextArrow(props: any) {
+  const { className, style, onClick } = props;
+  return (
+    <div className={className} onClick={onClick}>
+      <NextIcon stroke="#FFB700" />
+    </div>
+  );
+}
+
+function PrevArrow(props: any) {
+  const { className, style, onClick } = props;
+  return (
+    <div className={className} onClick={onClick}>
+      <PrevIcon stroke="#FFB700" />
+    </div>
+  );
+}
+
 const settings = {
   className: " h-auto w-full  pl-[5%]    sm:pl-0  ",
 
@@ -11,6 +32,8 @@ const settings = {
   slidesToScroll: 4,
   rows: 2,
   slidesPerRow: 1,
+  nextArrow: <NextArrow />,
+  prevArrow: <PrevArrow />,
 
   responsive: [
     {

@@ -1,13 +1,33 @@
 import CardTestimonials from "../CardTestimonials";
 import Slider from "react-slick";
+import PrevIcon from "../Icons/PrevIcon";
+import NextIcon from "../Icons/NextIcon";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+function NextArrow(props: any) {
+  const { className, style, onClick } = props;
+  return (
+    <div className={className} onClick={onClick}>
+      <NextIcon stroke="white" />
+    </div>
+  );
+}
+
+function PrevArrow(props: any) {
+  const { className, style, onClick } = props;
+  return (
+    <div className={className} onClick={onClick}>
+      <PrevIcon stroke="white" />
+    </div>
+  );
+}
 
 
 const Testimonials = () => {
   const settings = {
     dots: true,
-    className: " h-auto w-full   ",
+    className: " h-auto w-full pl-[3%] pr-[1%]  sm:pr-1 sm:pl-3   ",
 
     infinite: true,
     autoplay: false,
@@ -15,6 +35,8 @@ const Testimonials = () => {
     autoplaySpeed: 2000,
     slidesToShow: 2,
     slidesToScroll: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
 
     responsive: [
       {
@@ -44,7 +66,7 @@ const Testimonials = () => {
     ],
   };
   return (
-    <div className="bg-[#FFB700] w-full h-full pb-[20%] pt-[3%]  px-[7%] sm:min-h-screen sm:py-14 sm:px-14">
+    <div className="bg-[#FFB700] w-full h-full pb-[20%] pt-[3%] pl-[5%] pr-[10%] sm:min-h-screen sm:py-14 sm:px-14">
       <div className=" w-auto h-full flex flex-col items-center space-y-16 sm:space-y-28 ">
         <div className="flex flex-col space-y-2 sm:space-y-3">
           <p className="text-[#FFF] text-center  font-extrabold text-[26px] sm:text-5xl">

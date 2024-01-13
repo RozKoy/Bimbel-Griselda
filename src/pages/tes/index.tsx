@@ -1,96 +1,107 @@
-import * as React from "react";
-import hamburger from "/public/assets/burger.png";
-import logo from "/public/assets/logo.png";
-import CloseMenuIcon from "@/components/landing-pages/Icons/CloseMenuIcon";
-import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import CardTestimonials from "@/components/landing-pages/CardTestimonials";
+import PrevIcon from "@/components/landing-pages/Icons/PrevIcon";
+import NextIcon from "@/components/landing-pages/Icons/NextIcon";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-const Navbar: React.FC = () => {
-  const [isMenuOpen, setMenuOpen] = React.useState(false);
-  const router = useRouter();
 
-  const toggleMenu = () => {
-    setMenuOpen(!isMenuOpen);
-  };
-
+function SampleNextArrow(props: any) {
+  const { className, style, onClick } = props;
   return (
-    <nav className="flex flex-wrap items-center justify-between p-3 bg-transparent">
-      <Image
-        src={logo}
-        className="h-[50px] w-[50px]"
-        alt="logo"
-        width="120"
-        height="120"
-      />
-      <div className="flex  md:hidden">
-        <button
-          className="bg-[#FFC436] w-[50px] h-[50px] flex justify-center items-center rounded-lg"
-          id="hamburger"
-          onClick={toggleMenu}
-        >
-          <Image
-            className={`toggle   ${isMenuOpen ? "hidden" : "block"}`}
-            src={hamburger}
-            width="40"
-            height="40"
-            alt="Open Menu"
+    <div className={className} onClick={onClick}>
+      <NextIcon stroke="red" />
+    </div>
+  );
+}
+
+function SamplePrevArrow(props: any) {
+  const { className, style, onClick } = props;
+  return (
+    <div className={className} onClick={onClick}>
+      <PrevIcon stroke="black" />
+    </div>
+  );
+}
+
+const Testimonials = () => {
+  const settings = {
+    dots: true,
+    className: " h-auto w-full   ",
+
+    infinite: true,
+    autoplay: false,
+    speed: 2000,
+    autoplaySpeed: 2000,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+  return (
+    <div className="bg-[#FFB700] w-full h-full pb-[20%] pt-[3%]  px-[7%] sm:min-h-screen sm:py-14 sm:px-14">
+      <div className=" w-auto h-full flex flex-col items-center space-y-16 sm:space-y-28 ">
+        <div className="flex flex-col space-y-2 sm:space-y-3">
+          <p className="text-[#FFF] text-center  font-extrabold text-[26px] sm:text-5xl">
+            Testimonials
+          </p>
+          <p className="text-center text-[#FFF] font-medium text-[12px] w-[334px] sm:text-lg sm:w-[535px]">
+            Most of them buy positive feedback for us which is none other than
+            the best service we provide
+          </p>
+        </div>
+        <Slider {...settings}>
+          <CardTestimonials
+            nama="Pandu"
+            job="Programmers"
+            testimony="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec arcu consectetur elementum id massa."
           />
 
-          <div className={`toggle ${isMenuOpen ? "block" : "hidden"}`}>
-            <CloseMenuIcon />
-          </div>
-        </button>
+          <CardTestimonials
+            nama="Pandu"
+            job="Programmers"
+            testimony="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec arcu consectetur elementum id massa."
+          />
+          <CardTestimonials
+            nama="Pandu"
+            job="Programmers"
+            testimony="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec arcu consectetur elementum id massa."
+          />
+          <CardTestimonials
+            nama="Pandu"
+            job="Programmers"
+            testimony="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec arcu consectetur elementum id massa."
+          />
+        </Slider>
       </div>
-      <div
-        className={`toggle md:flex md:space-x-14 ${
-          isMenuOpen ? "block" : "hidden"
-        } w-full bg-white md:bg-transparent  md:w-auto md:flex text-left text-bold mt-0 md:mt-0  md:border-none`}
-      >
-        {/* Add your menu items here */}
-        <Link
-          href="/"
-          className={
-            router.pathname === "/"
-              ? "block  text-[#0065FF] font-bold text-[20px] md:text-xl md:inline-block   px-3 py-1   "
-              : "block text-[20px] md:text-xl md:inline-block px-3 py-1   "
-          }
-        >
-          Beranda
-        </Link>
-        <Link
-          href="/teacher"
-          className={
-            router.pathname === "/teacher"
-              ? "block text-[#0065FF] font-bold text-[20px] md:text-xl md:inline-block   px-3 py-1   "
-              : "block text-[20px] md:text-xl md:inline-block px-3 py-1   "
-          }
-        >
-          Guru
-        </Link>
-        <Link
-          href="/student"
-          className={
-            router.pathname === "/student"
-              ? "block text-[#0065FF] font-bold text-[20px] md:text-xl md:inline-block   px-3 py-1   "
-              : "block text-[20px] md:text-xl md:inline-block px-3 py-1   "
-          }
-        >
-          Murid
-        </Link>
-        <Link
-          href="/patner"
-          className={
-            router.pathname === "/patner"
-              ? "block text-[#0065FF] font-bold text-[20px] md:text-xl md:inline-block   px-3 py-1   "
-              : "block text-[20px] md:text-xl md:inline-block px-3 py-1   "
-          }
-        >
-          Mitra
-        </Link>
-      </div>
-    </nav>
+    </div>
   );
 };
-
-export default Navbar;
+export default Testimonials;
