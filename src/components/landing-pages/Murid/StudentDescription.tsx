@@ -6,7 +6,7 @@ export default function StudentDescription() {
   return (
     <div className="bg-[#FAFBFD] w-full h-auto sm:min-h-screen sm:px-10 ">
       <Navbar />
-      <div className=" space-y-4  justify-center mt-6 pb-[40%] sm:pb-0  sm:flex sm:ml-6 sm:mt-4  sm:flex-row-reverse sm:space-x-20  sm:items-center ">
+      <div className=" space-y-0  justify-center mt-6 pb-[40%] sm:pb-0  sm:flex sm:ml-6 sm:mt-4  sm:flex-row-reverse sm:space-x-20  sm:items-center ">
         <div className="flex justify-center">
           <Image
             src={model}
