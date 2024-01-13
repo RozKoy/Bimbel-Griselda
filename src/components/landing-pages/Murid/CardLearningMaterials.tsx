@@ -59,33 +59,38 @@ const CardLearningMaterials: React.FC<CardLearningMaterialsProps> = ({
         popup
       >
         <ModalBody>
-          <div className="flex ">
-            <div className=" h-full w-1/2 overflow-x-auto max-h-[550px]">
+          <div className="flex justify-end">
+            <CloseIcon onClick={() => setOpenModal(false)} />
+          </div>
+          <div className=" sm:flex ">
+            <div className=" h-full  overflow-x-auto w-full max-h-[450px] sm:w-1/2 sm:pl-0">
               <Image src={preview} width={450} height={400} alt="preview" />
               <Image src={preview} width={450} height={400} alt="preview" />
             </div>
-            <div className=" h-full w-1/2 flex flex-col sm:space-y-6 pl-2">
-              <div className="flex justify-end">
-                <CloseIcon onClick={() => setOpenModal(false)} />
-              </div>
+            <div className=" h-full  flex flex-col space-y-1 sm:w-1/2 sm:pl-2 sm:space-y-4 ">
               <div className="flex flex-col">
-                <p className="font-extrabold leading-[30px] sm:text-[32px] ">
+                <p className="font-extrabold leading-[30px] text-[23.76px] sm:text-[32px] ">
                   {title}
                 </p>
-                <p className="font-normal leading-[30px] sm:text-2xl ">
+                <p className="font-normal leading-[30px] text-[17.82px] sm:text-2xl ">
                   Jenjang SD
                 </p>
-                <p className="font-thin mt-3 sm:text-base ">{description}</p>
+                <p className="font-thin text-[11.88px] w-[295.526px] sm:w-[90%] sm:mt-1 sm:text-base ">
+                  {description}
+                </p>
               </div>
 
               <Link
                 href=""
-                className="bg-[#06AC58] flex justify-center items-center rounded-2xl sm:space-x-5 sm:w-[280px] sm:h-[50px] "
+                className="bg-[#06AC58] flex justify-center items-center w-[133.65px] h-[37.126px] rounded-[7.425px] space-x-2 sm:rounded-2xl sm:space-x-5 sm:w-[280px] sm:h-[50px] "
               >
-                <p className="text-white text-center font-thin sm:text-[24px]">
+                <p className="text-white text-center font-thin text-[11.88px] sm:text-[24px]">
                   Chat Sekarang
                 </p>
-                <WA fill="#FFF" className="w-[32px] h-[32.365px]" />
+                <WA
+                  fill="#FFF"
+                  className="w-[22.276px] h-[22.76px] sm:w-[32px] sm:h-[32.365px]"
+                />
               </Link>
             </div>
           </div>
