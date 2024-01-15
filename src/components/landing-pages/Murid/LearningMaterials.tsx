@@ -128,11 +128,6 @@ export default function LearningMaterials() {
   const kelas: string[] = ["SD", "SMP", "SMA", "KULIAH", "UMUM", "LAINNYA"];
   const [activeButton, setActiveButton] = React.useState<string>("");
 
-  // function handle background and color text button
-  const handleButtonClick = (buttonName: string) => {
-    setActiveButton(buttonName);
-  };
-
   return (
     <div className="bg-[#F6F6F6]  w-full h-auto flex flex-col items-center px-6 py-24 space-y-6 sm:min-h-screen sm:px-10 sm:py-12 sm:space-y-10 ">
       <div className="flex flex-col space-y-1 sm:space-y-4 sm:w-[601px]">
@@ -146,17 +141,17 @@ export default function LearningMaterials() {
       </div>
 
       <div className="bg-[#FFF] flex shadow-[5px_5px_4px_0px] shadow-[#00000040] justify-center items-center rounded-full w-auto h-[27px] space-x-1 sm:space-x-8 sm:h-[50px]">
-        {kelas.map((buttonLabel, index) => (
+        {kelas.map((label, index) => (
           <button
             key={index}
-            onClick={() => handleButtonClick(buttonLabel)}
+            onClick={() => setActiveButton(kelas[index])}
             className={`text-center font-medium transition h-full rounded-full px-3 text-[13px] sm:text-2xl sm:px-8 ${
-              activeButton === buttonLabel
+              activeButton === kelas[index]
                 ? "bg-blue-700 text-[#FFF]"
                 : "bg-[#FFF] text-black"
             }`}
           >
-            {buttonLabel}
+            {label}
           </button>
         ))}
       </div>
