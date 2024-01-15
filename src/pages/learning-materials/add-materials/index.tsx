@@ -108,8 +108,10 @@ const AddMaterials = () => {
       });
       return;
       }
+      setShowToastFailed(true);
       alert("File Wajib Diisi");
     } catch (error: any) {
+      setShowToastFailed(true);
       if (error.response.status === 500){
         console.log(error)
       }

@@ -5,10 +5,19 @@ import Image from "next/image";
 import InputText from "@/components/cms/login/InputText";
 import InputHideText from "@/components/cms/login/InputHideText";
 import { useForm } from "react-hook-form";
-// import Helper from "@/components/cms/login/Helper";
+import Helper from "@/components/cms/login/Helper";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { axiosInstance } from "@/utils/axios";
 
 const CreatePassword = () => {
+  const router = useRouter();
+  React.useEffect(() => {
+    if(!router.query.email && !router.query.otp){
+      router.push("/forget-password")
+    }
+  })
+
   const {
     register,
     reset,
@@ -17,11 +26,28 @@ const CreatePassword = () => {
     formState: { isSubmitSuccessful },
   } = useForm({ defaultValues: { password: "", newPassword: "" } });
 
-  // const [message, setMessage] = React.useState<string>("");
+  const [message, setMessage] = React.useState<string>("");
 
-  const onSubmit = (data: any) => {
+  const onSubmit = async (data: any) => {
     // setMessage("Login Anda Bermasalah");
-    console.log(data);
+    const newData = {
+      email: router.query.email,
+      otp: router.query.otp,
+      password: data.password,
+      password_confirmation : data.newPassword,
+    }
+    try{
+      await axiosInstance.post("/auth/admin/create-new-password", newData)
+      router.push("/login")
+    }catch(error : any){
+      if (error.response.status === 400) {
+        setMessage(error.response.data.message[0].message);
+        // alert(error.response.data.message[0].message)
+      } else {
+        setMessage(error.response.data.message);
+      }
+    }
+    // console.log(data);
   };
 
   React.useEffect(() => {
@@ -63,7 +89,7 @@ const CreatePassword = () => {
             propsRegis={{ ...register("newPassword") }}
           />
         </div>
-        {/* <Helper message={message} /> */}
+        <Helper message={message} />
 
         <button
           type="submit"

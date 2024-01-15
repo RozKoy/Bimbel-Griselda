@@ -171,6 +171,7 @@ const EditMaterials = () => {
       } else {
         alert(error.response.data.message);
       }
+      setShowToastFailed(true);
     }
     // setShowToast(true);
     // console.log(data);
