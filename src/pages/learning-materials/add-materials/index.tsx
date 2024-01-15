@@ -2,12 +2,16 @@ import * as React from "react";
 import { useForm } from "react-hook-form";
 import { Spinner } from "flowbite-react";
 import Link from "next/link";
-
 import CmsLayout from "@/components/cms/dashboard-admin/CmsLayout";
 import Breadcrumbs from "@/components/cms/dashboard-admin/Breadcrumbs";
 import InputText from "@/components/cms/login/InputText";
 import ToastSucces from "@/components/cms/ToastSucces";
 import ToastFailed from "@/components/cms/ToastFailed";
+import useAxiosPrivate from "@/utils/UseAxiosPrivate";
+import useLocalStorage from "@/utils/useLocalStorage";
+import { SWRResponse, mutate } from "swr";
+import useSWR from "swr";
+import { useRouter } from "next/router";
 
 interface FormData {
   mapel: string;
@@ -22,23 +26,51 @@ interface Option {
   label: string;
 }
 
+interface Category {
+  id: string;
+  name: string;
+}
+
+interface CategoryData {
+  items: Category[];
+  meta: any;
+}
+
 const AddMaterials = () => {
+  const axiosPrivate = useAxiosPrivate();
+  const [accessToken, _] = useLocalStorage("accessToken", "");
+  const router = useRouter();
+  const {
+    data: categorydata,
+    error,
+    isLoading,
+  }: SWRResponse<CategoryData, any, boolean> = useSWR(`/category/all`, (url) =>
+    axiosPrivate
+      .get(url, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      })
+      .then((res) => res.data?.data)
+  );
+
   const crumbs = [
     { href: "/dashboard", text: "Dashboard" },
     { href: "/learning-materials", text: "Mata Pembelajran" },
     { text: "Tambah " },
   ];
 
-  const [selectedOption, setSelectedOption] = React.useState<string>();
+  // const [selectedOption, setSelectedOption] = React.useState<string>();
   const [showToast, setShowToast] = React.useState(false);
   const [showToastFailed, setShowToastFailed] = React.useState(false);
   const [uploadedFileName, setUploadedFileName] = React.useState<string | null>(
     null
   );
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
+  const [file, setFile] = React.useState<File | null>(null);
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const fileName = e.target.files?.[0]?.name || null;
+    setFile(e.target.files?.[0] ?? null);
     setUploadedFileName(fileName);
   };
 
@@ -51,22 +83,42 @@ const AddMaterials = () => {
     formState: { isSubmitting },
   } = useForm<FormData>();
 
-  const opsi: Option[] = [
-    { id: 0, value: "", label: "Pilih Kategori" },
-    { id: 1, value: "tk", label: "TK" },
-    { id: 2, value: "sd", label: "SD" },
-    { id: 3, value: "smp", label: "SMP" },
-    { id: 4, value: "sma", label: "SMA" },
-    { id: 5, value: "kuliah", label: "Kuliah" },
-    { id: 6, value: "umum", label: "Umum" },
-    { id: 7, value: "dll", label: "Dan Lain-Lain" },
-  ];
-
   const onSubmit = async (data: FormData) => {
     await new Promise((resolve) => setTimeout(resolve, 2000));
-    setShowToast(true);
-    console.log(data);
-    console.log(uploadedFileName);
+    try {
+      if(file){
+        const newFile = {
+          file: file,
+        };
+        const path = await axiosPrivate.post("/lesson/uploadFile", newFile, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      const newData = {
+        category_id: data.kategori,
+        name: data.mapel,
+        description: data.description,
+        image: path.data,
+      };
+      await axiosPrivate.post("/lesson/create", newData);
+      setShowToast(true);
+      setTimeout(() => {
+        router.push("/learning-materials");
+      });
+      return;
+      }
+      alert("File Wajib Diisi");
+    } catch (error: any) {
+      if (error.response.status === 500){
+        console.log(error)
+      }
+      if (error.response.status === 400) {
+        alert(error.response.data.message[0].message);
+      } else {
+        alert(error.response.data.message);
+      }
+    }
   };
 
   // React.useEffect(() => {
@@ -99,16 +151,16 @@ const AddMaterials = () => {
               <select
                 id="kategori"
                 {...register("kategori")}
-                onChange={(e) => setSelectedOption(e.target.value)}
+                // onChange={(e) => setSelectedOption(e.target.value)}
                 className="bg-[#ffffff5e] border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-gray-300 focus:border-gray-300 block w-[350px]  "
               >
-                {opsi.map((option) => (
+                {categorydata?.items.map((option) => (
                   <option
                     className="uppercase"
                     key={option.id}
-                    value={option.value}
+                    value={option.id}
                   >
-                    {option.label}
+                    {option.name}
                   </option>
                 ))}
               </select>
@@ -143,8 +195,8 @@ const AddMaterials = () => {
                     id="file-upload"
                     type="file"
                     className="hidden"
-                    // accept=".png, .jpg, .jpeg"
-                    {...register("file")}
+                    accept=".png, .jpg, .jpeg"
+                    // {...register("file")}
                     onChange={onChange}
                   />
                   <p className="text-sm text-gray-300">{uploadedFileName}</p>

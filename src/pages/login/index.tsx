@@ -5,7 +5,7 @@ import Image from "next/image";
 import InputText from "@/components/cms/login/InputText";
 import InputHideText from "@/components/cms/login/InputHideText";
 import { useForm } from "react-hook-form";
-// import Helper from "@/components/cms/login/Helper";
+import Helper from "@/components/cms/login/Helper";
 import ToastSucces from "@/components/cms/ToastSucces";
 import Link from "next/link";
 import { Spinner } from "flowbite-react";
@@ -29,7 +29,7 @@ const Login = () => {
 
   const { isSubmitting } = formState;
 
-  // const [message, setMessage] = React.useState<string>("");
+  const [message, setMessage] = React.useState<string>("");
   const [showToast, setShowToast] = React.useState(false);
   const router = useRouter();
 
@@ -46,9 +46,9 @@ const Login = () => {
       console.log(response);
     }catch(error : any){
       if(error.response.status === 400) {
-        alert(error.response.data.message[0].message);
+        setMessage(error.response.data.message[0].message);
       }else{
-        alert(error.response.data.message);
+        setMessage(error.response.data.message);
       }
     }
   };
@@ -92,7 +92,7 @@ const Login = () => {
         <Link href="/forget-password" className="flex justify-end mt-2">
           Lupa kata sandi
         </Link>
-        {/* <Helper message={message} /> */}
+        <Helper message={message} />
 
         <button
           type="submit"

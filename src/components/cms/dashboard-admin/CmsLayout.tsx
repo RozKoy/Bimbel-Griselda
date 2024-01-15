@@ -15,7 +15,14 @@ import checkAuth from "@/utils/checkAuth";
 const CmsLayout = ({ children }: any) => {
   const [check, setCheck] = useState(false);
   const [refreshToken, setRefreshToken] = useLocalStorage("refreshToken", "");
+  const [accessToken, setAccessToken] = useLocalStorage("accessToken", "");
   const router = useRouter();
+
+  const logout = () => {
+    setRefreshToken("");
+    setAccessToken("");
+    router.push("/login");
+  }
 
   useEffect(() => {
     const result: boolean = checkAuth(refreshToken);
@@ -72,9 +79,9 @@ const CmsLayout = ({ children }: any) => {
               <CountIcon /> <p className="font-medium">Jumlah</p>
             </Link>
           </div>
-
           <Link
             href="/login"
+            onClick={logout}
             className="flex space-x-2 bg-white w-4/6 rounded-md px-1 py-1 justify-center items-center mb-2"
           >
             <LogoutIcon /> <p className="text-[#FD0000] font-medium">LOGOUT</p>

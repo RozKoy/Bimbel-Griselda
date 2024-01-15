@@ -30,7 +30,6 @@ const CountMember = () => {
   const [openModal, setOpenModal] = React.useState<boolean>(false);
   const [openModal2, setOpenModal2] = React.useState<boolean>(false);
   const [showToast, setShowToast] = React.useState(false);
-  const [member, setMember] = React.useState(0);
 
   const {
     data,

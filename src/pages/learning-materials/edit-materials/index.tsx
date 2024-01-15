@@ -8,27 +8,39 @@ import { useForm } from "react-hook-form";
 import ToastSucces from "@/components/cms/ToastSucces";
 import ToastFailed from "@/components/cms/ToastFailed";
 import { Spinner } from "flowbite-react";
+import useAxiosPrivate from "@/utils/UseAxiosPrivate";
+import useLocalStorage from "@/utils/useLocalStorage";
+import { SWRResponse, mutate } from "swr";
+import useSWR from "swr";
+import { useRouter } from "next/router";
+
+interface Category {
+  id: string;
+  name: string;
+}
+
+interface CategoryData {
+  items: Category[];
+  meta: any;
+}
 
 const EditMaterials = () => {
-  const crumbs = [
-    { href: "/dashboard", text: "Dashboard" },
-    { href: "/learning-materials", text: "Mata Pembelajran" },
-    { text: "Edit" },
-  ];
+  const router = useRouter();
+  const axiosPrivate = useAxiosPrivate();
+  const [accessToken, _] = useLocalStorage("accessToken", "");
+  const [file, setFile] = React.useState<File | null>(null);
 
-  const [selectedOption, setSelectedOption] = React.useState<string>();
-  const [showToast, setShowToast] = React.useState(false);
-  const [showToastFailed, setShowToastFailed] = React.useState(false);
-  const [uploadedFileName, setUploadedFileName] = React.useState<string | null>(
-    null
+  const { data: categorydata }: SWRResponse<CategoryData> = useSWR(
+    `/category/all`,
+    (url) =>
+      axiosPrivate
+        .get(url, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        })
+        .then((res) => res.data?.data)
   );
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
-
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // Memperbarui state saat pengguna memilih file
-    const fileName = e.target.files?.[0]?.name || null;
-    setUploadedFileName(fileName);
-  };
 
   const {
     register,
@@ -38,36 +50,137 @@ const EditMaterials = () => {
     watch,
     formState,
     formState: { isSubmitSuccessful },
-  } = useForm({
-    defaultValues: { mapel: "", kategori: "", description: "", file: {} },
-  });
+  } = useForm();
 
-  const opsi = [
-    { id: 0, value: "", label: "Pilih Kategori" },
-    { id: 1, value: "tk", label: "TK" },
-    { id: 2, value: "sd", label: "SD" },
-    { id: 3, value: "smp", label: "SMP" },
-    { id: 4, value: "sma", label: "SMA" },
-    { id: 5, value: "kuliah", label: "Kuliah" },
-    { id: 6, value: "umum", label: "Umum" },
-    { id: 7, value: "dll", label: "Dan Lain-Lain" },
+  // const { data, error, isLoading } = useSWR(`/lesson/getById`, (url) => {
+  //   return axiosPrivate
+  //     .post(
+  //       url,
+  //       {
+  //         id: router.query.id as string,
+  //       },
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${accessToken}`,
+  //         },
+  //       }
+  //     )
+  //     .then((res) => {
+  //       setValue("mapel", res.data?.name);
+  //       setValue("description", res.data?.description);
+  //       setValue("category", res.data?.category.id);
+  //       return res.data;
+  //     });
+  // },{
+  //   revalidateOnFocus : false,
+  // });
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      await axiosPrivate
+        .post(
+          "/lesson/getById",
+          {
+            id: router.query.id,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          }
+        )
+        .then((res) => {
+          setValue("mapel", res.data?.name);
+          setValue("description", res.data?.description);
+          setValue("kategori", res.data?.category.id);
+          setValue("image", res.data?.image);
+        });
+    };
+    fetchData();
+  },[router.isReady]);
+
+  const crumbs = [
+    { href: "/dashboard", text: "Dashboard" },
+    { href: "/learning-materials", text: "Mata Pembelajran" },
+    { text: "Edit" },
   ];
+
+  const [showToast, setShowToast] = React.useState(false);
+  const [showToastFailed, setShowToastFailed] = React.useState(false);
+  const [uploadedFileName, setUploadedFileName] = React.useState<string | null>(
+    null
+  );
+  // const [isLoading, setIsLoading] = React.useState<boolean>(false);
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Memperbarui state saat pengguna memilih file
+    const fileName = e.target.files?.[0]?.name || null;
+    setFile(e.target.files?.[0] ?? null);
+    setUploadedFileName(fileName);
+  };
 
   const { isSubmitting } = formState;
 
-  const onSubmit = async (data: object) => {
+  const onSubmit = async (data: any) => {
     await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    setShowToast(true);
-
-    console.log(data);
+    try {
+      if (file) {
+        const newFile = {
+          file: file,
+        };
+        console.log("ini image : " + data.image);
+        const path = await axiosPrivate.put(
+          `/lesson/updateFile?name=${data.image}`,
+          newFile,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+              Authorization: `Bearer ${accessToken}`,
+            },
+          }
+        );
+        console.log("ini path : " + path.data);
+        const newData = {
+          id: router.query.id as string,
+          category_id: data.kategori,
+          name: data.mapel,
+          description: data.description,
+          image: path.data,
+        };
+        await axiosPrivate.put("/lesson/update", newData);
+        setShowToast(true);
+        setTimeout(() => {
+          router.push("/learning-materials");
+        },2000);
+        return;
+      }
+      const newData = {
+        id: router.query.id as string,
+        category_id: data.kategori,
+        name: data.mapel,
+        description: data.description,
+      };
+      await axiosPrivate.put("/lesson/update", newData);
+      setShowToast(true);
+      setTimeout(() => {
+        router.push("/learning-materials");
+      },2000);
+    } catch (error: any) {
+      if (error.response.status === 400) {
+        alert(error.response.data.message[0].message);
+      } else {
+        alert(error.response.data.message);
+      }
+    }
+    // setShowToast(true);
+    // console.log(data);
   };
 
-  React.useEffect(() => {
-    if (formState.isSubmitSuccessful) {
-      reset({ mapel: "", kategori: "", description: "", file: {} });
-    }
-  }, [formState, reset]);
+  // React.useEffect(() => {
+  //   if (formState.isSubmitSuccessful) {
+  //     reset({ mapel: "", kategori: "", description: "", file: {} });
+  //   }
+  // }, [formState, reset]);
 
   return (
     <CmsLayout>
@@ -93,16 +206,15 @@ const EditMaterials = () => {
               <select
                 id="kategori"
                 {...register("kategori")}
-                onChange={(e) => setSelectedOption(e.target.value)}
-                className="bg-[#ffffff5e] border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-gray-300 focus:border-gray-300 block w-[350px]  "
+                className="bg-[#ffffff5e] border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-gray-300 focus:border-gray-300 block w-[350px] uppercase"
               >
-                {opsi.map((option) => (
+                {categorydata?.items.map((option) => (
                   <option
                     className="uppercase"
                     key={option.id}
-                    value={option.value}
+                    value={option.id}
                   >
-                    {option.label}
+                    {option.name}
                   </option>
                 ))}
               </select>
@@ -138,7 +250,7 @@ const EditMaterials = () => {
                     type="file"
                     className="hidden"
                     accept=".png, .jpg, .jpeg"
-                    {...register("file")}
+                    // {...register("file")}
                     onChange={onChange}
                   />
                   <p className="text-sm text-gray-300">{uploadedFileName}</p>
