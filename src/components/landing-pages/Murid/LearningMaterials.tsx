@@ -126,6 +126,8 @@ export default function LearningMaterials() {
 
   // array variabel kelas
   const kelas: string[] = ["SD", "SMP", "SMA", "KULIAH", "UMUM", "LAINNYA"];
+
+  //useState variable to handle button color
   const [activeButton, setActiveButton] = React.useState<string>("");
 
   return (
@@ -144,9 +146,9 @@ export default function LearningMaterials() {
         {kelas.map((label, index) => (
           <button
             key={index}
-            onClick={() => setActiveButton(kelas[index])}
+            onClick={() => setActiveButton(label)}
             className={`text-center font-medium transition h-full rounded-full px-3 text-[13px] sm:text-2xl sm:px-8 ${
-              activeButton === kelas[index]
+              activeButton === label
                 ? "bg-blue-700 text-[#FFF]"
                 : "bg-[#FFF] text-black"
             }`}
