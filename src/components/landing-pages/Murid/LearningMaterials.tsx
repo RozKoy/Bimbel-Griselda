@@ -1,4 +1,5 @@
 import CardLearningMaterials from "./CardLearningMaterials";
+import * as React from "react";
 import Slider from "react-slick";
 import PrevIcon from "../Icons/PrevIcon";
 import NextIcon from "../Icons/NextIcon";
@@ -79,6 +80,7 @@ export default function LearningMaterials() {
         "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
     },
   ];
+
   const settings = {
     dots: true,
     className: " h-auto w-full px-[5%]  sm:pl-[3%]   ",
@@ -119,6 +121,13 @@ export default function LearningMaterials() {
       },
     ],
   };
+
+  const [activeButton, setActiveButton] = React.useState<string>("");
+
+  const handleButtonClick = (buttonName: string) => {
+    setActiveButton(buttonName);
+  };
+
   return (
     <div className="bg-[#F6F6F6]  w-full h-auto flex flex-col items-center px-6 py-24 space-y-6 sm:min-h-screen sm:px-10 sm:py-12 sm:space-y-10 ">
       <div className="flex flex-col space-y-1 sm:space-y-4 sm:w-[601px]">
@@ -131,27 +140,22 @@ export default function LearningMaterials() {
         </p>
       </div>
 
-      <div className="bg-[#FFF] flex shadow-[5px_5px_4px_0px] shadow-[#00000040] justify-center items-center rounded-full w-auto  h-[27px] space-x-1 sm:space-x-8  sm:h-[50px] ">
-        <button className="text-center text-black font-medium active:bg-blue-700 active:text-[#FFF] hover:text-[#FFF]  transition hover:bg-blue-700 h-full rounded-full px-3 text-[13px] sm:text-2xl sm:px-8">
-          SD
-        </button>
-
-        <button className="text-center text-black font-mediumactive:bg-blue-700 active:text-[#FFF] hover:text-[#FFF]   transition hover:bg-blue-700 h-full rounded-full px-3 text-[13px] sm:text-2xl sm:px-8">
-          SMP
-        </button>
-        <button className="text-center text-black font-mediumactive:bg-blue-700 active:text-[#FFF] hover:text-[#FFF]   transition hover:bg-blue-700 h-full rounded-full px-3 text-[13px] sm:text-2xl sm:px-8">
-          SMA
-        </button>
-        <button className="text-center text-black font-mediumactive:bg-blue-700 active:text-[#FFF] hover:text-[#FFF]   transition hover:bg-blue-700 h-full rounded-full px-3 text-[13px] sm:text-2xl sm:px-8">
-          KULIAH
-        </button>
-        <button className="text-center text-black font-mediumactive:bg-blue-700 active:text-[#FFF] hover:text-[#FFF]   transition hover:bg-blue-700 h-full rounded-full px-3 text-[13px] sm:text-2xl sm:px-8">
-          UMUM
-        </button>
-
-        <button className="text-center text-black font-mediumactive:bg-blue-700 active:text-[#FFF] hover:text-[#FFF]   transition hover:bg-blue-700 h-full rounded-full px-4 text-[13px] sm:text-2xl sm:px-8">
-          LAINNYA
-        </button>
+      <div className="bg-[#FFF] flex shadow-[5px_5px_4px_0px] shadow-[#00000040] justify-center items-center rounded-full w-auto h-[27px] space-x-1 sm:space-x-8 sm:h-[50px]">
+        {["SD", "SMP", "SMA", "KULIAH", "UMUM", "LAINNYA"].map(
+          (buttonLabel, index) => (
+            <button
+              key={index}
+              onClick={() => handleButtonClick(buttonLabel)}
+              className={`text-center font-medium transition h-full rounded-full px-3 text-[13px] sm:text-2xl sm:px-8 ${
+                activeButton === buttonLabel
+                  ? "bg-blue-700 text-[#FFF]"
+                  : "bg-[#FFF] text-black"
+              }`}
+            >
+              {buttonLabel}
+            </button>
+          )
+        )}
       </div>
 
       <Slider {...settings}>
