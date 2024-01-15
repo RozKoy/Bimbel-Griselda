@@ -85,7 +85,7 @@ export default function LearningMaterials() {
   // carousel settings
   const settings = {
     dots: true,
-    className: " h-auto w-full px-[5%]  sm:pl-[3%]   ",
+    className: " h-auto w-full pl-[3%]   sm:pl-[3%]   ",
 
     infinite: true,
     speed: 500,
@@ -131,7 +131,7 @@ export default function LearningMaterials() {
   const [activeButton, setActiveButton] = React.useState<string>("");
 
   return (
-    <div className="bg-[#F6F6F6]  w-full h-auto flex flex-col items-center px-6 py-24 space-y-6 sm:min-h-screen sm:px-10 sm:py-12 sm:space-y-10 ">
+    <div className="bg-[#F6F6F6]  w-full h-auto flex flex-col items-center px-[10%] py-24 space-y-6 sm:min-h-screen sm:px-10 sm:py-12 sm:space-y-10 ">
       <div className="flex flex-col space-y-1 sm:space-y-4 sm:w-[601px]">
         <p className="font-extrabold text-center text-[#332929] text-[26px] sm:text-5xl">
           Materi Pembelajaran

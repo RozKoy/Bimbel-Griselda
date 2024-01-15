@@ -11,16 +11,19 @@ const Services = () => {
           internal laptop pocket, on the back panel.
         </p>
       </div>
-      <div className=" mt-4   space-y-4 sm:flex sm:space-x-8 sm:mt-20">
+      <div className=" mt-4   space-y-4 sm:flex sm:space-y-0 sm:space-x-8 sm:mt-20">
         <CardServices
+          href="/teacher"
           title="Guru"
           description="Increasingly-popular option for online shopping, where customers do not have to pay an additional shipping charge"
         />
         <CardServices
+          href="/student"
           title="Murid"
           description="Increasingly-popular option for online shopping, where customers do not have to pay an additional shipping charge"
         />
         <CardServices
+          href="/patner"
           title="Mitra"
           description="Increasingly-popular option for online shopping, where customers do not have to pay an additional shipping charge"
         />
