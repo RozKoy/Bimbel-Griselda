@@ -24,6 +24,7 @@ function PrevArrow(props: any) {
   );
 }
 export default function LearningMaterials() {
+  // dummy data
   const materi = [
     {
       id: 1,
@@ -81,6 +82,7 @@ export default function LearningMaterials() {
     },
   ];
 
+  // carousel settings
   const settings = {
     dots: true,
     className: " h-auto w-full px-[5%]  sm:pl-[3%]   ",
@@ -122,8 +124,11 @@ export default function LearningMaterials() {
     ],
   };
 
+  // array variabel kelas
+  const kelas: string[] = ["SD", "SMP", "SMA", "KULIAH", "UMUM", "LAINNYA"];
   const [activeButton, setActiveButton] = React.useState<string>("");
 
+  // function handle background and color text button
   const handleButtonClick = (buttonName: string) => {
     setActiveButton(buttonName);
   };
@@ -141,21 +146,19 @@ export default function LearningMaterials() {
       </div>
 
       <div className="bg-[#FFF] flex shadow-[5px_5px_4px_0px] shadow-[#00000040] justify-center items-center rounded-full w-auto h-[27px] space-x-1 sm:space-x-8 sm:h-[50px]">
-        {["SD", "SMP", "SMA", "KULIAH", "UMUM", "LAINNYA"].map(
-          (buttonLabel, index) => (
-            <button
-              key={index}
-              onClick={() => handleButtonClick(buttonLabel)}
-              className={`text-center font-medium transition h-full rounded-full px-3 text-[13px] sm:text-2xl sm:px-8 ${
-                activeButton === buttonLabel
-                  ? "bg-blue-700 text-[#FFF]"
-                  : "bg-[#FFF] text-black"
-              }`}
-            >
-              {buttonLabel}
-            </button>
-          )
-        )}
+        {kelas.map((buttonLabel, index) => (
+          <button
+            key={index}
+            onClick={() => handleButtonClick(buttonLabel)}
+            className={`text-center font-medium transition h-full rounded-full px-3 text-[13px] sm:text-2xl sm:px-8 ${
+              activeButton === buttonLabel
+                ? "bg-blue-700 text-[#FFF]"
+                : "bg-[#FFF] text-black"
+            }`}
+          >
+            {buttonLabel}
+          </button>
+        ))}
       </div>
 
       <Slider {...settings}>
