@@ -21,7 +21,7 @@ const CardPacketTK: React.FC<CardPacketTKProps> = ({
       <div className="bg-[#E6E6E6] shadow-[5px_5px_4px_0px] shadow-[#00000040] w-full max-h-[171.563px] rounded-[11px] pt-3 sm:rounded-2xl sm:w-full sm:max-h-[235px] sm:pt-10 sm:pb-4">
         <div className=" flex flex-col justify-center items-center  sm:space-y-5 sm:mt-4">
           <div className="text-center">
-            <p className="text-[24px] ">{status}</p>
+            <p className="text-[24px] ">{status}/jam</p>
             <p className="font-bold sm:text-[32px]">{price}</p>
           </div>
 

@@ -1,8 +1,7 @@
 import CardPacket from "./CardPacket";
 import CardPacketTK from "./CardPacketTK";
 import * as React from "react";
-import PrevIcon from "@/components/landing-pages/Icons/PrevIcon";
-import NextIcon from "@/components/landing-pages/Icons/NextIcon";
+
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -43,20 +42,125 @@ const settings = {
   ],
 };
 
-function PrevArrow(props: any) {
-  const { className, style, onClick } = props;
-  return (
-    <div className={className} onClick={onClick}>
-      <PrevIcon stroke="#FFB700" />
-    </div>
-  );
-}
 export default function PacketPages() {
   // array variabel kelas
   const kelas: string[] = ["TK", "SD", "SMP", "SMA"];
 
   //useState variable to handle button color
-  const [activeButton, setActiveButton] = React.useState<string>("");
+  const [activeButton, setActiveButton] = React.useState<string>("TK");
+
+  const kelasTK = [
+    { id: 1, title: "Calistung", status: "online", price: "Rp.50.000" },
+    { id: 2, title: "International", status: "online", price: "Rp.60.000" },
+    { id: 3, title: "Calistung", status: "offline", price: "Rp.60.000" },
+    { id: 4, title: "International", status: "offline", price: "Rp.60.000" },
+  ];
+
+  const kelasSD = [
+    {
+      id: 1,
+      title: "Kurikulum Nasional",
+      pricelist1: "Rp.70.000",
+      pricelist2: "Rp.75.000",
+      pricelist3: "Rp.80.000",
+      pricelist4: "Rp.85.000",
+    },
+    {
+      id: 2,
+      title: "Kurikulum International",
+      pricelist1: "Rp.80.000",
+      pricelist2: "Rp.85.000",
+      pricelist3: "Rp.90.000",
+      pricelist4: "Rp.95.000",
+    },
+    {
+      id: 3,
+      title: "Olimpiade",
+      pricelist1: "Rp.85.000",
+      pricelist2: "Rp.90.000",
+      pricelist3: "Rp.95.000",
+      pricelist4: "Rp.100.000",
+    },
+    {
+      id: 4,
+      title: "Intensif English Class",
+      pricelist1: "Rp.80.000",
+      pricelist2: "Rp.85.000",
+      pricelist3: "Rp.90.000",
+      pricelist4: "Rp.95.000",
+    },
+  ];
+
+  const kelasSMP = [
+    {
+      id: 1,
+      title: "Kurikulum Nasional",
+      pricelist1: "Rp.80.000",
+      pricelist2: "Rp.85.000",
+      pricelist3: "Rp.90.000",
+      pricelist4: "Rp.95.000",
+    },
+    {
+      id: 2,
+      title: "Kurikulum International",
+      pricelist1: "Rp.90.000",
+      pricelist2: "Rp.95.000",
+      pricelist3: "Rp.95.000",
+      pricelist4: "Rp.98.000",
+    },
+    {
+      id: 3,
+      title: "Olimpiade",
+      pricelist1: "Rp.90.000",
+      pricelist2: "Rp.95.000",
+      pricelist3: "Rp.95.000",
+      pricelist4: "Rp.100.000",
+    },
+    {
+      id: 4,
+      title: "Intensif English Class",
+      pricelist1: "Rp.90.000",
+      pricelist2: "Rp.95.000",
+      pricelist3: "Rp.95.000",
+      pricelist4: "Rp.98.000",
+    },
+  ];
+
+  const kelasSMA = [
+    {
+      id: 1,
+      title: "Kurikulum Nasional",
+      pricelist1: "Rp.90.000",
+      pricelist2: "Rp.95.000",
+      pricelist3: "Rp.95.000",
+      pricelist4: "Rp.100.000",
+    },
+    {
+      id: 2,
+      title: "Kurikulum International",
+      pricelist1: "Rp.95.000",
+      pricelist2: "Rp.100.000",
+      pricelist3: "Rp.100.000",
+      pricelist4: "Rp.110.000",
+    },
+    {
+      id: 3,
+      title: "Olimpiade",
+      pricelist1: "Rp.100.000",
+      pricelist2: "Rp.110.000",
+      pricelist3: "Rp.110.000",
+      pricelist4: "Rp.120.000",
+    },
+    {
+      id: 4,
+      title: "Intensif English Class",
+      pricelist1: "Rp.95.000",
+      pricelist2: "Rp.100.000",
+      pricelist3: "Rp.100.000",
+      pricelist4: "Rp.110.000",
+    },
+  ];
+
   return (
     <div className="bg-[url('../../public/assets/latarPaket.png')]  w-full h-auto sm:min-h-screen">
       <div className="gradasi2 w-full h-full sm:min-h-screen sm:px-8 sm:pb-10 ">
@@ -89,48 +193,59 @@ export default function PacketPages() {
             ))}
           </div>
 
-          <Slider {...settings}>
-            {/* <CardPacketTK title="Calistung" price="Rp. 80.000/1 jam" status="online/jam" />
-            <CardPacketTK title="International" price="Rp. 80.000/1 jam" status="online/jam" />
-            <CardPacketTK title="Calistung" price="Rp. 80.000/1 jam" status="ofline/jam" />
-            <CardPacketTK title="International" price="Rp. 80.000/1 jam" status="ofline/jam" /> */}
-            <CardPacket
-              title="Nasional"
-              status="online"
-              pricelist1="Rp. 80.000/1 jam"
-              pricelist2="Rp. 80.000/1 jam"
-              pricelist3="Rp. 80.000/1 jam"
-              pricelist4="Rp. 80.000/1 jam"
-              status2="offline"
-            />
-            <CardPacket
-              title="Nasional"
-              status="online"
-              pricelist1="Rp. 80.000/1 jam"
-              pricelist2="Rp. 80.000/1 jam"
-              pricelist3="Rp. 80.000/1 jam"
-              pricelist4="Rp. 80.000/1 jam"
-              status2="offline"
-            />
-            <CardPacket
-              title="Nasional"
-              status="online"
-              pricelist1="Rp. 80.000/1 jam"
-              pricelist2="Rp. 80.000/1 jam"
-              pricelist3="Rp. 80.000/1 jam"
-              pricelist4="Rp. 80.000/1 jam"
-              status2="offline"
-            />
-            <CardPacket
-              title="Nasional"
-              status="online"
-              pricelist1="Rp. 80.000/1 jam"
-              pricelist2="Rp. 80.000/1 jam"
-              pricelist3="Rp. 80.000/1 jam"
-              pricelist4="Rp. 80.000/1 jam"
-              status2="offline"
-            />
-          </Slider>
+          {activeButton === kelas[0] ? (
+            <Slider {...settings}>
+              {kelasTK.map((tk) => (
+                <CardPacketTK
+                  key={tk.id}
+                  title={tk.title}
+                  price={tk.price}
+                  status={tk.status}
+                />
+              ))}
+            </Slider>
+          ) : activeButton === kelas[1] ? (
+            <Slider {...settings}>
+              {kelasSD.map((sd) => (
+                <CardPacket
+                  key={sd.id}
+                  title={sd.title}
+                  pricelist1={sd.pricelist1}
+                  pricelist2={sd.pricelist2}
+                  pricelist3={sd.pricelist3}
+                  pricelist4={sd.pricelist4}
+                />
+              ))}
+            </Slider>
+          ) : activeButton === kelas[2] ? (
+            <Slider {...settings}>
+              {kelasSMP.map((smp) => (
+                <CardPacket
+                  key={smp.id}
+                  title={smp.title}
+                  pricelist1={smp.pricelist1}
+                  pricelist2={smp.pricelist2}
+                  pricelist3={smp.pricelist3}
+                  pricelist4={smp.pricelist4}
+                />
+              ))}
+            </Slider>
+          ) : activeButton === kelas[3] ? (
+            <Slider {...settings}>
+              {kelasSMA.map((sma) => (
+                <CardPacket
+                  key={sma.id}
+                  title={sma.title}
+                  pricelist1={sma.pricelist1}
+                  pricelist2={sma.pricelist2}
+                  pricelist3={sma.pricelist3}
+                  pricelist4={sma.pricelist4}
+                />
+              ))}
+            </Slider>
+          ) : (
+            <p>Coming Soon</p>
+          )}
         </div>
       </div>
     </div>

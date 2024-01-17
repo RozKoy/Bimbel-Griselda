@@ -1,10 +1,8 @@
 import Link from "next/link";
 import WaTransparent from "./Icons/WaTransparent";
+
 interface CardPacketProps {
   title?: string;
-
-  status?: string;
-  status2?: string;
   pricelist1?: string;
   pricelist2?: string;
   pricelist3?: string;
@@ -13,9 +11,6 @@ interface CardPacketProps {
 
 const CardPacket: React.FC<CardPacketProps> = ({
   title,
-
-  status,
-  status2,
   pricelist1,
   pricelist2,
   pricelist3,
@@ -31,12 +26,12 @@ const CardPacket: React.FC<CardPacketProps> = ({
       <div className="bg-[#E6E6E6] shadow-[5px_5px_4px_0px] shadow-[#00000040] w-full max-h-[171.563px] rounded-[11px] pt-3 sm:rounded-2xl sm:w-full sm:max-h-[420px] sm:pt-10 sm:pb-4">
         <div className=" flex flex-col justify-center items-center  sm:space-y-5 sm:mt-4">
           <div className="text-center">
-            <p className="text-[24px] ">{status}</p>
-            <p className="font-bold sm:text-[32px]">{pricelist1}</p>
-            <p className="font-bold sm:text-[32px]">{pricelist2}</p>
-            <p className="sm:text-[24px]">{status2}</p>
-            <p className="font-bold sm:text-[32px]">{pricelist3}</p>
-            <p className="font-bold sm:text-[32px]">{pricelist4}</p>
+            <p className="text-[24px] ">online</p>
+            <p className="font-bold sm:text-[32px]">{pricelist1}/1 jam</p>
+            <p className="font-bold sm:text-[32px]">{pricelist2}/1,5 jam</p>
+            <p className="sm:text-[24px]">offline</p>
+            <p className="font-bold sm:text-[32px]">{pricelist3}/1 jam</p>
+            <p className="font-bold sm:text-[32px]">{pricelist4}/1,5 jam</p>
           </div>
 
           <Link
