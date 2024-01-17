@@ -7,8 +7,10 @@ export default function ListMitra() {
   const settings = {
     className: " h-auto w-full pl-[8%]  sm:pl-[3%] sm:pr-[2%] ",
 
+    autoplay: true,
     infinite: true,
-    speed: 500,
+    speed: 2000,
+    autoplaySpeed: 2000,
     slidesToShow: 3,
     slidesToScroll: 3,
     rows: 2,

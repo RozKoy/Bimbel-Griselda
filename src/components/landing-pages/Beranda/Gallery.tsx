@@ -29,7 +29,9 @@ const Gallery = () => {
     className: " h-auto w-full   pl-[9.7%] pr-[5%]  sm:px-0 ",
 
     infinite: true,
-    speed: 500,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 2000,
     slidesToShow: 4,
     slidesToScroll: 4,
     rows: 2,

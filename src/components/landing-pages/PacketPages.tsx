@@ -1,16 +1,17 @@
 import CardPacket from "./CardPacket";
 import CardPacketTK from "./CardPacketTK";
 import * as React from "react";
-
+import { motion } from "framer-motion";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const settings = {
-  className: " h-auto w-[90%]   ",
+  className: " h-auto w-[95%]  sm:w-[90%]   ",
   dots: true,
-  infinite: true,
-  speed: 500,
+  autoplay: true,
+  speed: 2000,
+  autoplaySpeed: 2000,
   slidesToShow: 3,
   slidesToScroll: 3,
 
@@ -163,20 +164,18 @@ export default function PacketPages() {
 
   return (
     <div className="bg-[url('../../public/assets/latarPaket.png')]  w-full h-auto sm:min-h-screen">
-      <div className="gradasi2 w-full h-full sm:min-h-screen sm:px-8 sm:pb-10 ">
-        <div className="sm:pt-4 sm:pb-6 ">
-          <div className="w-[334pxpx] sm:w-[424px]">
-            <p className="font-extrabold text-center text-[26px] sm:text-5xl sm:text-left">
-              Pilih Paket Kamu
-            </p>
-            <p className="text-[#7C7C7C] text-center text-[12px] sm:text-left sm:text-lg">
-              This clean and ever contemporary waterproof rucksack features an
-              internal laptop pocket, on the back panel.
-            </p>
-          </div>
+      <div className="gradasi2 w-full h-auto pt-6 pb-8 px-2 space-y-4  sm:space-y-6 sm:min-h-screen sm:px-8 sm:pb-10  sm:pt-6">
+        <div className="w-[334pxpx] sm:w-[424px]">
+          <p className="font-extrabold text-center text-[26px] sm:text-5xl sm:text-left">
+            Pilih Paket Kamu
+          </p>
+          <p className="text-[#7C7C7C] text-center text-[12px] sm:text-left sm:text-lg">
+            This clean and ever contemporary waterproof rucksack features an
+            internal laptop pocket, on the back panel.
+          </p>
         </div>
 
-        <div className=" flex flex-col items-center sm:space-y-8">
+        <div className=" flex flex-col items-center space-y-4 sm:space-y-8">
           <div className="bg-[#FFF] flex shadow-[5px_5px_4px_0px] shadow-[#00000040] justify-center items-center rounded-full w-auto h-[27px] space-x-1 sm:space-x-8 sm:h-[50px]">
             {kelas.map((label, index) => (
               <button

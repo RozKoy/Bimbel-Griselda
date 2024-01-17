@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import logo from "/public/assets/logoBimbel.png";
+import logo from "/public/assets/owlbimbel.png";
 import WA from "../../components/landing-pages/Icons/contact/Wa";
 import Instagrams from "../../components/landing-pages/Icons/contact/Instagrams";
 import Facebook from "../../components/landing-pages/Icons/contact/Facebook";

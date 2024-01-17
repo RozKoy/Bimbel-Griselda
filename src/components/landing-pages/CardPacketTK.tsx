@@ -12,17 +12,17 @@ const CardPacketTK: React.FC<CardPacketTKProps> = ({
   status,
 }) => {
   return (
-    <div className="relative flex items-center  w-[171.563px] h-[182px] sm:h-[250px] sm:w-[300px]">
+    <div className="relative flex items-center  w-[171.563px] h-[130px] sm:h-[250px] sm:w-[300px]">
       <div className="absolute top-0 w-full  flex justify-center">
         <p className="text-white font-bold text-[13.725px] bg-gradient-to-r from-[#0174bee0] to-[#00416B] sm:text-[24px] text-center rounded-[20px]  px-2 py-0.5  sm:py-2 sm:px-5 sm:max-w-[250px]">
           {title}
         </p>
       </div>
-      <div className="bg-[#E6E6E6] shadow-[5px_5px_4px_0px] shadow-[#00000040] w-full max-h-[171.563px] rounded-[11px] pt-3 sm:rounded-2xl sm:w-full sm:max-h-[235px] sm:pt-10 sm:pb-4">
-        <div className=" flex flex-col justify-center items-center  sm:space-y-5 sm:mt-4">
+      <div className="bg-[#E6E6E6] shadow-[5px_5px_4px_0px] shadow-[#00000040] w-full max-h-[171.563px] rounded-[11px] pt-3 pb-2 sm:rounded-2xl sm:w-full sm:max-h-[235px] sm:pt-10 sm:pb-4">
+        <div className=" flex flex-col justify-center items-center space-y-3 mt-3 sm:space-y-5 sm:mt-4">
           <div className="text-center">
-            <p className="text-[24px] ">{status}/jam</p>
-            <p className="font-bold sm:text-[32px]">{price}</p>
+            <p className=" text-[13.241px] sm:text-[24px] ">{status}/jam</p>
+            <p className="font-bold text-[17.65px] sm:text-[32px]">{price}</p>
           </div>
 
           <Link

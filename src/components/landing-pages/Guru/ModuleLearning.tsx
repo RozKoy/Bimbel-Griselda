@@ -27,7 +27,9 @@ const settings = {
   className: " h-auto w-full  pl-[5%]    sm:pl-0  ",
 
   infinite: true,
-  speed: 500,
+  autoplay: false,
+  speed: 2000,
+  autoplaySpeed: 2000,
   slidesToShow: 4,
   slidesToScroll: 4,
   rows: 2,

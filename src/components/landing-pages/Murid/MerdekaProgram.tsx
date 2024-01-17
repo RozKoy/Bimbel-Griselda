@@ -11,9 +11,10 @@ function Arrow(props: any) {
 export default function MerdekaProgram() {
   const settings = {
     className: "h-auto w-full px-[3%] sm:px-0 ",
-
+    autoplay: true,
+    infinite: true,
     speed: 2000,
-
+    autoplaySpeed: 2000,
     slidesToShow: 2,
     slidesToScroll: 1,
     nextArrow: <Arrow />,

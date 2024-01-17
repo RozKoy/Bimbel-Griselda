@@ -23,14 +23,13 @@ function PrevArrow(props: any) {
   );
 }
 
-
 const Testimonials = () => {
   const settings = {
     dots: true,
     className: " h-auto w-full pl-[3%] pr-[1%]  sm:pr-1 sm:pl-3   ",
 
     infinite: true,
-    autoplay: false,
+    autoplay: true,
     speed: 2000,
     autoplaySpeed: 2000,
     slidesToShow: 2,

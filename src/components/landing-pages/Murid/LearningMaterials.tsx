@@ -88,7 +88,9 @@ export default function LearningMaterials() {
     className: " h-auto w-full pl-[3%]   sm:pl-[3%]   ",
 
     infinite: true,
-    speed: 500,
+    autoplay: false,
+    speed: 2000,
+    autoplaySpeed: 2000,
     slidesToShow: 3,
     slidesToScroll: 3,
     rows: 2,

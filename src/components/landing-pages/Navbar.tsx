@@ -1,6 +1,6 @@
 import * as React from "react";
 import hamburger from "/public/assets/burger.png";
-import logo from "/public/assets/logo.png";
+import logo from "/public/assets/owlbimbel.png";
 import CloseMenuIcon from "@/components/landing-pages/Icons/CloseMenuIcon";
 import Image from "next/image";
 import Link from "next/link";
