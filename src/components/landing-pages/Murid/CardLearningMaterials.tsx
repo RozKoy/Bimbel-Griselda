@@ -12,11 +12,15 @@ import Link from "next/link";
 interface CardLearningMaterialsProps {
   title?: string;
   description?: string;
+  image?: string;
+  category?: string
 }
 
 const CardLearningMaterials: React.FC<CardLearningMaterialsProps> = ({
   title,
   description,
+  image,
+  category
 }) => {
   const [openModal, setOpenModal] = React.useState<boolean>(false);
 
@@ -37,8 +41,8 @@ const CardLearningMaterials: React.FC<CardLearningMaterialsProps> = ({
           {title}
         </p>
       </div>
-      <div className="bg-[#FFF] rounded-[7.771px] px-1 py-2 sm:px-[15px] sm:py-[19px]">
-        <p className="font-thin text-[6.26px] max-w-[114px] sm:max-w-[250px] sm:text-base ">
+      <div className="bg-[#FFF] rounded-[7.771px] px-1 py-2 min-w-full h-[65%] sm:h-[72%] sm:px-[15px] sm:py-[19px]">
+        <p className="font-thin text-[6.26px] overflow-x-auto max-w-[114px] max-h-[100%] sm:max-w-[250px] sm:text-base">
           {description}
         </p>
       </div>
@@ -74,8 +78,8 @@ const CardLearningMaterials: React.FC<CardLearningMaterialsProps> = ({
         <ModalBody>
           <div className=" sm:flex   ">
             <div className=" h-full  overflow-x-auto w-full max-h-[450px] sm:w-1/2 sm:pl-0">
-              <Image src={preview} width={450} height={400} alt="preview" />
-              <Image src={preview} width={450} height={400} alt="preview" />
+              <Image src={("http://localhost:3001/api/lesson/getFile?name=" + image) as string } width={450} height={400} alt="preview" />
+              {/* <Image src={preview} width={450} height={400} alt="preview" /> */}
             </div>
             <div className=" h-full  flex flex-col space-y-1 sm:w-1/2 sm:pl-2 sm:space-y-4 ">
               <div className="flex flex-col">
@@ -83,7 +87,7 @@ const CardLearningMaterials: React.FC<CardLearningMaterialsProps> = ({
                   {title}
                 </p>
                 <p className="font-normal leading-[30px] text-[17.82px] sm:text-2xl ">
-                  Jenjang SD
+                  Jenjang {category?.toUpperCase()}
                 </p>
                 <p className="font-thin text-[11.88px] w-[295.526px] sm:w-[90%] sm:mt-1 sm:text-base ">
                   {description}

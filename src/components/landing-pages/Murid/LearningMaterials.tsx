@@ -5,6 +5,9 @@ import PrevIcon from "../Icons/PrevIcon";
 import NextIcon from "../Icons/NextIcon";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { SWRResponse, mutate } from "swr";
+import useSWR from "swr";
+import { axiosInstance } from "@/utils/axios";
 
 function NextArrow(props: any) {
   const { className, style, onClick } = props;
@@ -23,80 +26,51 @@ function PrevArrow(props: any) {
     </div>
   );
 }
-export default function LearningMaterials() {
-  // dummy data
-  const materi = [
-    {
-      id: 1,
-      title: "Matematika",
-      descriptions:
-        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
-    },
-    {
-      id: 2,
-      title: "Matematika",
-      descriptions:
-        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
-    },
-    {
-      id: 1,
-      title: "Matematika",
-      descriptions:
-        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
-    },
-    {
-      id: 3,
-      title: "Matematika",
-      descriptions:
-        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
-    },
-    {
-      id: 4,
-      title: "Matematika",
-      descriptions:
-        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
-    },
-    {
-      id: 5,
-      title: "Matematika",
-      descriptions:
-        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
-    },
-    {
-      id: 6,
-      title: "Matematika",
-      descriptions:
-        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
-    },
-    {
-      id: 7,
-      title: "Matematika",
-      descriptions:
-        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
-    },
-    {
-      id: 8,
-      title: "Matematika",
-      descriptions:
-        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
-    },
-  ];
 
-  // carousel settings
-  const settings = {
+interface CategoryList {
+  label: string;
+  value: string;
+}
+
+interface Category {
+  id: string;
+  name: string;
+}
+
+interface Lesson {
+  id: string;
+  name: string;
+  description: string;
+  image: string;
+  category: Category;
+}
+
+interface LessonData {
+  items: any;
+  meta: any;
+}
+
+const LearningMaterials = () => {
+  const [activeCategory, setActiveCategory] = React.useState<string>("");
+  const [activeButton, setActiveButton] = React.useState<string>("");
+  const { data }: SWRResponse<Lesson[]> = useSWR(
+    `/lesson/getByCategory?id=${activeCategory}`,
+    (url) => axiosInstance.get(url).then((res) => res.data)
+  );
+  console.log(data);
+
+  //   // carousel settings
+  var settings = {
+    className: " h-auto w-full pl-[3%]    sm:pl-[3%]   ",
     dots: true,
-    className: " h-auto w-full pl-[3%]   sm:pl-[3%]   ",
-
-    infinite: true,
-    autoplay: false,
-    speed: 2000,
-    autoplaySpeed: 2000,
-    slidesToShow: 3,
-    slidesToScroll: 3,
+    infinite: false,
+    speed: 500,
     rows: 2,
-    slidesPerRow: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    initialSlide: 0,
     responsive: [
       {
         breakpoint: 1024,
@@ -120,18 +94,38 @@ export default function LearningMaterials() {
         settings: {
           rows: 1,
           slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
         },
       },
     ],
   };
 
-  // array variabel kelas
-  const kelas: string[] = ["SD", "SMP", "SMA", "KULIAH", "UMUM", "LAINNYA"];
-
-  //useState variable to handle button color
-  const [activeButton, setActiveButton] = React.useState<string>("");
-
+  const category: CategoryList[] = [
+    {
+      label: "SD",
+      value: "2a03863e-fe20-4395-bb5c-bf275ca88ba2",
+    },
+    {
+      label: "SMP",
+      value: "3bbbcc17-98f5-4c86-a286-04bf914a801a",
+    },
+    {
+      label: "SMA",
+      value: "eee2e5b2-ee9d-45f8-9c41-078cb50dfeee",
+    },
+    {
+      label: "KULIAH",
+      value: "bc2da986-82af-481b-be86-c21825e4dce0",
+    },
+    {
+      label: "UMUM",
+      value: "10405139-279b-40fb-8240-c8430774044f",
+    },
+    {
+      label: "LAINNYA",
+      value: "64c3b319-dd96-45bf-a14d-75bdbe12f45f",
+    },
+  ];
   return (
     <div className="bg-[#F6F6F6]  w-full h-auto flex flex-col items-center px-[10%] py-24 space-y-6 sm:min-h-screen sm:px-10 sm:py-12 sm:space-y-10 ">
       <div className="flex flex-col space-y-1 sm:space-y-4 sm:w-[601px]">
@@ -143,32 +137,221 @@ export default function LearningMaterials() {
           internal laptop pocket, on the back panel.
         </p>
       </div>
-
       <div className="bg-[#FFF] flex shadow-[5px_5px_4px_0px] shadow-[#00000040] justify-center items-center rounded-full w-auto h-[27px] space-x-1 sm:space-x-8 sm:h-[50px]">
-        {kelas.map((label, index) => (
+        {category.map((item, index) => (
           <button
             key={index}
-            onClick={() => setActiveButton(label)}
+            onClick={() => {
+              setActiveButton(item.label);
+              setActiveCategory(item.value);
+              mutate(`/lesson/getByCategory?id=${activeCategory}`);
+            }}
             className={`text-center font-medium transition h-full rounded-full px-3 text-[13px] sm:text-2xl sm:px-8 ${
-              activeButton === label
+              activeButton === item.label
                 ? "bg-blue-700 text-[#FFF]"
                 : "bg-[#FFF] text-black"
             }`}
           >
-            {label}
+            {item.label}
           </button>
         ))}
       </div>
-
       <Slider {...settings}>
-        {materi.map((materi) => (
+        {data?.map((materi, index) => (
           <CardLearningMaterials
-            key={materi.id}
-            title={materi.title}
-            description={materi.descriptions}
+            category={materi.category.name}
+            image={materi.image}
+            key={index}
+            title={materi.name}
+            description={materi.description}
           />
         ))}
       </Slider>
     </div>
   );
-}
+};
+
+export default LearningMaterials;
+
+// export default function LearningMaterials() {
+//   const [activeCategory, setActiveCategory] = React.useState<string>("");
+//   const {data}: SWRResponse<LessonData> = useSWR(`/lesson/getByCategory?id=`, (url) => axiosInstance.get(url).then((res) => res.data))
+//   console.log(data);
+//   // dummy data
+
+//   const materi = [
+//     {
+//       id: 1,
+//       title: "Matematika",
+//       descriptions:
+//         "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
+//     },
+//     {
+//       id: 2,
+//       title: "Matematika",
+//       descriptions:
+//         "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
+//     },
+//     {
+//       id: 1,
+//       title: "Matematika",
+//       descriptions:
+//         "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
+//     },
+//     {
+//       id: 3,
+//       title: "Matematika",
+//       descriptions:
+//         "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
+//     },
+//     {
+//       id: 4,
+//       title: "Matematika",
+//       descriptions:
+//         "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
+//     },
+//     {
+//       id: 5,
+//       title: "Matematika",
+//       descriptions:
+//         "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
+//     },
+//     {
+//       id: 6,
+//       title: "Matematika",
+//       descriptions:
+//         "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
+//     },
+//     {
+//       id: 7,
+//       title: "Matematika",
+//       descriptions:
+//         "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
+//     },
+//     {
+//       id: 8,
+//       title: "Matematika",
+//       descriptions:
+//         "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
+//     },
+//   ];
+
+//   // carousel settings
+//   const settings = {
+//     dots: true,
+//     className: " h-auto w-full pl-[3%]   sm:pl-[3%]   ",
+
+//     infinite: true,
+//     autoplay: false,
+//     speed: 2000,
+//     autoplaySpeed: 2000,
+//     slidesToShow: 3,
+//     slidesToScroll: 3,
+//     rows: 2,
+//     slidesPerRow: 1,
+//     nextArrow: <NextArrow />,
+//     prevArrow: <PrevArrow />,
+//     responsive: [
+//       {
+//         breakpoint: 1024,
+//         settings: {
+//           slidesToShow: 3,
+//           slidesToScroll: 3,
+//           infinite: true,
+//           dots: true,
+//         },
+//       },
+//       {
+//         breakpoint: 600,
+//         settings: {
+//           slidesToShow: 2,
+//           slidesToScroll: 2,
+//           initialSlide: 2,
+//         },
+//       },
+//       {
+//         breakpoint: 480,
+//         settings: {
+//           rows: 1,
+//           slidesToShow: 2,
+//           slidesToScroll: 2,
+//         },
+//       },
+//     ],
+//   };
+
+//   // array variabel kelas
+//   const kelas: string[] = ["SD", "SMP", "SMA", "KULIAH", "UMUM", "LAINNYA"];
+
+//   const category: CategoryList[] = [
+//     {
+//       label : "SD",
+//       value : "2a03863e-fe20-4395-bb5c-bf275ca88ba2"
+//     },
+//     {
+//       label : "SMP",
+//       value : "3bbbcc17-98f5-4c86-a286-04bf914a801a"
+//     },
+//     {
+//       label : "SMA",
+//       value : "eee2e5b2-ee9d-45f8-9c41-078cb50dfeee"
+//     },
+//     {
+//       label : "KULIAH",
+//       value : "bc2da986-82af-481b-be86-c21825e4dce0"
+//     },
+//     {
+//       label : "UMUM",
+//       value : "10405139-279b-40fb-8240-c8430774044f"
+//     },
+//     {
+//       label : "LAINNYA",
+//       value : "64c3b319-dd96-45bf-a14d-75bdbe12f45f"
+//     },
+//   ]
+
+//   //useState variable to handle button color
+//   const [activeButton, setActiveButton] = React.useState<string>("");
+
+//   return (
+//     <div className="bg-[#F6F6F6]  w-full h-auto flex flex-col items-center px-[10%] py-24 space-y-6 sm:min-h-screen sm:px-10 sm:py-12 sm:space-y-10 ">
+//       <div className="flex flex-col space-y-1 sm:space-y-4 sm:w-[601px]">
+//         <p className="font-extrabold text-center text-[#332929] text-[26px] sm:text-5xl">
+//           Materi Pembelajaran
+//         </p>
+//         <p className="text-center text-[#7C7C7C] text-[12px] sm:text-lg">
+//           This clean and ever contemporary waterproof rucksack features an
+//           internal laptop pocket, on the back panel.
+//         </p>
+//       </div>
+
+//       <div className="bg-[#FFF] flex shadow-[5px_5px_4px_0px] shadow-[#00000040] justify-center items-center rounded-full w-auto h-[27px] space-x-1 sm:space-x-8 sm:h-[50px]">
+//         {category.map((item, index) => (
+//           <button
+//             key={index}
+//             onClick={() => {
+//               setActiveButton(item.label)
+//             }}
+//             className={`text-center font-medium transition h-full rounded-full px-3 text-[13px] sm:text-2xl sm:px-8 ${
+//               activeButton === item.label
+//                 ? "bg-blue-700 text-[#FFF]"
+//                 : "bg-[#FFF] text-black"
+//             }`}
+//           >
+//             {item.label}
+//           </button>
+//         ))}
+//       </div>
+
+//       <Slider {...settings}>
+//         {materi.map((materi) => (
+//           <CardLearningMaterials
+//             key={materi.id}
+//             title={materi.title}
+//             description={materi.descriptions}
+//           />
+//         ))}
+//       </Slider>
+//     </div>
+//   );
+// }

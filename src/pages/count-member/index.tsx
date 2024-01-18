@@ -11,7 +11,7 @@ import ToastSucces from "@/components/cms/ToastSucces";
 import { Modal } from "flowbite-react";
 import useAxiosPrivate from "@/utils/UseAxiosPrivate";
 import useLocalStorage from "@/utils/useLocalStorage";
-import { SWRResponse, mutate } from "swr";
+import { mutate } from "swr";
 import useSWR from "swr";
 
 interface FormData {

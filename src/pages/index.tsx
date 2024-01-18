@@ -5,17 +5,32 @@ import Gallery from "@/components/landing-pages/Beranda/Gallery";
 import Footer from "@/components/landing-pages/Footer";
 import Loading from "@/components/landing-pages/Loading";
 import * as React from "react";
+import useSWR from "swr";
+import { axiosInstance } from "@/utils/axios";
 
 const Home = () => {
-  const [isLoading, setIsLoading] = React.useState<boolean>(true);
+  // const [isLoading, setIsLoading] = React.useState<boolean>(true);
+  const {
+    data,
+    error,
+    isLoading,
+  } = useSWR(
+    `/count`,
+    (url) =>
+      axiosInstance.get(url).then((res) => {
+        return res.data;
+      })
+  );
 
-  React.useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 5000);
+  // console.log(data);
 
-    return () => clearTimeout(timer);
-  }, []);
+  // React.useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setIsLoading(false);
+  //   }, 5000);
+
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   return (
     <>
@@ -23,7 +38,7 @@ const Home = () => {
         <Loading />
       ) : (
         <>
-          <MainPages />
+          <MainPages event={data[1].value} member={data[0].value} />
           <Services />
           <Testimonials />
           <Gallery />
