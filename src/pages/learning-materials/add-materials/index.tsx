@@ -62,6 +62,7 @@ const AddMaterials = () => {
 
   // const [selectedOption, setSelectedOption] = React.useState<string>();
   const [showToast, setShowToast] = React.useState(false);
+  const [failedMessage, setFailedMessage] = React.useState<string>("")
   const [showToastFailed, setShowToastFailed] = React.useState(false);
   const [uploadedFileName, setUploadedFileName] = React.useState<string | null>(
     null
@@ -108,17 +109,19 @@ const AddMaterials = () => {
       });
       return;
       }
+      setFailedMessage("File Wajib Diisi");
       setShowToastFailed(true);
-      alert("File Wajib Diisi");
+      // alert("File Wajib Diisi");
     } catch (error: any) {
-      setShowToastFailed(true);
-      if (error.response.status === 500){
-        console.log(error)
-      }
+      // setShowToastFailed(true);
       if (error.response.status === 400) {
-        alert(error.response.data.message[0].message);
+        // alert(error.response.data.message[0].message);
+        setFailedMessage(error.response.data.message[0].message);
+        setShowToastFailed(true);
       } else {
-        alert(error.response.data.message);
+        setFailedMessage(error.response.data.message);
+        setShowToastFailed(true);
+        // alert(error.response.data.message);
       }
     }
   };
@@ -234,7 +237,7 @@ const AddMaterials = () => {
       )}
       {showToastFailed && (
         <ToastFailed
-          text="Data Gagal Ditambah"
+          text={failedMessage}
           onDismiss={() => setShowToastFailed(false)}
         ></ToastFailed>
       )}
