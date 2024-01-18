@@ -21,7 +21,6 @@ const CardLearningMaterials: React.FC<CardLearningMaterialsProps> = ({
   const [openModal, setOpenModal] = React.useState<boolean>(false);
 
   const customTheme: CustomFlowbiteTheme["modal"] = {
-    
     header: {
       close: {
         base: "ml-auto inline-flex items-center rounded-lg bg-transparent pr-2 text-sm text-gray-900  ",
@@ -37,8 +36,8 @@ const CardLearningMaterials: React.FC<CardLearningMaterialsProps> = ({
           {title}
         </p>
       </div>
-      <div className="bg-[#FFF] rounded-[7.771px] px-1 py-2 sm:px-[15px] sm:py-[19px]">
-        <p className="font-thin text-[6.26px] max-w-[114px] sm:max-w-[250px] sm:text-base ">
+      <div className="bg-[#FFF] rounded-[7.771px] px-1 py-2 min-w-full h-[65%] sm:h-[72%] sm:px-[15px] sm:py-[19px]">
+        <p className="font-thin text-[6.26px] overflow-x-auto max-w-[114px]  max-h-[100%] sm:max-w-[250px] sm:text-base ">
           {description}
         </p>
       </div>

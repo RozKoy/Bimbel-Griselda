@@ -23,6 +23,45 @@ function PrevArrow(props: any) {
     </div>
   );
 }
+var settings = {
+  className: " h-auto w-full pl-[3%]    sm:pl-[3%]   ",
+  dots: true,
+  infinite: false,
+  speed: 500,
+  rows: 2,
+  nextArrow: <NextArrow />,
+  prevArrow: <PrevArrow />,
+  slidesToShow: 3,
+  slidesToScroll: 3,
+  initialSlide: 0,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true,
+      },
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        initialSlide: 2,
+      },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        rows: 1,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+  ],
+};
 export default function LearningMaterials() {
   // dummy data
   const materi = [
@@ -30,101 +69,57 @@ export default function LearningMaterials() {
       id: 1,
       title: "Matematika",
       descriptions:
-        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
+        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
     },
     {
       id: 2,
-      title: "Matematika",
-      descriptions:
-        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
-    },
-    {
-      id: 1,
-      title: "Matematika",
+      title: "IPA",
       descriptions:
         "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
     },
     {
       id: 3,
-      title: "Matematika",
+      title: "IPS",
       descriptions:
         "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
     },
     {
       id: 4,
-      title: "Matematika",
+      title: "Sejarah",
       descriptions:
         "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
     },
     {
       id: 5,
-      title: "Matematika",
+      title: "Fisika",
       descriptions:
         "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
     },
     {
       id: 6,
-      title: "Matematika",
+      title: "Kimia",
       descriptions:
         "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
     },
     {
       id: 7,
-      title: "Matematika",
+      title: "Penjas",
       descriptions:
         "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
     },
     {
       id: 8,
-      title: "Matematika",
+      title: "Sosiologi",
+      descriptions:
+        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
+    },
+    {
+      id: 9,
+      title: "Ekonomi",
       descriptions:
         "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
     },
   ];
-
-  // carousel settings
-  const settings = {
-    dots: true,
-    className: " h-auto w-full pl-[3%]   sm:pl-[3%]   ",
-
-    infinite: true,
-    autoplay: false,
-    speed: 2000,
-    autoplaySpeed: 2000,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    rows: 2,
-    slidesPerRow: 1,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          rows: 1,
-          slidesToShow: 2,
-          slidesToScroll: 2,
-        },
-      },
-    ],
-  };
 
   // array variabel kelas
   const kelas: string[] = ["SD", "SMP", "SMA", "KULIAH", "UMUM", "LAINNYA"];
