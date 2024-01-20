@@ -21,10 +21,11 @@ export default function PatnerDescription() {
             Mitra
           </p>
           <p className="text-[#0000008c] text-[15px] sm:text-[26.909px] w-full">
-            Aspiring teachers can take advantage of mentorship and personal
-            mentorship programs to get direct guidance from experienced
-            educators. This creates an opportunity for personal questions and
-            in-depth discussion.
+            Kemitraan adalah hubungan kerjasama antara dua pihak atau lebih yang
+            sepakat untuk saling bekerja sama demi mencapai tujuan bersama. Pada
+            Bimbel Griselda kemitraan merupakan kerjasama dalam berbagai hal
+            untuk memudahkan generasi bangsa agar bisa mencapai tujuan mereka
+            kedepannya.
           </p>
         </div>
       </div>

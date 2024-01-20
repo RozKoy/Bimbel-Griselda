@@ -5,7 +5,6 @@ import PrevIcon from "../Icons/PrevIcon";
 import NextIcon from "../Icons/NextIcon";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
 function NextArrow(props: any) {
   const { className, style, onClick } = props;
   return (

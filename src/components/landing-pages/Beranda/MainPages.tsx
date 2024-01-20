@@ -57,22 +57,30 @@ const MainPages = () => {
               <p className="text-[8px] sm:text-[15px]">Events</p>
             </div>
             <div className="w-1/3 h-full bg-[#0065FF] rounded-tr-[26px] flex justify-center items-center space-x-1 sm:rounded-tr-[0px] sm:flex sm:justify-center sm:items-center sm:space-x-3">
-              <WA
-                fill="#FAFBFD"
-                className="w-[14px] h-[14px] sm:w-[28px] sm:h-[28px]"
-              />
-              <Instagrams
-                fill="#FAFBFD"
-                className="w-[14px] h-[14px] sm:w-[28px] sm:h-[28px]"
-              />
-              <Facebook
-                fill="#FAFBFD"
-                className="w-[14px] h-[14px] sm:w-[28px] sm:h-[28px]"
-              />
-              <Tiktok
-                fill="#FAFBFD"
-                className="w-[14px] h-[14px] sm:w-[28px] sm:h-[28px]"
-              />
+              <Link href="">
+                <WA
+                  fill="#FAFBFD"
+                  className="w-[14px] h-[14px] sm:w-[28px] sm:h-[28px]"
+                />
+              </Link>
+              <Link href="https://www.instagram.com/bimbel_griselda?igsh=NTc4MTIwNjQ2YQ==">
+                <Instagrams
+                  fill="#FAFBFD"
+                  className="w-[14px] h-[14px] sm:w-[28px] sm:h-[28px]"
+                />
+              </Link>
+              <Link href="">
+                <Facebook
+                  fill="#FAFBFD"
+                  className="w-[14px] h-[14px] sm:w-[28px] sm:h-[28px]"
+                />
+              </Link>
+              <Link href="https://www.tiktok.com/@bimbelgriselda">
+                <Tiktok
+                  fill="#FAFBFD"
+                  className="w-[14px] h-[14px] sm:w-[28px] sm:h-[28px]"
+                />
+              </Link>
             </div>
           </div>
         </div>

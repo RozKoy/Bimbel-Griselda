@@ -1,4 +1,12 @@
 import content from "/public/assets/latar.png";
+import content1 from "/public/assets/galeri1.jpeg";
+import content2 from "/public/assets/galeri2.jpeg";
+import content3 from "/public/assets/galeri3.jpeg";
+import content4 from "/public/assets/galeri4.jpeg";
+import content5 from "/public/assets/galeri5.jpeg";
+import content6 from "/public/assets/galeri6.jpeg";
+import content7 from "/public/assets/galeri7.jpg";
+import content8 from "/public/assets/galeri8.jpg";
 import Content from "./Content";
 import Slider from "react-slick";
 import PrevIcon from "../Icons/PrevIcon";
@@ -26,7 +34,7 @@ function PrevArrow(props: any) {
 
 const Gallery = () => {
   const settings = {
-    className: " h-auto w-full   pl-[9.7%] pr-[5%]  sm:px-0 ",
+    className: " h-auto w-full   pl-[9.7%] pr-[5%]  sm:px-5 ",
 
     infinite: true,
     autoplay: true,
@@ -82,14 +90,14 @@ const Gallery = () => {
         </div>
 
         <Slider {...settings}>
-          <Content src={content} />
-          <Content src={content} />
-          <Content src={content} />
-          <Content src={content} />
-          <Content src={content} />
-          <Content src={content} />
-          <Content src={content} />
-          <Content src={content} />
+          <Content src={content1} />
+          <Content src={content2} />
+          <Content src={content3} />
+          <Content src={content4} />
+          <Content src={content5} />
+          <Content src={content6} />
+          <Content src={content7} />
+          <Content src={content8} />
         </Slider>
       </div>
     </div>
