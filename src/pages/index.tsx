@@ -24,7 +24,7 @@ const Home = () => {
       ) : (
         <>
           <MainPages />
-          <Services />
+          <Services name="nextSection" />
           <Testimonials />
           <Gallery />
           <Footer />

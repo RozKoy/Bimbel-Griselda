@@ -34,7 +34,7 @@ function PrevArrow(props: any) {
 
 const Gallery = () => {
   const settings = {
-    className: " h-auto w-full   pl-[9.7%] pr-[5%]  sm:px-5 ",
+    className: " h-auto w-full   pl-[9.7%] pr-[5%]  sm:pr-5 sm:pl-6 ",
 
     infinite: true,
     autoplay: true,

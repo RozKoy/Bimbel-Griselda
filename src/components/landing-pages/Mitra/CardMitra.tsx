@@ -22,7 +22,7 @@ const CardMitra: React.FC<CardMitraProps> = ({ title, description, src }) => {
           width={50}
           height={44}
           alt="mitra"
-          className="w-[44px] h-[44px]  sm:w-[50px] sm:h-[44px]"
+          className="w-[44px] h-[44px] rounded-full sm:w-[50px] sm:h-[44px]"
         />
       </div>
     </div>

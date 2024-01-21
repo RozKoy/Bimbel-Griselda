@@ -7,6 +7,7 @@ interface CardPacketProps {
   pricelist2?: string;
   pricelist3?: string;
   pricelist4?: string;
+  href?:any;
 }
 
 const CardPacket: React.FC<CardPacketProps> = ({
@@ -15,6 +16,7 @@ const CardPacket: React.FC<CardPacketProps> = ({
   pricelist2,
   pricelist3,
   pricelist4,
+  href
 }) => {
   return (
     <div className="  relative flex items-center w-[171.563px] h-[240px] sm:h-[460px] sm:w-[300px]">
@@ -43,7 +45,7 @@ const CardPacket: React.FC<CardPacketProps> = ({
           </div>
 
           <Link
-            href=""
+            href={href}
             className="bg-[#06AC58] flex justify-center items-center  rounded-full w-[115.45px] h-[26.43px] space-x-1 sm:space-x-3 sm:w-[201px] sm:h-[47px]"
           >
             <p className="text-white text-[10.30px] sm:text-lg">

@@ -1,4 +1,5 @@
 import maskot from "/public/assets/maskot.png";
+import { Link as ScrollLink } from "react-scroll";
 import Image from "next/image";
 import Navbar from "../Navbar";
 import Link from "next/link";
@@ -23,12 +24,14 @@ const MainPages = () => {
                 bersama Bimbel Griselda! Bersama-sama kita raih sukses dan
                 keberhasilan dalam setiap langkah pembelajaran.&quot;
               </p>
-              <Link
-                href=""
-                className=" bg-[#0065FF] w-[166.84px] h-[44.6px] mb-8 text-white  hover:text-black hover:shadow-[inset_17rem_0_0_0] hover:shadow-white duration-[400ms,700ms] transition-[color,box-shadow] flex items-center justify-center rounded-full font-bold  sm:w-[255.05px] sm:h-14 "
+              <ScrollLink
+                to="nextSection" 
+                smooth={true}
+                duration={500} 
+                className=" bg-[#0065FF] w-[166.84px] h-[44.6px] cursor-pointer mb-8 text-white  hover:text-black hover:shadow-[inset_17rem_0_0_0] hover:shadow-white duration-[400ms,700ms] transition-[color,box-shadow] flex items-center justify-center rounded-full font-bold  sm:w-[255.05px] sm:h-14 "
               >
                 Jelajahi Sekarang
-              </Link>
+              </ScrollLink>
             </div>
             <div className="flex flex-col items-center">
               <div className="relative  w-[219.634px] h-[245px] flex justify-center items-center  sm:h-[492px] sm:w-[441px] sm:flex sm:justify-center sm:items-center sm:left-0 ">
@@ -57,7 +60,7 @@ const MainPages = () => {
               <p className="text-[8px] sm:text-[15px]">Events</p>
             </div>
             <div className="w-1/3 h-full bg-[#0065FF] rounded-tr-[26px] flex justify-center items-center space-x-1 sm:rounded-tr-[0px] sm:flex sm:justify-center sm:items-center sm:space-x-3">
-              <Link href="">
+              <Link href="https://wa.me/6282233216825">
                 <WA
                   fill="#FAFBFD"
                   className="w-[14px] h-[14px] sm:w-[28px] sm:h-[28px]"

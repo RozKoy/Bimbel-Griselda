@@ -4,12 +4,14 @@ interface CardPacketTKProps {
   title?: string;
   price?: string;
   status?: string;
+  href?: any;
 }
 
 const CardPacketTK: React.FC<CardPacketTKProps> = ({
   title,
   price,
   status,
+  href,
 }) => {
   return (
     <div className="relative flex items-center  w-[171.563px] h-[130px] sm:h-[250px] sm:w-[300px]">
@@ -26,7 +28,7 @@ const CardPacketTK: React.FC<CardPacketTKProps> = ({
           </div>
 
           <Link
-            href=""
+            href={href}
             className="bg-[#06AC58] flex justify-center items-center  rounded-full w-[115.45px] h-[26.43px] space-x-1 sm:space-x-3 sm:w-[201px] sm:h-[47px]"
           >
             <p className="text-white text-[10.30px] sm:text-lg">

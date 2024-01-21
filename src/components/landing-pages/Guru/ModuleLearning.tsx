@@ -81,13 +81,34 @@ const ModuleLearning = () => {
       </div>
 
       <Slider {...settings}>
-        <CardModule title="Jenjang Kelas TK" />
-        <CardModule title="Jenjang Kelas SD" />
-        <CardModule title="Jenjang Kelas SMP" />
-        <CardModule title="Jenjang Kelas SMA" />
-        <CardModule title="Jenjang Kelas Kuliah" />
-        <CardModule title="Jenjang Kelas Umum" />
-        <CardModule title="Jenjang Kelas Dll" />
+        <CardModule
+          title="Jenjang Kelas TK"
+          href="https://wa.me/6282233216825?text=Halo+kak%2C+saya+tertarik+untuk+membeli+bahan+ajar+bimbel+griselda+jenjang+kelas+TK.+Tolong+beri+pricelist+dan+info+selengkapnya"
+        />
+        <CardModule
+          title="Jenjang Kelas SD"
+          href="https://wa.me/6282233216825?text=Halo+kak%2C+saya+tertarik+untuk+membeli+bahan+ajar+bimbel+griselda+jenjang+kelas+SD.+Tolong+beri+pricelist+dan+info+selengkapnya"
+        />
+        <CardModule
+          title="Jenjang Kelas SMP"
+          href="https://wa.me/6282233216825?text=Halo+kak%2C+saya+tertarik+untuk+membeli+bahan+ajar+bimbel+griselda+jenjang+kelas+SMP.+Tolong+beri+pricelist+dan+info+selengkapnya"
+        />
+        <CardModule
+          title="Jenjang Kelas SMA"
+          href="https://wa.me/6282233216825?text=Halo+kak%2C+saya+tertarik+untuk+membeli+bahan+ajar+bimbel+griselda+jenjang+kelas+SMA.+Tolong+beri+pricelist+dan+info+selengkapnya"
+        />
+        <CardModule
+          title="Jenjang Kelas Kuliah"
+          href="https://wa.me/6282233216825?text=Halo+kak%2C+saya+tertarik+untuk+membeli+bahan+ajar+bimbel+griselda+jenjang+kelas+KULIAH.+Tolong+beri+pricelist+dan+info+selengkapnya"
+        />
+        <CardModule
+          title="Jenjang Kelas Umum"
+          href="https://wa.me/6282233216825?text=Halo+kak%2C+saya+tertarik+untuk+membeli+bahan+ajar+bimbel+griselda+jenjang+kelas+UMUM.+Tolong+beri+pricelist+dan+info+selengkapnya"
+        />
+        <CardModule
+          title="Jenjang Kelas Dll"
+          href="https://wa.me/6282233216825?text=Halo+kak%2C+saya+tertarik+untuk+membeli+bahan+ajar+bimbel+griselda+jenjang+kelas+DLL.+Tolong+beri+pricelist+dan+info+selengkapnya"
+        />
       </Slider>
     </div>
   );

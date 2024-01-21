@@ -15,15 +15,36 @@ export default function ClassLevel() {
 
         <div className="flex flex-col space-y-3 items-center sm:space-y-14 ">
           <div className="flex space-x-2 sm:space-x-12">
-            <WALink title="TK" />
-            <WALink title="SD" />
-            <WALink title="SMP" />
-            <WALink title="SMA" />
+            <WALink
+              title="TK"
+              href=" https://wa.me/6282233216825?text=Halo+kak+saya+ingin+daftar+bimbel+griselda+jenjang+TK+kelas+...+%28TK+kelas+berapa%29++Tolong+beri+pricelist+dan+info+selengkapnya"
+            />
+            <WALink
+              title="SD"
+              href=" https://wa.me/6282233216825?text=Halo+kak+saya+ingin+daftar+bimbel+griselda+jenjang+SD+kelas+...+%28SD+kelas+berapa%29++Tolong+beri+pricelist+dan+info+selengkapnya"
+            />
+            <WALink
+              title="SMP"
+              href=" https://wa.me/6282233216825?text=Halo+kak+saya+ingin+daftar+Bimbel+griselda+jenjang+SMP+kelas+...+%28SMP+kelas+berapa%29++Tolong+beri+pricelist+dan+info+selengkapnya"
+            />
+            <WALink
+              title="SMA"
+              href=" https://wa.me/6282233216825?text=Halo+kak+saya+ingin+daftar+Bimbel+griselda+jenjang+SMA+kelas+...+%28SMA+kelas+berapa%29++Tolong+beri+pricelist+dan+info+selengkapnya"
+            />
           </div>
           <div className="flex space-x-2 sm:space-x-12">
-            <WALink title="KULIAH" />
-            <WALink title="UMUM" />
-            <WALink title="DLL" />
+            <WALink
+              title="KULIAH"
+              href="https://wa.me/6282233216825?text=Halo+kak+saya+ingin+daftar+Bimbel+griselda+jenjang+Kuliah+semester+...+%28Semester+berapa%29++Tolong+beri+pricelist+dan+info+selengkapnya"
+            />
+            <WALink
+              title="UMUM"
+              href="https://wa.me/6282233216825?text=Halo+kak+saya+ingin+daftar+Bimbel+griselda+jenjang+UMUM+untuk+bidang+studi+...+%28Bidang+studi+apa%29++Tolong+beri+pricelist+dan+info+selengkapnya"
+            />
+            <WALink
+              title="DLL"
+              href="https://wa.me/6282233216825?text=Halo+kak+saya+ingin+daftar+bimbel+griselda+jenjang+DLL+kelas+...+%28DLL+kelas+berapa%29++Tolong+beri+pricelist+dan+info+selengkapnya"
+            />
           </div>
         </div>
       </div>

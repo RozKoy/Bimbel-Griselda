@@ -1,7 +1,13 @@
 import CardServices from "../CardServices";
-const Services = () => {
+interface ServiceProps {
+  name?: string;
+}
+const Services: React.FC<ServiceProps> = ({ name }) => {
   return (
-    <div className="bg-[#F6F6F6] w-full min-h-screen flex flex-col justify-center items-center ">
+    <div
+      id={name}
+      className="bg-[#F6F6F6] w-full min-h-screen flex flex-col justify-center items-center "
+    >
       <div className="text-center    flex flex-col space-y-2 sm:space-y-6">
         <p className="text-[#020202] text-[26px] font-bold sm:text-5xl">
           Yang Kami Tawarkan

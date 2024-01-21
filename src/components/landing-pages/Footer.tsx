@@ -42,26 +42,34 @@ export default function Footer() {
             <p className="font-bold text-[17px] md:text-2xl"> HUBUNGI KAMI</p>
           </div>
           <p className="mb-4 w-[338px]">
-            Headquarter Office Jl. Brigjen Hasan Kasim, Ruko 30A Kecamatan
-            Sukaramme, Kota Bandar Lampung 30114.
+            Alamat: jl. Griya Permata Gedangan blok i1 no 17, Keboansikep,
+            Gedangan, Sidoarjo (lantai 2)
           </p>
           <div className=" flex space-x-3">
-            <WA
-              fill="#0065FF"
-              className="h-[14px] w-[14px] md:h-[28px] md:w-[28px]"
-            />
-            <Instagrams
-              fill="#0065FF"
-              className="h-[14px] w-[14px] md:h-[28px] md:w-[28px]"
-            />
-            <Facebook
-              fill="#0065FF"
-              className="h-[14px] w-[14px] md:h-[28px] md:w-[28px]"
-            />
-            <Tiktok
-              fill="#0065FF"
-              className="h-[14px] w-[14px] md:h-[28px] md:w-[28px]"
-            />
+            <Link href="https://wa.me/6282233216825">
+              <WA
+                fill="#0065FF"
+                className="h-[14px] w-[14px] md:h-[28px] md:w-[28px]"
+              />
+            </Link>
+            <Link href="https://www.instagram.com/bimbel_griselda?igsh=NTc4MTIwNjQ2YQ==">
+              <Instagrams
+                fill="#0065FF"
+                className="h-[14px] w-[14px] md:h-[28px] md:w-[28px]"
+              />
+            </Link>
+            <Link href="">
+              <Facebook
+                fill="#0065FF"
+                className="h-[14px] w-[14px] md:h-[28px] md:w-[28px]"
+              />
+            </Link>
+            <Link href="https://www.tiktok.com/@bimbelgriselda">
+              <Tiktok
+                fill="#0065FF"
+                className="h-[14px] w-[14px] md:h-[28px] md:w-[28px]"
+              />
+            </Link>
           </div>
         </div>
 
