@@ -20,14 +20,16 @@ const MainPages = () => {
                 Bimbel Griselda
               </p>
               <p className="text-[15px] mb-[20.89px] sm:text-[20px]">
-                &quot;Tingkatkan potensimu dan capai prestasimu yang maksimal
-                bersama Bimbel Griselda! Bersama-sama kita raih sukses dan
-                keberhasilan dalam setiap langkah pembelajaran.&quot;
+                Selamat datang di Griselda, pintu gerbang ke dunia pembelajaran
+                yang menginspirasi. Jelajahi beranda kami untuk merasakan
+                pengalaman unik, temukan layanan berkualitas tinggi yang kami
+                tawarkan, terinspirasi oleh testimoni pelanggan setia kami, dan
+                lihat momen-momen berharga dalam galeri kami.
               </p>
               <ScrollLink
-                to="nextSection" 
+                to="nextSection"
                 smooth={true}
-                duration={500} 
+                duration={500}
                 className=" bg-[#0065FF] w-[166.84px] h-[44.6px] cursor-pointer mb-8 text-white  hover:text-black hover:shadow-[inset_17rem_0_0_0] hover:shadow-white duration-[400ms,700ms] transition-[color,box-shadow] flex items-center justify-center rounded-full font-bold  sm:w-[255.05px] sm:h-14 "
               >
                 Jelajahi Sekarang
@@ -72,7 +74,7 @@ const MainPages = () => {
                   className="w-[14px] h-[14px] sm:w-[28px] sm:h-[28px]"
                 />
               </Link>
-              <Link href="">
+              <Link href="https://www.facebook.com/profile.php?id=61551844707061&mibextid=ZbWKwL">
                 <Facebook
                   fill="#FAFBFD"
                   className="w-[14px] h-[14px] sm:w-[28px] sm:h-[28px]"

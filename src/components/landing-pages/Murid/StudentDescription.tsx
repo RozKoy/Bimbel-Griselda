@@ -21,10 +21,9 @@ export default function StudentDescription() {
             Murid
           </p>
           <p className="text-[#0000008c] text-[15px] sm:text-[26.909px] w-full">
-            Aspiring teachers can take advantage of mentorship and personal
-            mentorship programs to get direct guidance from experienced
-            educators. This creates an opportunity for personal questions and
-            in-depth discussion.
+            Pahami lebih dalam jenjang kelas dan materi pembelajaran kami.
+            Griselda menyediakan kurikulum yang mendalam dan relevan untuk
+            mendukung pertumbuhan akademis dan pribadi setiap murid.
           </p>
         </div>
       </div>

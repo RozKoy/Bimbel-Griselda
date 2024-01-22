@@ -8,14 +8,17 @@ export default function RegistrationSteps() {
               Tahapan Pendaftaran
             </p>
             <p className="text-[#7C7C7C] text-[15px] sm:text-lg">
-              This clean and ever contemporary waterproof rucksack features an
-              internal laptop pocket, on the back panel.
+              Mulai perjalanan pendidikan Anda dengan Griselda. Pada halaman
+              tahapan pendaftaran, temukan proses pendaftaran yang sederhana dan
+              pilihan paket yang dapat disesuaikan dengan kebutuhan Anda.
             </p>
           </div>
         </div>
         <div className="bg-gradient-to-r from-[#ffb40078] to-transparent h-[150px] pl-6 sm:pl-0 sm:from-[#FFFFFF] sm:to-[#FFFFFF] sm:w-1/4 sm:h-full sm:px-2 sm:flex sm:flex-col sm:justify-end  sm:hover:bg-gradient-to-b sm:hover:from-[#ffb40078] sm:hover:via-[#ffb40078] sm:hover:to-transparent">
           <div className="w-full bg-transparent flex items-center space-x-5 sm:space-x-0 sm:flex-col sm:items-end sm:h-3/4 sm:space-y-[64px] sm:pt-10">
-            <p className="font-semibold text-[60px] mr-[13px] sm:mr-0 sm:text-[84px]">01</p>
+            <p className="font-semibold text-[60px] mr-[13px] sm:mr-0 sm:text-[84px]">
+              01
+            </p>
             <p className=" sm:text-end font-light text-[24px] w-[242.75px] sm:text-3xl sm:w-[277px]">
               Isi formulir kemitraan yang tertera
             </p>

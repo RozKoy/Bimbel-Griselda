@@ -84,8 +84,10 @@ const Gallery = () => {
             Gallery
           </p>
           <p className="text-center text-[#2E2828] font-medium text-[12px] w-[334px] sm:text-lg sm:w-[535px]">
-            Most of them buy positive feedback for us which is none other than
-            the best service we provide
+            Mari melihat lebih dekat momen-momen berharga dalam perjalanan
+            pembelajaran dengan Griselda. Galeri kami memvisualisasikan dedikasi
+            kami terhadap pengembangan pribadi dan pencapaian akademis setiap
+            murid.
           </p>
         </div>
 

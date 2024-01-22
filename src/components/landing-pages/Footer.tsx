@@ -58,7 +58,7 @@ export default function Footer() {
                 className="h-[14px] w-[14px] md:h-[28px] md:w-[28px]"
               />
             </Link>
-            <Link href="">
+            <Link href="https://www.facebook.com/profile.php?id=61551844707061&mibextid=ZbWKwL">
               <Facebook
                 fill="#0065FF"
                 className="h-[14px] w-[14px] md:h-[28px] md:w-[28px]"

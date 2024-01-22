@@ -11,10 +11,10 @@ export default function GoalsAndBenefits() {
                 Tujuan dan Keuntungan
               </p>
               <p className="text-[] max-w-[357px]   sm:text-lg sm:max-w-[370px]">
-                Lorem Ipsum has been the industry&apos;s standard dummy text
-                ever since the 1500s, when an unknown printer took a galley of
-                type and scrambled it to make a type specimen book. It has
-                survived not only five centuries.
+                Yuk, bergabung dalam program bimbingan belajar Griselda untuk
+                mencapai prestasi akademis tertinggi!. Bimbingan belajar
+                Griselda memiliki tujuan dan keuntungan yang dapat dirasakan
+                oleh kalian!!
               </p>
             </div>
           </div>

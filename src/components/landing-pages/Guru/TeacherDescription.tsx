@@ -22,12 +22,13 @@ export default function TeacherDescription() {
         </div>
 
         <div className="flex flex-col w-full space-y-1 mt-6 sm:mt-0  sm:w-[612px] sm:space-y-2">
-          <p className="font-[800] text-[#FFB700] text-[60px] sm:text-[80px]">GURU</p>
+          <p className="font-[800] text-[#FFB700] text-[60px] sm:text-[80px]">
+            GURU
+          </p>
           <p className="text-[#0000008c] text-[15px] sm:text-[26.909px]">
-            Aspiring teachers can take advantage of mentorship and personal
-            mentorship programs to get direct guidance from experienced
-            educators. This creates an opportunity for personal questions and
-            in-depth discussion.
+            Dalam tim guru Griselda, kami memiliki para pendidik yang
+            berkomitmen memberikan panduan dan inspirasi. Jelajahi halaman guru
+            untuk mengenal lebih dekat dengan para mentormu.
           </p>
         </div>
       </div>

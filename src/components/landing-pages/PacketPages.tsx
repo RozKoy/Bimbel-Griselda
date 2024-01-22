@@ -206,8 +206,9 @@ export default function PacketPages() {
             Pilih Paket Kamu
           </p>
           <p className="text-[#7C7C7C] text-center text-[12px] sm:text-left sm:text-lg">
-            This clean and ever contemporary waterproof rucksack features an
-            internal laptop pocket, on the back panel.
+            Pilih paket pembelajaran yang sesuai dengan kebutuhan Anda. Griselda
+            menyediakan pricelist yang transparan, memudahkan Anda untuk memilih
+            pengalaman belajar yang cocok.
           </p>
         </div>
 

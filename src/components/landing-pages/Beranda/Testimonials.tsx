@@ -71,9 +71,11 @@ const Testimonials = () => {
           <p className="text-[#FFF] text-center  font-extrabold text-[26px] sm:text-5xl">
             Testimonials
           </p>
-          <p className="text-center text-[#FFF] font-medium text-[12px] w-[334px] sm:text-lg sm:w-[535px]">
-            Most of them buy positive feedback for us which is none other than
-            the best service we provide
+          <p className="text-center text-[#FFF] font-medium text-[12px] w-[334px] sm:text-lg sm:w-[540px]">
+            Kesuksesan cerita kami tercermin dalam testimoni pelanggan kami.
+            Baca pengalaman belajar yang menginspirasi dan melihat bagaimana
+            Griselda telah menjadi mitra setia dalam pencapaian pendidikan
+            mereka.
           </p>
         </div>
         <Slider {...settings}>

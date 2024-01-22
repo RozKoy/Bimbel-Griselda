@@ -12,27 +12,17 @@ const Services: React.FC<ServiceProps> = ({ name }) => {
         <p className="text-[#020202] text-[26px] font-bold sm:text-5xl">
           Yang Kami Tawarkan
         </p>
-        <p className="text-[#7C7C7C] font-medium text-[12px] w-[334px] sm:text-lg sm:w-[601px]">
-          This clean and ever contemporary waterproof rucksack features an
-          internal laptop pocket, on the back panel.
+        <p className="text-[#7C7C7C] font-medium text-[12px] w-[334px] sm:text-lg sm:w-[620px]">
+          Di Griselda, kami menghadirkan layanan yang tidak hanya memenuhi
+          tetapi melampaui harapan Anda. Dari bimbingan belajar hingga dukungan
+          guru yang berkualifikasi tinggi, temukan solusi pendidikan yang
+          dirancang khusus untuk setiap kebutuhan.
         </p>
       </div>
       <div className=" mt-4   space-y-4 sm:flex sm:space-y-0 sm:space-x-8 sm:mt-20">
-        <CardServices
-          href="/teacher"
-          title="Guru"
-          description="Increasingly-popular option for online shopping, where customers do not have to pay an additional shipping charge"
-        />
-        <CardServices
-          href="/student"
-          title="Murid"
-          description="Increasingly-popular option for online shopping, where customers do not have to pay an additional shipping charge"
-        />
-        <CardServices
-          href="/patner"
-          title="Mitra"
-          description="Increasingly-popular option for online shopping, where customers do not have to pay an additional shipping charge"
-        />
+        <CardServices href="/teacher" title="Guru" />
+        <CardServices href="/student" title="Murid" />
+        <CardServices href="/patner" title="Mitra" />
       </div>
     </div>
   );

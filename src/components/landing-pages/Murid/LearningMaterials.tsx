@@ -133,8 +133,9 @@ export default function LearningMaterials() {
           Materi Pembelajaran
         </p>
         <p className="text-center text-[#7C7C7C] text-[12px] sm:text-lg">
-          This clean and ever contemporary waterproof rucksack features an
-          internal laptop pocket, on the back panel.
+          Pahami lebih dalam jenjang kelas dan materi pembelajaran kami.
+          Griselda menyediakan kurikulum yang mendalam dan relevan untuk
+          mendukung pertumbuhan akademis dan pribadi setiap murid.
         </p>
       </div>
 

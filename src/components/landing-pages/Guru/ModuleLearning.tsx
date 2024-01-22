@@ -75,8 +75,9 @@ const ModuleLearning = () => {
           Bahan Ajar
         </p>
         <p className="text-center text-[#7C7C7C] text-[12px] sm:text-lg">
-          This clean and ever contemporary waterproof rucksack features an
-          internal laptop pocket, on the back panel.
+          Temukan koleksi bahan ajar berkualitas tinggi yang dirancang untuk
+          meningkatkan pengalaman belajar. Di Griselda, kami memastikan bahan
+          ajar memberikan dampak positif pada setiap sesi pembelajaran.
         </p>
       </div>
 
