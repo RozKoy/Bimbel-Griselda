@@ -69,7 +69,7 @@ const settings = {
 
 const ModuleLearning = () => {
   return (
-    <div className="bg-[#F6F6F6] w-full flex flex-col  justify-center items-center py-14 px-[7%] space-y-4 h-auto sm:px-4 sm:min-h-screen  sm:space-y-8">
+    <div className="bg-[#F6F6F6] w-full flex flex-col  justify-center items-center py-14 px-[10%] space-y-4 h-auto sm:px-4 sm:min-h-screen  sm:space-y-8">
       <div className="flex flex-col w-[334px] space-y-1 sm:space-y-3  sm:w-[661px]">
         <p className="text-center text-[#020202] font-extrabold text-[26px] sm:text-[48px]">
           Bahan Ajar
@@ -84,30 +84,37 @@ const ModuleLearning = () => {
       <Slider {...settings}>
         <CardModule
           title="Jenjang Kelas TK"
+          jenjang="TK"
           href="https://wa.me/6282233216825?text=Halo+kak%2C+saya+tertarik+untuk+membeli+bahan+ajar+bimbel+griselda+jenjang+kelas+TK.+Tolong+beri+pricelist+dan+info+selengkapnya"
         />
         <CardModule
           title="Jenjang Kelas SD"
+          jenjang="SD"
           href="https://wa.me/6282233216825?text=Halo+kak%2C+saya+tertarik+untuk+membeli+bahan+ajar+bimbel+griselda+jenjang+kelas+SD.+Tolong+beri+pricelist+dan+info+selengkapnya"
         />
         <CardModule
           title="Jenjang Kelas SMP"
+          jenjang="SMP"
           href="https://wa.me/6282233216825?text=Halo+kak%2C+saya+tertarik+untuk+membeli+bahan+ajar+bimbel+griselda+jenjang+kelas+SMP.+Tolong+beri+pricelist+dan+info+selengkapnya"
         />
         <CardModule
           title="Jenjang Kelas SMA"
+          jenjang="SMA"
           href="https://wa.me/6282233216825?text=Halo+kak%2C+saya+tertarik+untuk+membeli+bahan+ajar+bimbel+griselda+jenjang+kelas+SMA.+Tolong+beri+pricelist+dan+info+selengkapnya"
         />
         <CardModule
           title="Jenjang Kelas Kuliah"
+          jenjang="Kuliah"
           href="https://wa.me/6282233216825?text=Halo+kak%2C+saya+tertarik+untuk+membeli+bahan+ajar+bimbel+griselda+jenjang+kelas+KULIAH.+Tolong+beri+pricelist+dan+info+selengkapnya"
         />
         <CardModule
           title="Jenjang Kelas Umum"
+          jenjang="Kelas Umum"
           href="https://wa.me/6282233216825?text=Halo+kak%2C+saya+tertarik+untuk+membeli+bahan+ajar+bimbel+griselda+jenjang+kelas+UMUM.+Tolong+beri+pricelist+dan+info+selengkapnya"
         />
         <CardModule
           title="Jenjang Kelas Dll"
+          jenjang="Dll"
           href="https://wa.me/6282233216825?text=Halo+kak%2C+saya+tertarik+untuk+membeli+bahan+ajar+bimbel+griselda+jenjang+kelas+DLL.+Tolong+beri+pricelist+dan+info+selengkapnya"
         />
       </Slider>

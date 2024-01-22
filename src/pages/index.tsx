@@ -1,5 +1,6 @@
 import MainPages from "@/components/landing-pages/Beranda/MainPages";
 import Services from "@/components/landing-pages/Beranda/Service";
+import Navbar from "@/components/landing-pages/Navbar";
 import Testimonials from "@/components/landing-pages/Beranda/Testimonials";
 import Gallery from "@/components/landing-pages/Beranda/Gallery";
 import Footer from "@/components/landing-pages/Footer";
@@ -23,6 +24,7 @@ const Home = () => {
         <Loading />
       ) : (
         <>
+          
           <MainPages />
           <Services name="nextSection" />
           <Testimonials />

@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className=" bg-white flex flex-wrap items-center justify-between p-3 md:py-3 md:px-0 md:bg-transparent">
+    <nav className=" bg-white flex flex-wrap items-center justify-between p-3 md:py-3 md:px-0 md:bg-transparent ">
       <Image
         src={logo}
         className="h-[50px] w-[50px]"

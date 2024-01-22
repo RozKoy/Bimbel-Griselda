@@ -4,7 +4,7 @@ import teacher from "/public/assets/image 5.png";
 
 export default function TeacherDescription() {
   return (
-    <div className="bg-[#FAFBFD] w-full h-auto pb-4 sm:h-screen sm:px-10 ">
+    <div className="bg-[#FAFBFD] w-full h-auto pb-4 sm:h-screen sm:px-10  ">
       <Navbar />
 
       <div className=" px-4 mt-10  sm:ml-6 sm:mt-16 sm:flex sm:space-x-16">

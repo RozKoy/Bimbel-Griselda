@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 export default function ListMitra() {
   var settings = {
-    className: " h-auto w-full pl-[8%]  sm:pl-[3%] sm:pr-[2%] ",
+    className: " h-auto w-full pl-[3%]  sm:pl-[3%] sm:pr-[2%] ",
     dots: true,
     infinite: false,
     speed: 500,

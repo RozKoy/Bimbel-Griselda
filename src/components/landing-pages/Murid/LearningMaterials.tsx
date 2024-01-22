@@ -23,7 +23,7 @@ function PrevArrow(props: any) {
   );
 }
 var settings = {
-  className: " h-auto w-full pl-[3%]    sm:pl-[3%]   ",
+  className: " h-auto w-full pl-[0%]    sm:pl-[3%]   ",
   dots: true,
   infinite: false,
   speed: 500,
@@ -144,7 +144,7 @@ export default function LearningMaterials() {
           <button
             key={index}
             onClick={() => setActiveButton(label)}
-            className={`text-center font-medium transition h-full rounded-full px-3 text-[13px] sm:text-2xl sm:px-8 ${
+            className={`text-center font-medium transition h-full rounded-full px-2 text-[13px] sm:text-2xl sm:px-8 ${
               activeButton === label
                 ? "bg-blue-700 text-[#FFF]"
                 : "bg-[#FFF] text-black"
