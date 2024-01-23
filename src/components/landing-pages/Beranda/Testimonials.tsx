@@ -80,25 +80,21 @@ const Testimonials = () => {
         </div>
         <Slider {...settings}>
           <CardTestimonials
-            nama="Pandu"
-            job="Programmers"
-            testimony="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec arcu consectetur elementum id massa."
+            stroke="#0065FF"
+            testimony="Belajar sama bimbel griselda enak banget, kakanya ngajarnga santai tapi rinci, kalo belajar sama kakaknya aku jadi cepat nangkap, bintang ⭐⭐⭐⭐⭐"
           />
 
           <CardTestimonials
-            nama="Pandu"
-            job="Programmers"
-            testimony="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec arcu consectetur elementum id massa."
+            stroke="#FFB700"
+            testimony="BELAJAR SAMA KAKA DI BIMBEL GRISELDA JADI LEBIH MUDAH DAN SERU ABIZZZ DEH, AKU YANG KEMARIN GASUKA MTK JADI SUKAAA"
           />
           <CardTestimonials
-            nama="Pandu"
-            job="Programmers"
-            testimony="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec arcu consectetur elementum id massa."
+            stroke="#06AC58"
+            testimony="Buat salah satu kaka di bimbel Griselda. Makasih yah Kak semenjak kakak yang bantuin aku aku semakin pede dan belajar dan semakin bersemangat dan punya motivasi .juga aku lebih mudah memahami pelajaran Thanks ya kak muga-mugahan murid-murid yang lainnya juga punya inspirasi dan semangat dan belajar,kak Vanya dan tim tetap semangat!!! ya ... "
           />
           <CardTestimonials
-            nama="Pandu"
-            job="Programmers"
-            testimony="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec arcu consectetur elementum id massa."
+            stroke="#FD0000"
+            testimony="8/10 untuk kakak2nya, karena ramah2 dan sangat sabarrr, pas aku bingung sama soal sekolah, mereka bisa bantu, dan penjelasannya mudah dipahami - 9/10 untuk materi, materinya mengikuti pelajaran disekolah, dan mereka niat banget bikin materi, luv luv, aku dibikinin ppt untun ringkasan materi - 10/10 kakak2nya ramah banget, suka2 - 10/10 jam belajarnya fleksibel banget, sama2 mengikuti jadwal kesibukan masing2, jadi meskipun hari ini gabisa, bisa diganti besok🫰🏻🫰🏻🫰🏻- bintang 5 bwt semuanya🌟🌟🌟🌟🌟"
           />
         </Slider>
       </div>
