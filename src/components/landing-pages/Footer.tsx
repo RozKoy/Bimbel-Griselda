@@ -41,7 +41,7 @@ export default function Footer() {
             <div className="bg-[#0065FF] w-[3px] h-[33px]"></div>
             <p className="font-bold text-[17px] md:text-2xl"> HUBUNGI KAMI</p>
           </div>
-          <p className="mb-4 w-[338px] sm:w-[400px]">
+          <p className="mb-4 w-[338px] sm:w-[300px]">
             Jl. Griya Permata Gedangan Blok I1 No 17, Keboansikep, Gedangan,
             Sidoarjo (Lantai 2)
           </p>

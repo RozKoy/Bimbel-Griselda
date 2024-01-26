@@ -1,6 +1,6 @@
 export default function RegistrationSteps() {
   return (
-    <div className="w-full sm:min-h-screen sm:relative">
+    <div className="w-full sm:min-h-screen sm:relative ">
       <div className=" w-full h-auto pt-[4%] sm:pt-0 sm:flex sm:h-screen">
         <div className="ml-4 mb-1 sm-mb-0 sm:ml-0 sm:absolute sm:top-[5%] sm:left-[5%]">
           <div className="flex flex-col sm:space-y-2 sm:max-w-[601px]">
