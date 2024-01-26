@@ -9,6 +9,10 @@ import update from "../../../public/assets/updates.png";
 import { SubmitHandler, useForm } from "react-hook-form";
 import ToastSucces from "@/components/cms/ToastSucces";
 import { Modal } from "flowbite-react";
+import useAxiosPrivate from "@/utils/UseAxiosPrivate";
+import useLocalStorage from "@/utils/useLocalStorage";
+import { SWRResponse, mutate } from "swr";
+import useSWR from "swr";
 
 interface FormData {
   member: number;
@@ -21,9 +25,34 @@ const CountMember = () => {
     { text: "Jumlah" },
   ];
 
+  const axiosPrivate = useAxiosPrivate();
+  const [accessToken, _] = useLocalStorage("accessToken", "");
   const [openModal, setOpenModal] = React.useState<boolean>(false);
   const [openModal2, setOpenModal2] = React.useState<boolean>(false);
   const [showToast, setShowToast] = React.useState(false);
+
+  const {
+    data,
+    error,
+    isLoading,
+  } = useSWR(
+    `/count`,
+    (url) =>
+      axiosPrivate
+        .get(url, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        })
+        .then((res) => {
+          setValue2("event", res.data[0].value);
+          setValue("member", res.data[1].value);
+          res.data;
+        }),{
+          revalidateOnFocus : false,
+        }
+  );
+
 
   const showModal = () => {
     setOpenModal(true);
@@ -34,9 +63,6 @@ const CountMember = () => {
 
   const { register, handleSubmit, setValue, watch, reset, formState } =
     useForm<FormData>({
-      defaultValues: {
-        member: 0,
-      },
     });
 
   const {
@@ -47,21 +73,34 @@ const CountMember = () => {
     reset: reset2,
     formState: formState2,
   } = useForm<FormData>({
-    defaultValues: {
-      event: 0,
-    },
   });
 
-  const onSubmit: SubmitHandler<FormData> = (data) => {
+  const onSubmit: SubmitHandler<FormData> = async (data) => {
+    const update = {
+      value : data.member
+    }
+    try{
+      await axiosPrivate.put('/count/update/member',update)
+    }catch(e){
+      alert("Update Gagal")
+    }
     setOpenModal(false);
     setShowToast(true);
-    console.log(data);
+    mutate(`/count`);
   };
 
-  const onSubmitEvent: SubmitHandler<FormData> = (data) => {
+  const onSubmitEvent: SubmitHandler<FormData> = async (data) => {
+    const update = {
+      value : data.event
+    }
+    try{
+      await axiosPrivate.put('/count/update/event',update)
+    }catch(e){
+      alert("Update Gagal")
+    }
     setOpenModal2(false);
     setShowToast(true);
-    console.log(data);
+    mutate(`/count`);
   };
 
   React.useEffect(() => {
@@ -70,7 +109,6 @@ const CountMember = () => {
     } else if (formState2.isSubmitSuccessful) {
       reset2({ event: 0 });
     }
-    
   }, [formState, reset, reset2, formState2]);
 
   const handleMinusClick = () => {

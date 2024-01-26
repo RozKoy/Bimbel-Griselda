@@ -4,11 +4,14 @@ import logo from "../../../public/assets/logo.png";
 import Image from "next/image";
 import InputText from "@/components/cms/login/InputText";
 import { useForm } from "react-hook-form";
-// import Helper from "@/components/cms/login/Helper";
+import Helper from "@/components/cms/login/Helper";
 import Link from "next/link";
 import { Spinner } from "flowbite-react";
+import { axiosInstance } from "@/utils/axios";
+import { useRouter } from "next/router";
 
 const ForgetPassword = () => {
+  const router = useRouter();
   const {
     register,
     reset,
@@ -17,22 +20,31 @@ const ForgetPassword = () => {
     formState: { isSubmitSuccessful },
   } = useForm({ defaultValues: { email: "" } });
 
-  // const [message, setMessage] = React.useState<string>("");
+  const [message, setMessage] = React.useState<string>("");
 
   const { isSubmitting } = formState;
 
-
-   const onSubmit = async (data: object) => {
+   const onSubmit = async (data: any) => {
      await new Promise((resolve) => setTimeout(resolve, 2000));
-
-     console.log(data);
+    try{
+      await axiosInstance.post("/auth/admin/forget-password", data);
+      // router.push("/otp-verification", { query: { email: data.email } });
+      router.push({pathname: "/otp-verification", query: { email : data.email }}, undefined, { shallow: false })
+      return;
+    }catch(error : any){
+      if(error.response.status === 400) {
+        setMessage(error.response.data.message[0].message);
+      }else{
+        setMessage(error.response.data.message);
+      }
+    }
    };
 
-  React.useEffect(() => {
-    if (formState.isSubmitSuccessful) {
-      reset({ email: "" });
-    }
-  }, [formState, reset]);
+  // React.useEffect(() => {
+  //   if (formState.isSubmitSuccessful) {
+  //     reset({ email: "" });
+  //   }
+  // }, [formState, reset]);
 
   return (
     <LoginLayout>
@@ -57,7 +69,7 @@ const ForgetPassword = () => {
           />
         </div>
 
-        {/* <Helper message={message} /> */}
+        <Helper message={message} />
 
         <button
           type="submit"

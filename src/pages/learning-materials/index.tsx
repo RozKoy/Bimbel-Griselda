@@ -9,9 +9,48 @@ import * as React from "react";
 import { Pagination, Modal } from "flowbite-react";
 import hapus from "../../../public/assets/Delete.png";
 import ToastSucces from "@/components/cms/ToastSucces";
+import useAxiosPrivate from "@/utils/UseAxiosPrivate";
+import useLocalStorage from "@/utils/useLocalStorage";
+import { useRouter } from "next/router";
+import { SWRResponse, mutate } from "swr";
+import useSWR from "swr";
+
+interface Category {
+  id: string;
+  name: string;
+}
+
+interface Lesson {
+  id: string;
+  name: string;
+  description: string;
+  image: string;
+  category: Category;
+}
+
+interface LessonData {
+  items: any;
+  meta: any;
+}
 
 const LearningMaterials = () => {
   const [currentPage, setCurrentPage] = React.useState<number>(1);
+  const [search, setSearch] = React.useState("");
+  const axiosPrivate = useAxiosPrivate();
+  const [accessToken, _] = useLocalStorage("accessToken", "");
+  const router = useRouter();
+  const { data, error, isLoading }: SWRResponse<LessonData, any, boolean> =
+    useSWR(`/lesson/getAll?page=${currentPage}&search=${search}`, (url) =>
+      axiosPrivate
+        .get(url, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        })
+        .then((res) => res.data?.data)
+    );
+  const [target, setTarget] = React.useState("");
+  const [targetFile, setTargetFile] = React.useState("");
   const onPageChange = (page: number) => setCurrentPage(page);
   const [openModal, setOpenModal] = React.useState<boolean>(false);
   const [showToast, setShowToast] = React.useState(false);
@@ -20,12 +59,29 @@ const LearningMaterials = () => {
     { text: "Materi Pembelajran" },
   ];
 
-  function deleteData() {
+  async function deleteData() {
     setOpenModal(false);
+    try {
+      await axiosPrivate.delete("/lesson/deleteFile", {
+        data: {
+          file: targetFile,
+        },
+      });
+      await axiosPrivate.delete("/lesson/delete", {
+        data: {
+          id: target,
+        },
+      });
+    } catch (error: any) {
+      if (error.response.status === 400) {
+        alert(error.response.data.message[0].message);
+      } else {
+        alert(error.response.data.message);
+      }
+    }
+    mutate(`/lesson/getAll?page=${currentPage}&search=${search}`);
     setShowToast(true);
   }
-
-  const [search, setSearch] = React.useState("");
 
   const mapel = [
     {
@@ -85,19 +141,19 @@ const LearningMaterials = () => {
     },
   ];
 
-  const itemsPerPage = 5;
+  // const itemsPerPage = 5;
 
-  const filteredItems = mapel.filter(
-    (item: any) =>
-      item.name.toLowerCase().includes(search.toLowerCase()) ||
-      item.kategori.toLowerCase().includes(search.toLowerCase())
-  );
+  // const filteredItems = mapel.filter(
+  //   (item: any) =>
+  //     item.name.toLowerCase().includes(search.toLowerCase()) ||
+  //     item.kategori.toLowerCase().includes(search.toLowerCase())
+  // );
 
-  const totalFilteredPages = Math.ceil(filteredItems.length / itemsPerPage);
+  // const totalFilteredPages = Math.ceil(filteredItems.length / itemsPerPage);
 
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const paginatedItems = filteredItems.slice(startIndex, endIndex);
+  // const startIndex = (currentPage - 1) * itemsPerPage;
+  // const endIndex = startIndex + itemsPerPage;
+  // const paginatedItems = filteredItems.slice(startIndex, endIndex);
 
   return (
     <CmsLayout>
@@ -127,38 +183,49 @@ const LearningMaterials = () => {
               <th scope="col" className="p-2.5 font-medium text-base">
                 Kategori
               </th>
-
               <th scope="col" className="p-2.5 font-medium text-base">
                 Aksi
               </th>
             </tr>
           </thead>
           <tbody>
-            {paginatedItems.map((item, index: number) => (
+            {data?.items?.map((item: any, index: number) => (
               <tr key={index}>
                 <td scope="row" className="px-6 py-4 font-medium text-base">
-                  {itemsPerPage * (currentPage - 1) + (index + 1)}
+                  {5 * (currentPage - 1) + (index + 1)}
                 </td>
                 <td className="px-6 py-4 font-medium text-base">{item.name}</td>
                 <td className="px-6 py-4 font-medium text-base">
-                  {item.kategori}
+                  {item.category.name}
                 </td>
                 <td className="px-6 py-4 flex space-x-3 justify-center">
                   <Link
-                    href="/learning-materials/edit-materials"
+                    href={{
+                      pathname: "/learning-materials/edit-materials",
+                      query: { id: item.id },
+                    }}
                     className="w-[83px] h-[26px] bg-[#FFC436] rounded-md shadow-md text-sm flex justify-center items-center  font-medium"
                   >
                     {" "}
                     Edit
                   </Link>
                   <button
-                    onClick={() => setOpenModal(true)}
+                    onClick={() => {
+                      setOpenModal(true), setTarget(item.id);
+                      setTargetFile(item.image);
+                    }}
                     className="w-[83px] h-[26px] bg-[#FFC436] rounded-md shadow-md text-sm  flex justify-center items-center  font-medium"
                   >
                     Hapus
                   </button>
                   <Link
-                    href="/learning-materials/preview-materials"
+                    href={{
+                      pathname: "/learning-materials/preview-materials",
+                      query: { image: item.image },
+                    }}
+                    onClick={() =>{ 
+                      router.push({pathname: "/learning-materials/preview-materials", query: { image: item.image }}, undefined, { shallow: false })
+                    }}
                     className="w-[40px] h-[26px] bg-[#FFC436] rounded-md shadow-md text-sm flex justify-center items-center   font-medium"
                   >
                     <Image src={eye} width={20} height={20} alt="detail" />
@@ -170,34 +237,37 @@ const LearningMaterials = () => {
         </table>
       </div>
       <div className="flex justify-center items-center">
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalFilteredPages}
-          onPageChange={onPageChange}
-          showIcons
-          previousLabel=""
-          nextLabel=""
-          theme={{
-            pages: {
-              base: "xs:mt-0 mt-2 inline-flex  items-center -space-x-px border border-4 border-[#FFC436] rounded-md",
-              showIcon: "inline-flex",
-              previous: {
-                base: "bg-white px-3 py-2  hover:bg-white  ",
-                icon: "h-6 w-5",
+        {data?.meta?.totalPages > 1 && (
+          <Pagination
+            currentPage={currentPage}
+            totalPages={data?.meta?.totalPages}
+            onPageChange={onPageChange}
+            showIcons
+            previousLabel=""
+            nextLabel=""
+            theme={{
+              pages: {
+                base: "xs:mt-0 mt-2 inline-flex  items-center -space-x-px border border-4 border-[#FFC436] rounded-md",
+                showIcon: "inline-flex",
+                previous: {
+                  base: "bg-white px-3 py-2  hover:bg-white  ",
+                  icon: "h-6 w-5",
+                },
+                next: {
+                  base: "bg-white px-3 py-2  hover:bg-white  ",
+                  icon: "h-6 w-5",
+                },
+                selector: {
+                  base: "bg-white px-3 py-2  w-[35px] text-gray-500",
+                  active:
+                    "bg-white  hover:bg-white hover:text-[#000] dark:border-gray-700 text-[#000]",
+                  disabled: "opacity-20 cursor-normal",
+                },
               },
-              next: {
-                base: "bg-white px-3 py-2  hover:bg-white  ",
-                icon: "h-6 w-5",
-              },
-              selector: {
-                base: "bg-white px-3 py-2  w-[35px] text-gray-500",
-                active:
-                  "bg-white  hover:bg-white hover:text-[#000] dark:border-gray-700 text-[#000]",
-                disabled: "opacity-20 cursor-normal",
-              },
-            },
-          }}
-        />
+            }}
+          />
+        )}
+        ;
       </div>
 
       {/* Delete Modal */}

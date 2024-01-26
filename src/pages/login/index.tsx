@@ -5,13 +5,20 @@ import Image from "next/image";
 import InputText from "@/components/cms/login/InputText";
 import InputHideText from "@/components/cms/login/InputHideText";
 import { useForm } from "react-hook-form";
-// import Helper from "@/components/cms/login/Helper";
+import Helper from "@/components/cms/login/Helper";
 import ToastSucces from "@/components/cms/ToastSucces";
 import Link from "next/link";
 import { Spinner } from "flowbite-react";
 import { useRouter } from "next/router";
+import useLocalStorage from "@/utils/useLocalStorage";
+import { axiosInstance } from "@/utils/axios";
+
+
 
 const Login = () => {
+  const [refreshToken, setRefreshToken] = useLocalStorage("refreshToken", "");
+  const [accessToken, setAccessToken] = useLocalStorage("accessToken", "");
+
   const {
     register,
     reset,
@@ -22,16 +29,28 @@ const Login = () => {
 
   const { isSubmitting } = formState;
 
-  // const [message, setMessage] = React.useState<string>("");
+  const [message, setMessage] = React.useState<string>("");
   const [showToast, setShowToast] = React.useState(false);
   const router = useRouter();
 
   const onSubmit = async (data: object) => {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    setShowToast(true);
-    router.push("/dashboard");
-
-    console.log(data);
+    try{
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      const response = await axiosInstance.post("/auth/admin/login", data);
+      setRefreshToken(response.data.data.refresh_token);
+      setAccessToken(response.data.data.access_token);
+      setShowToast(true);
+      setTimeout(() => {
+        router.push("/dashboard");
+      },1300)
+      console.log(response);
+    }catch(error : any){
+      if(error.response.status === 400) {
+        setMessage(error.response.data.message[0].message);
+      }else{
+        setMessage(error.response.data.message);
+      }
+    }
   };
 
   React.useEffect(() => {
@@ -73,7 +92,7 @@ const Login = () => {
         <Link href="/forget-password" className="flex justify-end mt-2">
           Lupa kata sandi
         </Link>
-        {/* <Helper message={message} /> */}
+        <Helper message={message} />
 
         <button
           type="submit"

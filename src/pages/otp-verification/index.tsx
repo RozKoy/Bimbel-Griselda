@@ -5,9 +5,17 @@ import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import { Spinner } from "flowbite-react";
-// import Helper from "@/components/cms/login/Helper";
+import Helper from "@/components/cms/login/Helper";
+import { axiosInstance } from "@/utils/axios";
 
 const OtpVerification = () => {
+  const router = useRouter();
+  React.useEffect(() => {
+    if(!router.query.email){
+      router.push("/forget-password")
+    }
+  })
+
   const {
     register,
     reset,
@@ -16,20 +24,27 @@ const OtpVerification = () => {
     formState: { isSubmitSuccessful },
   } = useForm({ defaultValues: { otp: "" } });
 
-  // const [message, setMessage] = React.useState<string>("");
+  const [message, setMessage] = React.useState<string>("");
 
-  // const router = useRouter();
+  const { isSubmitting } = formState;
 
-   const { isSubmitting } = formState;
-
-   // const [message, setMessage] = React.useState<string>("");
-
-   const onSubmit = async (data: object) => {
-     await new Promise((resolve) => setTimeout(resolve, 2000));
-
-     console.log(data);
-   };
-
+  const onSubmit = async (data: any) => {
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    const newData = {
+      email: router.query.email,
+      otp: data.otp,
+    };
+    try {
+      await axiosInstance.post("/auth/admin/otp-verification", newData);
+      router.push({pathname: "/create-password", query: { email : newData.email, otp : newData.otp }}, undefined, { shallow: false })
+    } catch (error: any) {
+      if (error.response.status === 400) {
+        setMessage(error.response.data.message[0].message);
+      } else {
+        setMessage(error.response.data.message);
+      }
+    }
+  };
 
   React.useEffect(() => {
     if (formState.isSubmitSuccessful) {
@@ -54,10 +69,11 @@ const OtpVerification = () => {
         <div className="mt-10">
           <input
             type="text"
+            maxLength={6}
             id="otp"
             className="bg-[#ffffff5e] border border-gray-300 text-gray-900 text-sm text-center rounded-md focus:ring-gray-300 focus:border-gray-300 block w-[350px]    "
             placeholder="Masukkan Kode OTP"
-            {...register("otp")}
+            {...register("otp", { required: true, maxLength: 6 })}
           />
         </div>
 
@@ -79,7 +95,7 @@ const OtpVerification = () => {
         <button className="text-blue-700">Kirim Ulang</button>
       </span>
 
-      {/* <Helper message={message} /> */}
+      <Helper message={message} />
     </LoginLayout>
   );
 };

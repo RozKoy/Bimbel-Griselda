@@ -1,8 +1,9 @@
 import CmsLayout from "@/components/cms/dashboard-admin/CmsLayout";
-import preview from "../../../../public/assets/preview.png";
 import Breadcrumbs from "@/components/cms/dashboard-admin/Breadcrumbs";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const PreviewMaterials = () => {
   const crumbs = [
@@ -10,6 +11,7 @@ const PreviewMaterials = () => {
     { href: "/learning-materials", text: "Mata Pelajaran" },
     { text: "Preview" },
   ];
+  const router = useRouter(); 
 
   return (
     <CmsLayout>
@@ -24,7 +26,17 @@ const PreviewMaterials = () => {
           </Link>
         </div>
         <div className=" flex items-end">
-          <Image src={preview} width={360} height={242} alt="preview" />
+          {router.isReady && router.query.image && (
+            <Image
+            src={
+              ("http://localhost:3001/api/lesson/getFile?name=" +
+              router.query.image) as string
+            }
+            width={360}
+            height={242}
+            alt="preview"
+            />
+          )}
         </div>
       </div>
     </CmsLayout>
