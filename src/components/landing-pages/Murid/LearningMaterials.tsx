@@ -181,8 +181,13 @@ const LearningMaterials = () => {
           <button
             key={index}
             onClick={() => {
-              setActiveButton(item.label);
-              setActiveCategory(item.value);
+              if (activeButton!==item.label){
+                setActiveButton(item.label);
+                setActiveCategory(item.value);
+              }else{
+                setActiveButton("");
+                setActiveCategory("");
+              }
               mutate(`/lesson/getByCategory?id=${activeCategory}`);
             }}
             className={`text-center font-medium transition h-full rounded-full px-3 text-[13px] sm:text-2xl sm:px-8 ${
