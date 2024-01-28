@@ -83,63 +83,63 @@ const LearningMaterials = () => {
     setShowToast(true);
   }
 
-  const mapel = [
-    {
-      id: "1",
-      name: "Ilmu Pengetahuan Alam",
-      kategori: "SD",
-    },
-    {
-      id: "1",
-      name: "Ilmu Pengetahuan Alam",
-      kategori: "SD",
-    },
-    {
-      id: "1",
-      name: "Ilmu Pengetahuan Alam",
-      kategori: "SD",
-    },
-    {
-      id: "1",
-      name: "Ilmu Pengetahuan Alam",
-      kategori: "SD",
-    },
-    {
-      id: "1",
-      name: "Ilmu Pengetahuan Alam",
-      kategori: "SD",
-    },
-    {
-      id: "1",
-      name: "Ilmu Pengetahuan Alam",
-      kategori: "SD",
-    },
-    {
-      id: "1",
-      name: "Ilmu Pengetahuan Alam",
-      kategori: "SD",
-    },
-    {
-      id: "1",
-      name: "Ilmu Pengetahuan Alam",
-      kategori: "SD",
-    },
-    {
-      id: "1",
-      name: "Ilmu Pengetahuan Alam",
-      kategori: "SD",
-    },
-    {
-      id: "1",
-      name: "Ilmu Pengetahuan Alam",
-      kategori: "SD",
-    },
-    {
-      id: "1",
-      name: "Ilmu Pengetahuan Alam",
-      kategori: "SD",
-    },
-  ];
+  // const mapel = [
+  //   {
+  //     id: "1",
+  //     name: "Ilmu Pengetahuan Alam",
+  //     kategori: "SD",
+  //   },
+  //   {
+  //     id: "1",
+  //     name: "Ilmu Pengetahuan Alam",
+  //     kategori: "SD",
+  //   },
+  //   {
+  //     id: "1",
+  //     name: "Ilmu Pengetahuan Alam",
+  //     kategori: "SD",
+  //   },
+  //   {
+  //     id: "1",
+  //     name: "Ilmu Pengetahuan Alam",
+  //     kategori: "SD",
+  //   },
+  //   {
+  //     id: "1",
+  //     name: "Ilmu Pengetahuan Alam",
+  //     kategori: "SD",
+  //   },
+  //   {
+  //     id: "1",
+  //     name: "Ilmu Pengetahuan Alam",
+  //     kategori: "SD",
+  //   },
+  //   {
+  //     id: "1",
+  //     name: "Ilmu Pengetahuan Alam",
+  //     kategori: "SD",
+  //   },
+  //   {
+  //     id: "1",
+  //     name: "Ilmu Pengetahuan Alam",
+  //     kategori: "SD",
+  //   },
+  //   {
+  //     id: "1",
+  //     name: "Ilmu Pengetahuan Alam",
+  //     kategori: "SD",
+  //   },
+  //   {
+  //     id: "1",
+  //     name: "Ilmu Pengetahuan Alam",
+  //     kategori: "SD",
+  //   },
+  //   {
+  //     id: "1",
+  //     name: "Ilmu Pengetahuan Alam",
+  //     kategori: "SD",
+  //   },
+  // ];
 
   // const itemsPerPage = 5;
 
@@ -194,9 +194,9 @@ const LearningMaterials = () => {
                 <td scope="row" className="px-6 py-4 font-medium text-base">
                   {5 * (currentPage - 1) + (index + 1)}
                 </td>
-                <td className="px-6 py-4 font-medium text-base">{item.name}</td>
+                <td className="px-6 py-4 font-medium text-base">{item?.name}</td>
                 <td className="px-6 py-4 font-medium text-base">
-                  {item.category.name}
+                  {item.category?.name}
                 </td>
                 <td className="px-6 py-4 flex space-x-3 justify-center">
                   <Link

@@ -31,28 +31,12 @@ const CountMember = () => {
   const [openModal2, setOpenModal2] = React.useState<boolean>(false);
   const [showToast, setShowToast] = React.useState(false);
 
-  const {
-    data,
-    error,
-    isLoading,
-  } = useSWR(
-    `/count`,
-    (url) =>
-      axiosPrivate
-        .get(url, {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        })
-        .then((res) => {
-          setValue2("event", res.data[0].value);
-          setValue("member", res.data[1].value);
-          res.data;
-        }),{
-          revalidateOnFocus : false,
-        }
-  );
-
+  React.useEffect(() => {
+    axiosPrivate.get("/count").then((res) => {
+      setValue2("event", res.data[0].value);
+      setValue("member", res.data[1].value);
+    });
+  }, []);
 
   const showModal = () => {
     setOpenModal(true);
@@ -62,8 +46,7 @@ const CountMember = () => {
   };
 
   const { register, handleSubmit, setValue, watch, reset, formState } =
-    useForm<FormData>({
-    });
+    useForm<FormData>({});
 
   const {
     register: register2,
@@ -72,44 +55,41 @@ const CountMember = () => {
     watch: watch2,
     reset: reset2,
     formState: formState2,
-  } = useForm<FormData>({
-  });
+  } = useForm<FormData>({});
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     const update = {
-      value : data.member
-    }
-    try{
-      await axiosPrivate.put('/count/update/member',update)
-    }catch(e){
-      alert("Update Gagal")
+      value: data.member,
+    };
+    try {
+      await axiosPrivate.put("/count/update/member", update, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        }
+      });
+    } catch (e) {
+      alert("Update Gagal");
     }
     setOpenModal(false);
     setShowToast(true);
-    mutate(`/count`);
   };
 
   const onSubmitEvent: SubmitHandler<FormData> = async (data) => {
     const update = {
-      value : data.event
-    }
-    try{
-      await axiosPrivate.put('/count/update/event',update)
-    }catch(e){
-      alert("Update Gagal")
+      value: data.event,
+    };
+    try {
+      await axiosPrivate.put("/count/update/event", update, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        }
+      });
+    } catch (e) {
+      alert("Update Gagal");
     }
     setOpenModal2(false);
     setShowToast(true);
-    mutate(`/count`);
   };
-
-  React.useEffect(() => {
-    if (formState.isSubmitSuccessful) {
-      reset({ member: 0 });
-    } else if (formState2.isSubmitSuccessful) {
-      reset2({ event: 0 });
-    }
-  }, [formState, reset, reset2, formState2]);
 
   const handleMinusClick = () => {
     const currentValue = watch("member");
@@ -126,7 +106,8 @@ const CountMember = () => {
   };
   const handlePlusClickEvent = () => {
     const currentValue = watch2("event");
-    setValue2("event", currentValue + 1);
+    const final = currentValue + 1;
+    setValue2("event", final);
   };
 
   return (
@@ -156,7 +137,7 @@ const CountMember = () => {
               <input
                 type="number"
                 id="member"
-                {...register("member")}
+                {...register("member",{valueAsNumber: true})}
                 className="text-center w-2/4  py-1 border-2 text-base font-medium border-[#FFC436] rounded-md focus:border-[#FFC436] focus:ring-[#FFC436]"
               />
               <button
@@ -238,7 +219,7 @@ const CountMember = () => {
               <input
                 type="number"
                 id="event"
-                {...register2("event")}
+                {...register2("event",{valueAsNumber: true})}
                 className="text-center w-2/4 py-1 border-2 text-base font-medium border-[#FFC436] rounded-md focus:border-[#FFC436] focus:ring-[#FFC436]"
               />
               <button
