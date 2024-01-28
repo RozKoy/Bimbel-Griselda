@@ -12,11 +12,17 @@ import Link from "next/link";
 interface CardLearningMaterialsProps {
   title?: string;
   description?: string;
+  image?: string;
+  category?: string;
+  whatsapp?: string;
 }
 
 const CardLearningMaterials: React.FC<CardLearningMaterialsProps> = ({
   title,
   description,
+  image,
+  category,
+  whatsapp,
 }) => {
   const [openModal, setOpenModal] = React.useState<boolean>(false);
 
@@ -51,7 +57,7 @@ const CardLearningMaterials: React.FC<CardLearningMaterialsProps> = ({
           Lihat Selengkapnya
         </button>
         <Link
-          href=""
+          href={whatsapp as string}
           className="rounded-full bg-[#fff] px-[10px] py-[2px] sm:px-[18px] sm:py-[4px] "
         >
           <WA
@@ -73,8 +79,16 @@ const CardLearningMaterials: React.FC<CardLearningMaterialsProps> = ({
         <ModalBody>
           <div className=" sm:flex   ">
             <div className=" h-full  overflow-x-auto w-full max-h-[450px] sm:w-1/2 sm:pl-0">
-              <Image src={preview} width={450} height={400} alt="preview" />
-              <Image src={preview} width={450} height={400} alt="preview" />
+              <Image
+                src={
+                  ("http://localhost:3001/api/lesson/getFile?name=" +
+                    image) as string
+                }
+                width={450}
+                height={400}
+                alt="preview"
+              />
+              {/* <Image src={preview} width={450} height={400} alt="preview" /> */}
             </div>
             <div className=" h-full  flex flex-col space-y-1 sm:w-1/2 sm:pl-2 sm:space-y-4 ">
               <div className="flex flex-col">
@@ -82,7 +96,7 @@ const CardLearningMaterials: React.FC<CardLearningMaterialsProps> = ({
                   {title}
                 </p>
                 <p className="font-normal leading-[30px] text-[17.82px] sm:text-2xl ">
-                  Jenjang SD
+                  Jenjang {category?.toUpperCase()}
                 </p>
                 <p className="font-thin text-[11.88px] w-[295.526px] sm:w-[90%] sm:mt-1 sm:text-base ">
                   {description}
@@ -90,7 +104,7 @@ const CardLearningMaterials: React.FC<CardLearningMaterialsProps> = ({
               </div>
 
               <Link
-                href=""
+                href={whatsapp as string}
                 className="bg-[#06AC58] flex justify-center items-center w-[100.65px] h-[30.126px] rounded-[5.425px] space-x-2 sm:rounded-md sm:space-x-5 sm:w-[170px] sm:h-[40px]  "
               >
                 <p className="text-white text-center font-thin text-[10px] sm:text-[18px]">

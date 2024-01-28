@@ -8,7 +8,12 @@ import Instagrams from "@/components/landing-pages/Icons/contact/Instagrams";
 import Facebook from "@/components/landing-pages/Icons/contact/Facebook";
 import Tiktok from "@/components/landing-pages/Icons/contact/Tiktok";
 
-const MainPages = () => {
+interface props {
+  member ?: number
+  event ?: number
+}
+
+const MainPages = ({member, event} : props ) => {
   return (
     <div className="bg-[url('/assets/latar.png')] h-auto w-full sm:min-h-screen ">
       <div className="h-full gradasi w-full pb-[25%] sm:pb-0   sm:min-h-screen  sm:flex sm:flex-col">
@@ -54,11 +59,11 @@ const MainPages = () => {
         <div className=" flex flex-col justify-center items-center mt-8 sm:flex sm:justify-end sm:items-end  sm:mb-0 ">
           <div className=" text-white w-[267.369px] h-[48.03px] flex   mt-[3%]  sm:w-[501px] sm:h-[90px] sm:flex  ">
             <div className="w-1/3 h-full  bg-[#FFB700] rounded-tl-[26px] sm:rounded-tl-[48px] flex flex-col justify-center items-center ">
-              <p className="font-bold text-[19px] sm:text-[34px]">2100</p>
+              <p className="font-bold text-[19px] sm:text-[34px]">{member}</p>
               <p className="text-[8px] sm:text-[15px]">Member</p>
             </div>
             <div className="w-1/3 h-full bg-[#FFB700] flex flex-col justify-center items-center">
-              <p className="font-bold text-[19px] sm:text-[34px]">126</p>
+              <p className="font-bold text-[19px] sm:text-[34px]">{event}</p>
               <p className="text-[8px] sm:text-[15px]">Events</p>
             </div>
             <div className="w-1/3 h-full bg-[#0065FF] rounded-tr-[26px] flex justify-center items-center space-x-1 sm:rounded-tr-[0px] sm:flex sm:justify-center sm:items-center sm:space-x-3">
