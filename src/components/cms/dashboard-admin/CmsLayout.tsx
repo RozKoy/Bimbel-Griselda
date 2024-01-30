@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 import useLocalStorage from "@/utils/useLocalStorage";
 import React, { ReactNode, useEffect, useState } from "react";
 import checkAuth from "@/utils/checkAuth";
-
+import { axiosInstance } from "@/utils/axios";
 
 const CmsLayout = ({ children }: any) => {
   const [check, setCheck] = useState(false);
@@ -22,19 +22,33 @@ const CmsLayout = ({ children }: any) => {
     setRefreshToken("");
     setAccessToken("");
     router.push("/login");
+  };
+
+  const checkRefreshToken = async () => {
+    try{
+      await axiosInstance
+      .post("auth/admin/refresh-access-token", {
+        refresh_token: refreshToken,
+      });
+    }catch(e:any){
+      if(e.response.status === 403){
+        logout();
+      }
+    }
   }
 
-  useEffect(() => {
+  useEffect( () => {
     const result: boolean = checkAuth(refreshToken);
     if (!result) {
-      router.push('/login');
+      router.push("/login");
     } else {
+      checkRefreshToken();
       setCheck(true);
     }
-  })
+  });
 
-  if(!check) {
-    return null
+  if (!check) {
+    return null;
   }
 
   return (
