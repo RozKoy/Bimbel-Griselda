@@ -63,6 +63,9 @@ const LearningMaterials = () => {
     setOpenModal(false);
     try {
       await axiosPrivate.delete("/lesson/deleteFile", {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
         data: {
           file: targetFile,
         },
