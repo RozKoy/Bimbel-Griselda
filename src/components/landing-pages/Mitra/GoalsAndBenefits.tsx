@@ -21,7 +21,7 @@ export default function GoalsAndBenefits() {
         </div>
 
         <div className="flex flex-col items-center space-y-2 space-x-0 sm:space-y-0 sm:space-x-2 sm:flex-row">
-          <div className=" bg-gradient-to-b from-blue-600 to-blue-400 shadow-md flex flex-col  items-center w-[269px] h-[361px] py-4 space-y-4 rounded-[20px] sm:justify-between sm:rounded-2xl sm:pt-[10px] sm:pb-[129px]  sm:w-[330px] sm:h-[430px]">
+          <div className=" bg-[#FFB700] shadow-md flex flex-col  items-center w-[269px] h-[361px] py-4 space-y-4 rounded-[20px] sm:justify-between sm:rounded-2xl sm:pt-[10px] sm:pb-[129px]  sm:w-[330px] sm:h-[430px]">
             <p className="font-extrabold text-center text-[24px] sm:text-3xl">
               Tujuan
             </p>
