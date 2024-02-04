@@ -61,7 +61,7 @@ export default function ListMitra() {
         <CardMitra
           src={mitraLogo}
           title="Sikep Smart Academy"
-          description="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+          description="Sikep Smart Academy adalah kemitraan dari Bimbel Griselda yang berlokasi di Desa Keboansikep. Ini adalah lembaga pendidikan yang menyediakan pembelajaran Matematika dan Bahasa Inggris, dengan fokus pada pengembangan potensi siswa kelas 4,5, dan 6 SD di Desa Keboansikep"
         />
       </Slider>
     </div>
