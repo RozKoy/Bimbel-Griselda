@@ -44,7 +44,7 @@ const AddMaterials = () => {
     data: categorydata,
     error,
     isLoading,
-  }: SWRResponse<CategoryData, any, boolean> = useSWR(`/category/all`, (url) =>
+  }: SWRResponse<CategoryData, any, boolean> = useSWR(`/category/all?limit=10`, (url) =>
     axiosPrivate
       .get(url, {
         headers: {

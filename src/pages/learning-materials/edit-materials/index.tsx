@@ -31,7 +31,7 @@ const EditMaterials = () => {
   const [file, setFile] = React.useState<File | null>(null);
 
   const { data: categorydata }: SWRResponse<CategoryData> = useSWR(
-    `/category/all`,
+    `/category/all?limit=10`,
     (url) =>
       axiosPrivate
         .get(url, {
