@@ -29,7 +29,7 @@ const PreviewMaterials = () => {
           {router.isReady && router.query.image && (
             <Image
             src={
-              ("http://localhost:3001/api/lesson/getFile?name=" +
+              ("/api-backend/lesson/getFile?name=" +
               router.query.image) as string
             }
             width={360}

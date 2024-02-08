@@ -81,7 +81,7 @@ const CardLearningMaterials: React.FC<CardLearningMaterialsProps> = ({
             <div className=" h-full  overflow-x-auto w-full max-h-[450px] sm:w-1/2 sm:pl-0">
               <Image
                 src={
-                  ("http://localhost:3001/api/lesson/getFile?name=" +
+                  ("/api-backend/lesson/getFile?name=" +
                     image) as string
                 }
                 width={450}
