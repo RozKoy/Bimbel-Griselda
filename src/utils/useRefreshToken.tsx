@@ -25,9 +25,9 @@ export const useRefreshToken = () => {
       setAccessToken(response.data.data.access_token);
       return response.data.data.access_token;
     }catch(e:any){
-      if(e.response.status === 403){
+      // if(e.response.status === 403){
         logout();
-      }
+      // }
     }
   };
 
