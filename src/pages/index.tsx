@@ -36,7 +36,12 @@ const Home = () => {
         <Loading />
       ) : (
         <>
-          <MainPages event={data[0].value} member={data[1].value} />
+          { data && (
+            <MainPages event={data[0]?.value || 0} member={data[1]?.value || 0} />
+          ) }
+          { !data && (
+            <MainPages event={0} member={0} />
+          ) }
           <Services name="nextSection" />
           <Testimonials />
           <Gallery />
